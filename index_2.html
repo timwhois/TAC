@@ -45,23 +45,20 @@ section:nth-child(even) { background: #222; }
 
 .hero-logo { max-width: 280px; margin-bottom: 20px; }
 
-/* About Section */
-#about img.placeholder {
-    max-width: 400px;
-    margin-top: 20px;
-    border-radius: 8px;
-}
-
-/* Portfolio */
+/* Portfolio Masonry Layout */
 .portfolio {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
+    gap: 8px;
     width: 90%;
     max-width: 1000px;
-    margin-top: 20px;
+    grid-auto-flow: dense;
+    align-items: start;
+    max-height: 70vh; /* ✅ Force to fit one page */
+    overflow: hidden;
 }
 .portfolio-item {
+    position: relative;
     background: #333;
     border-radius: 8px;
     overflow: hidden;
@@ -73,14 +70,17 @@ section:nth-child(even) { background: #222; }
     display: block;
     transition: transform 0.3s ease;
 }
-.portfolio-item:hover img { transform: scale(1.1); }
+.portfolio-item:hover img { transform: scale(1.05); }
 .portfolio-item::after {
     content: attr(data-title);
-    position: absolute; bottom: 8px; left: 8px;
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
     background: rgba(0,0,0,0.6);
     padding: 4px 6px;
     border-radius: 4px;
     font-size: 0.9rem;
+    color: #fff;
 }
 
 /* Lightbox */
@@ -133,7 +133,7 @@ footer img:hover { opacity: 1; }
     <div>
         <img src="logo/TA_4.png" alt="Third Axis Logo" style="max-width: 250px;">
         <p>Third Axis Creative is a design studio focused on impactful visual experiences. We bring bold ideas to life with modern aesthetics and strategic thinking.</p>
-        <img src="https://picsum.photos/500/400?grayscale" alt="About Placeholder" class="placeholder">
+        <img src="https://picsum.photos/500/400?grayscale" alt="About Placeholder" class="placeholder" style="border-radius:8px; margin-top:20px;">
     </div>
 </section>
 
