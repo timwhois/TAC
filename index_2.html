@@ -16,7 +16,6 @@ body {
     color: #fff;
     background: #111;
     overflow-x: hidden;
-    position: relative;
 }
 
 /* Header */
@@ -62,10 +61,6 @@ section:nth-child(odd) { background: #1a1a1a; }
 section:nth-child(even) { background: #222; }
 
 /* Hero */
-#home {
-    justify-content: center;
-    align-items: center;
-}
 .hero-logo { max-width: 280px; margin-bottom: 20px; }
 
 /* About Section */
@@ -87,7 +82,7 @@ section:nth-child(even) { background: #222; }
     #about .content { flex-direction: column; text-align: center; }
 }
 
-/* Work Section - Fit in viewport */
+/* Work Section */
 #work .content {
     display: flex;
     flex-direction: column;
@@ -101,18 +96,22 @@ section:nth-child(even) { background: #222; }
 }
 .portfolio {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 8px;
     width: 90%;
     max-width: 900px;
+    height: 60vh; /* Forces fit inside section */
+    grid-auto-rows: 1fr; /* ✅ Keeps rows proportional */
     grid-auto-flow: dense;
-    height: 60vh; /* Fits viewport */
 }
 .portfolio-item {
-    position: relative;
-    overflow: hidden;
+    background: #333; /* ✅ Placeholder if image fails */
     border-radius: 8px;
+    overflow: hidden;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
     transform: translateY(30px);
     transition: transform 0.3s ease;
@@ -121,7 +120,6 @@ section:nth-child(even) { background: #222; }
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
 }
 .portfolio-item:hover img { transform: scale(1.1); }
 
@@ -137,7 +135,7 @@ section:nth-child(even) { background: #222; }
     font-size: 1rem; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px;
 }
 @media (max-width: 768px) {
-    .portfolio { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 80px; }
+    .portfolio { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* Lightbox */
@@ -220,11 +218,11 @@ footer img:hover { opacity: 1; }
         <h2>WORK</h2>
         <p>Explore our creative projects that redefine design aesthetics.</p>
         <div class="portfolio">
-            <div class="portfolio-item parallax" data-title="Brand Identity"><img src="Images/KS_Rend1.png" alt=""></div>
-            <div class="portfolio-item parallax" data-title="Assets"><img src="Images/Bolt0019.png" alt=""></div>
-            <div class="portfolio-item parallax" data-title="Textures & Materials"><img src="Images/grass.png" alt=""></div>
-            <div class="portfolio-item parallax" data-title="Product"><img src="Images/Perfume Bubbles_V1.png" alt=""></div>
-            <div class="portfolio-item parallax" data-title="Spaces"><img src="Images/Forest.png" alt=""></div>
+            <div class="portfolio-item parallax" data-title="Brand Identity"><img src="images/KS_Rend1.png" alt=""></div>
+            <div class="portfolio-item parallax" data-title="Assets"><img src="images/Bolt0019.png" alt=""></div>
+            <div class="portfolio-item parallax" data-title="Textures & Materials"><img src="images/grass.png" alt=""></div>
+            <div class="portfolio-item parallax" data-title="Product"><img src="images/Perfume_Bubbles_V1.png" alt=""></div>
+            <div class="portfolio-item parallax" data-title="Spaces"><img src="images/Forest.png" alt=""></div>
         </div>
     </div>
 </section>
@@ -248,7 +246,6 @@ footer img:hover { opacity: 1; }
     </div>
 </section>
 
-<!-- Footer with logos -->
 <footer>
     <img src="logo/TA_1.png" alt="Logo 1">
     <img src="logo/TA_2.png" alt="Logo 2">
@@ -256,13 +253,11 @@ footer img:hover { opacity: 1; }
     <img src="logo/TA_4.png" alt="Logo 4">
 </footer>
 
-<!-- Lightbox -->
 <div class="lightbox">
     <span class="lightbox-close">&times;</span>
     <img src="" alt="Preview">
 </div>
 
-<!-- GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
@@ -287,7 +282,7 @@ closeBtn.addEventListener('click', () => lightbox.classList.remove('show'));
 // GSAP Animations
 gsap.registerPlugin(ScrollTrigger);
 
-// Animate sections fade-in
+// Fade-in sections
 gsap.utils.toArray("section").forEach(section => {
     gsap.from(section.querySelector('.content'), {
         opacity: 0,
