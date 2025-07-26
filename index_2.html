@@ -5,183 +5,319 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Third Axis Creative</title>
 <style>
+/* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Global */
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
 body {
-    font-family: 'Helvetica Neue', sans-serif;
-    color: #fff;
-    background: #111;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #fff;
+  background: #111;
+  overflow-x: hidden;
+  height: 100%;
 }
 
+/* Header */
 header {
-    position: fixed; top: 0; left: 0; width: 100%;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 30px;
-    background: rgba(0,0,0,0.9);
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
 }
 header img { height: 70px; }
-nav ul { list-style: none; display: flex; gap: 30px; }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
 nav ul li a {
-    text-decoration: none; color: #fff; font-size: 1.1rem; font-weight: bold; text-transform: uppercase; position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
 }
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-.hamburger div { width: 25px; height: 3px; background: #fff; }
-@media(max-width: 768px){
-    nav ul { display: none; flex-direction: column; background: rgba(0,0,0,0.95); position: absolute; top: 100%; right: 0; width: 200px; padding: 20px; }
-    nav ul.show { display: flex; }
-    .hamburger { display: flex; }
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: #ff3366;
+  transition: width 0.3s ease;
+}
+nav ul li a:hover::after {
+  width: 100%;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+}
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    padding: 20px;
+  }
+  nav ul.show {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
 }
 
+/* Sections */
 section {
-    min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    padding: 120px 20px 50px;
-    text-align: center;
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 20px 40px;
+  text-align: center;
+  position: relative;
 }
-section:nth-child(odd) { background: #1a1a1a; }
-section:nth-child(even) { background: #222; }
+section:nth-child(odd) {
+  background: #1a1a1a;
+}
+section:nth-child(even) {
+  background: #222;
+}
 
-.hero-logo { max-width: 280px; margin-bottom: 20px; }
+.hero-logo {
+  max-width: 280px;
+  margin-bottom: 20px;
+}
 
-/* Portfolio Masonry Layout */
+/* Portfolio */
 .portfolio {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 8px;
-    width: 90%;
-    max-width: 1000px;
-    grid-auto-flow: dense;
-    align-items: start;
-    max-height: 70vh; /* ✅ Force to fit one page */
-    overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  width: 90%;
+  max-width: 1000px;
+  transform: scale(0.9); /* ✅ scale to fit one viewport */
 }
 .portfolio-item {
-    position: relative;
-    background: #333;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
 }
 .portfolio-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
 }
-.portfolio-item:hover img { transform: scale(1.05); }
+.portfolio-item:hover img {
+  transform: scale(1.05);
+}
 .portfolio-item::after {
-    content: attr(data-title);
-    position: absolute;
-    bottom: 8px;
-    left: 8px;
-    background: rgba(0,0,0,0.6);
-    padding: 4px 6px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    color: #fff;
+  content: attr(data-title);
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.portfolio-item:hover::after {
+  opacity: 1;
 }
 
 /* Lightbox */
 .lightbox {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.9);
-    display: flex; justify-content: center; align-items: center;
-    visibility: hidden; opacity: 0; transition: opacity 0.4s ease;
-    z-index: 2000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2000;
 }
-.lightbox img { max-width: 90%; max-height: 80%; }
-.lightbox.show { visibility: visible; opacity: 1; }
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+}
+.lightbox.show {
+  visibility: visible;
+  opacity: 1;
+}
 .lightbox-close {
-    position: absolute; top: 20px; right: 30px; font-size: 2rem; color: #fff; cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
 }
 
 /* Footer */
 footer {
-    background: #000;
-    padding: 20px;
-    display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
+  background: #000;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
-footer img { height: 50px; opacity: 0.8; transition: opacity 0.3s; }
-footer img:hover { opacity: 1; }
+footer img {
+  height: 50px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+footer img:hover {
+  opacity: 1;
+}
 </style>
 </head>
 <body>
 
 <header>
-    <img src="logo/TA_1.png" alt="Third Axis Creative Logo">
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="hamburger"><div></div><div></div><div></div></div>
+  <img src="logo/TA_1.png" alt="Third Axis Creative Logo">
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="hamburger"><div></div><div></div><div></div></div>
 </header>
 
 <section id="home">
-    <div>
-        <img src="logo/TA_2.png" alt="Hero Logo" class="hero-logo">
-        <p>Bold design. Modern aesthetics. Visual identity that stands out.</p>
-    </div>
+  <div>
+    <img src="logo/TA_2.png" alt="Hero Logo" class="hero-logo">
+    <p>Bold design. Modern aesthetics. Visual identity that stands out.</p>
+  </div>
 </section>
 
 <section id="about">
-    <div>
-        <img src="logo/TA_4.png" alt="Third Axis Logo" style="max-width: 250px;">
-        <p>Third Axis Creative is a design studio focused on impactful visual experiences. We bring bold ideas to life with modern aesthetics and strategic thinking.</p>
-        <img src="https://picsum.photos/500/400?grayscale" alt="About Placeholder" class="placeholder" style="border-radius:8px; margin-top:20px;">
-    </div>
+  <div>
+    <img src="logo/TA_4.png" alt="Third Axis Logo" style="max-width: 250px;">
+    <p>Third Axis Creative is a design studio focused on impactful visual experiences. We bring bold ideas to life with modern aesthetics and strategic thinking.</p>
+    <img src="https://picsum.photos/500/400?grayscale" alt="About Placeholder" class="placeholder" style="border-radius:8px; margin-top:20px;">
+  </div>
 </section>
 
 <section id="work">
-    <h2>WORK</h2>
-    <p>Explore our creative projects that redefine design aesthetics.</p>
-    <div class="portfolio">
-        <div class="portfolio-item" data-title="Brand Identity"><img src="Images/KS_Rend1.png" alt=""></div>
-        <div class="portfolio-item" data-title="Assets"><img src="Images/Bolt0019.png" alt=""></div>
-        <div class="portfolio-item" data-title="Textures & Materials"><img src="Images/grass.png" alt=""></div>
-        <div class="portfolio-item" data-title="Product"><img src="Images/Perfume_Bubbles_V1.png" alt=""></div>
-        <div class="portfolio-item" data-title="Spaces"><img src="Images/Forest.png" alt=""></div>
-    </div>
+  <h2>WORK</h2>
+  <p>Explore our creative projects that redefine design aesthetics.</p>
+  <div class="portfolio">
+    <div class="portfolio-item" data-title="Brand Identity"><img src="Images/KS_Rend1.png" alt=""></div>
+    <div class="portfolio-item" data-title="Assets"><img src="Images/Bolt0019.png" alt=""></div>
+    <div class="portfolio-item" data-title="Textures & Materials"><img src="Images/grass.png" alt=""></div>
+    <div class="portfolio-item" data-title="Product"><img src="Images/Perfume_Bubbles_V1.png" alt=""></div>
+    <div class="portfolio-item" data-title="Spaces"><img src="Images/Forest.png" alt=""></div>
+  </div>
 </section>
 
 <section id="contact">
-    <h2>CONTACT</h2>
-    <p>Email: hello@thirdaxiscreative.com | Phone: +44 123 456 789</p>
+  <h2>CONTACT</h2>
+  <p>Email: hello@thirdaxiscreative.com | Phone: +44 123 456 789</p>
 </section>
 
 <footer>
-    <img src="logo/TA_1.png" alt="Logo 1">
-    <img src="logo/TA_2.png" alt="Logo 2">
-    <img src="logo/TA_3.png" alt="Logo 3">
-    <img src="logo/TA_4.png" alt="Logo 4">
+  <img src="logo/TA_1.png" alt="Logo 1">
+  <img src="logo/TA_2.png" alt="Logo 2">
+  <img src="logo/TA_3.png" alt="Logo 3">
+  <img src="logo/TA_4.png" alt="Logo 4">
 </footer>
 
 <div class="lightbox">
-    <span class="lightbox-close">&times;</span>
-    <img src="" alt="Preview">
+  <span class="lightbox-close">&times;</span>
+  <img src="" alt="Preview">
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
+// Hamburger toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('nav ul');
 hamburger.addEventListener('click', () => navMenu.classList.toggle('show'));
 
+// Lightbox
 const lightbox = document.querySelector('.lightbox');
 const lightboxImg = lightbox.querySelector('img');
 const closeBtn = document.querySelector('.lightbox-close');
 document.querySelectorAll('.portfolio-item img').forEach(img => {
-    img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightbox.classList.add('show');
-    });
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightbox.classList.add('show');
+  });
 });
 closeBtn.addEventListener('click', () => lightbox.classList.remove('show'));
-</script>
 
+// GSAP Animations
+gsap.registerPlugin(ScrollTrigger);
+
+// Fade-in sections
+gsap.utils.toArray("section").forEach(section => {
+  gsap.from(section.querySelector('div, h2, p'), {
+    opacity: 0,
+    y: 50,
+    duration: 1.2,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: section,
+      start: "top 80%",
+      toggleActions: "play none none reverse"
+    }
+  });
+});
+
+// Portfolio stagger animation
+gsap.from(".portfolio-item", {
+  opacity: 0,
+  y: 30,
+  duration: 0.8,
+  stagger: 0.15,
+  ease: "power3.out",
+  scrollTrigger: {
+    trigger: ".portfolio",
+    start: "top 85%"
+  }
+});
+</script>
 </body>
 </html>
