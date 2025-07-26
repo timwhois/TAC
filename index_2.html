@@ -5,23 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Third Axis Creative</title>
 <style>
-/* Reset & Global */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-html, body {
-    scroll-behavior: smooth;
-    height: 100%;
-}
 body {
     font-family: 'Helvetica Neue', sans-serif;
     color: #fff;
     background: #111;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-/* Header */
 header {
-    position: fixed; top: 0; left: 0;
-    width: 100%;
+    position: fixed; top: 0; left: 0; width: 100%;
     display: flex; justify-content: space-between; align-items: center;
     padding: 15px 30px;
     background: rgba(0,0,0,0.9);
@@ -32,111 +26,61 @@ nav ul { list-style: none; display: flex; gap: 30px; }
 nav ul li a {
     text-decoration: none; color: #fff; font-size: 1.1rem; font-weight: bold; text-transform: uppercase; position: relative;
 }
-nav ul li a::after {
-    content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background: #ff3366; transition: width 0.3s ease;
-}
-nav ul li a:hover::after { width: 100%; }
-
-/* Hamburger */
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
 .hamburger div { width: 25px; height: 3px; background: #fff; }
 @media(max-width: 768px){
-    nav ul { position: absolute; top: 100%; right: 0; background: rgba(0,0,0,0.95); flex-direction: column; width: 200px; padding: 20px; display: none; }
+    nav ul { display: none; flex-direction: column; background: rgba(0,0,0,0.95); position: absolute; top: 100%; right: 0; width: 200px; padding: 20px; }
     nav ul.show { display: flex; }
     .hamburger { display: flex; }
 }
 
-/* Sections */
 section {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 120px 20px 50px;
     text-align: center;
-    padding: 100px 20px 40px;
 }
 section:nth-child(odd) { background: #1a1a1a; }
 section:nth-child(even) { background: #222; }
 
-/* Hero */
 .hero-logo { max-width: 280px; margin-bottom: 20px; }
 
 /* About Section */
-#about .content {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
 #about img.placeholder {
     max-width: 400px;
-    border-radius: 10px;
-    object-fit: cover;
-    background: #333;
-    padding: 10px;
-}
-@media (max-width: 768px) {
-    #about .content { flex-direction: column; text-align: center; }
+    margin-top: 20px;
+    border-radius: 8px;
 }
 
-/* Work Section */
-#work .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 15px;
-    height: 100%;
-    max-height: 80vh;
-    overflow: hidden;
-}
+/* Portfolio */
 .portfolio {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
     width: 90%;
-    max-width: 900px;
-    height: 60vh;
-    grid-auto-rows: 1fr;
-    grid-auto-flow: dense;
+    max-width: 1000px;
+    margin-top: 20px;
 }
 .portfolio-item {
     background: #333;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: transform 0.3s ease;
-    min-height: 120px; /* ✅ FIX: Ensures visible height */
-}
-@media (min-width: 769px) {
-    .portfolio-item { min-height: 180px; }
 }
 .portfolio-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
 }
 .portfolio-item:hover img { transform: scale(1.1); }
-
-/* Hover Tilt Effect for Desktop */
-@media (min-width: 769px) {
-    .portfolio-item:hover {
-        transform: rotateY(6deg) rotateX(6deg) scale(1.02);
-    }
-}
 .portfolio-item::after {
     content: attr(data-title);
-    position: absolute; bottom: 10px; left: 10px;
-    font-size: 1rem; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px;
+    position: absolute; bottom: 8px; left: 8px;
+    background: rgba(0,0,0,0.6);
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
 }
 
 /* Lightbox */
@@ -147,38 +91,19 @@ section:nth-child(even) { background: #222; }
     visibility: hidden; opacity: 0; transition: opacity 0.4s ease;
     z-index: 2000;
 }
-.lightbox img { max-width: 90%; max-height: 80%; border-radius: 8px; }
+.lightbox img { max-width: 90%; max-height: 80%; }
 .lightbox.show { visibility: visible; opacity: 1; }
 .lightbox-close {
     position: absolute; top: 20px; right: 30px; font-size: 2rem; color: #fff; cursor: pointer;
 }
 
-/* Contact Section */
-#contact .content { flex-direction: row; justify-content: center; gap: 50px; flex-wrap: wrap; }
-.contact-form, .contact-info { flex: 1; min-width: 280px; text-align: left; }
-.contact-form input, .contact-form textarea {
-    width: 100%; padding: 12px; margin-bottom: 15px; border: none; border-radius: 4px; font-size: 1rem;
-}
-.contact-form input[type="submit"] {
-    background: #ff3366; color: #fff; font-weight: bold; cursor: pointer; transition: background 0.3s;
-}
-.contact-form input[type="submit"]:hover { background: #ff5588; }
-.contact-info p { margin-bottom: 10px; font-size: 1.1rem; }
-
 /* Footer */
 footer {
     background: #000;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    padding: 20px;
+    display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
 }
-footer img {
-    height: 60px;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
+footer img { height: 50px; opacity: 0.8; transition: opacity 0.3s; }
 footer img:hover { opacity: 1; }
 </style>
 </head>
@@ -198,53 +123,35 @@ footer img:hover { opacity: 1; }
 </header>
 
 <section id="home">
-    <div class="content">
-        <img src="logo/TA_2.png" alt="Hero Logo" class="hero-logo parallax">
-        <p class="parallax">Bold design. Modern aesthetics. Visual identity that stands out.</p>
+    <div>
+        <img src="logo/TA_2.png" alt="Hero Logo" class="hero-logo">
+        <p>Bold design. Modern aesthetics. Visual identity that stands out.</p>
     </div>
 </section>
 
 <section id="about">
-    <div class="content">
-        <div>
-            <img src="logo/TA_4.png" alt="Third Axis Logo" style="max-width: 250px;" class="parallax">
-            <p class="parallax">Third Axis Creative is a design studio focused on impactful visual experiences. We bring bold ideas to life with modern aesthetics and strategic thinking.</p>
-        </div>
-        <img src="https://picsum.photos/500/500?grayscale" alt="About Placeholder" class="placeholder parallax">
+    <div>
+        <img src="logo/TA_4.png" alt="Third Axis Logo" style="max-width: 250px;">
+        <p>Third Axis Creative is a design studio focused on impactful visual experiences. We bring bold ideas to life with modern aesthetics and strategic thinking.</p>
+        <img src="https://picsum.photos/500/400?grayscale" alt="About Placeholder" class="placeholder">
     </div>
 </section>
 
 <section id="work">
-    <div class="content">
-        <h2>WORK</h2>
-        <p>Explore our creative projects that redefine design aesthetics.</p>
-        <div class="portfolio">
-            <div class="portfolio-item parallax" data-title="Brand Identity"><img src="Images/KS_Rend1.png" alt=""></div>
-            <div class="portfolio-item parallax" data-title="Assets"><img src="Images/Bolt0019.png" alt=""></div>
-            <div class="portfolio-item parallax" data-title="Textures & Materials"><img src="Images/grass.png" alt=""></div>
-            <div class="portfolio-item parallax" data-title="Product"><img src="Images/Perfume_Bubbles_V1.png" alt=""></div>
-            <div class="portfolio-item parallax" data-title="Spaces"><img src="Images/Forest.png" alt=""></div>
-        </div>
+    <h2>WORK</h2>
+    <p>Explore our creative projects that redefine design aesthetics.</p>
+    <div class="portfolio">
+        <div class="portfolio-item" data-title="Brand Identity"><img src="Images/KS_Rend1.png" alt=""></div>
+        <div class="portfolio-item" data-title="Assets"><img src="Images/Bolt0019.png" alt=""></div>
+        <div class="portfolio-item" data-title="Textures & Materials"><img src="Images/grass.png" alt=""></div>
+        <div class="portfolio-item" data-title="Product"><img src="Images/Perfume_Bubbles_V1.png" alt=""></div>
+        <div class="portfolio-item" data-title="Spaces"><img src="Images/Forest.png" alt=""></div>
     </div>
 </section>
 
 <section id="contact">
-    <div class="content">
-        <h2>CONTACT</h2>
-        <div class="contact-form">
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea rows="5" placeholder="Your Message" required></textarea>
-                <input type="submit" value="Send Message">
-            </form>
-        </div>
-        <div class="contact-info">
-            <p><strong>Email:</strong> hello@thirdaxiscreative.com</p>
-            <p><strong>Phone:</strong> +44 123 456 789</p>
-            <p><strong>Address:</strong> London, UK</p>
-        </div>
-    </div>
+    <h2>CONTACT</h2>
+    <p>Email: hello@thirdaxiscreative.com | Phone: +44 123 456 789</p>
 </section>
 
 <footer>
@@ -259,16 +166,11 @@ footer img:hover { opacity: 1; }
     <img src="" alt="Preview">
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
 <script>
-// Hamburger toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('nav ul');
 hamburger.addEventListener('click', () => navMenu.classList.toggle('show'));
 
-// Lightbox
 const lightbox = document.querySelector('.lightbox');
 const lightboxImg = lightbox.querySelector('img');
 const closeBtn = document.querySelector('.lightbox-close');
@@ -279,51 +181,7 @@ document.querySelectorAll('.portfolio-item img').forEach(img => {
     });
 });
 closeBtn.addEventListener('click', () => lightbox.classList.remove('show'));
-
-// GSAP Animations
-gsap.registerPlugin(ScrollTrigger);
-
-// Fade-in sections
-gsap.utils.toArray("section").forEach(section => {
-    gsap.from(section.querySelector('.content'), {
-        opacity: 0,
-        y: 50,
-        duration: 1.2,
-        ease: "power3.out",
-        scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-        }
-    });
-});
-
-// Portfolio staggered fade-in
-gsap.from(".portfolio-item", {
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "power3.out",
-    scrollTrigger: {
-        trigger: ".portfolio",
-        start: "top 80%"
-    }
-});
-
-// Parallax effect
-gsap.utils.toArray(".parallax").forEach(element => {
-    gsap.to(element, {
-        yPercent: 15,
-        ease: "none",
-        scrollTrigger: {
-            trigger: element,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true
-        }
-    });
-});
 </script>
+
 </body>
 </html>
