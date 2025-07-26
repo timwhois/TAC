@@ -108,10 +108,26 @@ section:nth-child(even) { background: #222; }
   max-width: 280px;
   margin-bottom: 20px;
 }
-#about p {
-  max-width: 600px;  /* ✅ Wrap text to a nice readable width */
-  margin: 20px auto; /* ✅ Center it horizontally */
-  line-height: 1.6;  /* ✅ Improve readability */
+.about-content {
+  max-width: 700px;  /* ✅ Keeps everything within a nice width */
+  margin: 0 auto;    /* ✅ Centers horizontally */
+  text-align: center;
+}
+
+.about-content img {
+  max-width: 100%;   /* ✅ Prevents images from overflowing */
+  height: auto;
+}
+
+.about-logo {
+  max-width: 250px;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.placeholder {
+  border-radius: 8px;
+  margin-top: 20px;
 }
 
 /* Work Section */
@@ -125,10 +141,6 @@ section#work h2 {
 section#work p {
   margin-bottom: 20px;
 }
-.placeholder {
-  max-width: 500px;
-  margin-bottom: 20px;
-}  
 
 /* Portfolio Grid */
 .portfolio {
@@ -265,10 +277,13 @@ footer img:hover {
 </section>
 
 <section id="about">
-  <div>
-    <img src="logo/TA_4.png" alt="Third Axis Logo" style="max-width: 250px;">
-    <p>Third Axis Creative is a design studio focused on impactful visual experiences. We bring bold ideas to life with modern aesthetics and strategic thinking.</p>
-    <img src="Images/Mustangmtn.png" alt="About Placeholder" class="placeholder" style="border-radius:8px; margin-top:20px;">
+  <div class="about-content">
+    <img src="logo/TA_4.png" alt="Third Axis Logo" class="about-logo">
+    <p>
+      Third Axis Creative is a design studio focused on impactful visual experiences.
+      We bring bold ideas to life with modern aesthetics and strategic thinking.
+    </p>
+    <img src="Images/Mustangmtn.png" alt="About Placeholder" class="placeholder">
   </div>
 </section>
 
