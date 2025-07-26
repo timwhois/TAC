@@ -111,7 +111,7 @@ section:nth-child(even) { background: #222; }
 
 /* Work Section */
 section#work {
-  padding-top: 100px; /* Space for header */
+   padding-top: 140px; /* More breathing space for title */
   justify-content: flex-start; /* Title + text + gallery aligned nicely */
 }
 section#work h2 {
@@ -130,8 +130,8 @@ section#work p {
   gap: 10px;
   width: 90%;
   max-width: 1100px;
-  height: calc(100vh - 250px); /* ✅ Fit under title & padding */
-  margin: auto;
+  height: calc(100vh - 300px); /* Adjusted for bigger title area */
+  justify-content: center; /* Helps center grid inside section */
 }
 .portfolio-item {
   position: relative;
@@ -257,12 +257,15 @@ footer img:hover {
   <h2>WORK</h2>
   <p>Explore our creative projects that redefine design aesthetics.</p>
   <div class="portfolio">
-    <div class="portfolio-item" data-title="Brand Identity"><img src="Images/KS_Rend1.png" alt=""></div>
-    <div class="portfolio-item" data-title="Assets"><img src="Images/Bolt0019.png" alt=""></div>
-    <div class="portfolio-item" data-title="Textures & Materials"><img src="Images/grass.png" alt=""></div>
-    <div class="portfolio-item" data-title="Product"><img src="Images/Perfume_Bubbles_V1.png" alt=""></div>
-    <div class="portfolio-item" data-title="Spaces"><img src="Images/Forest.png" alt=""></div>
-  </div>
+  <div class="portfolio-item" data-title="Brand Identity"><img src="Images/KS_Rend1.png" alt=""></div>
+  <div class="portfolio-item" data-title="Assets"><img src="Images/Bolt0019.png" alt=""></div>
+  <div class="portfolio-item" data-title="Textures & Materials"><img src="Images/grass.png" alt=""></div>
+  <div class="portfolio-item" data-title="Product"><img src="Images/Perfume_Bubbles_V1.png" alt=""></div>
+  <div class="portfolio-item" data-title="Spaces"><img src="Images/Forest.png" alt=""></div>
+  <div class="portfolio-item" data-title="Concept"><img src="https://picsum.photos/400/400" alt=""></div>
+  <div class="portfolio-item" data-title="Digital"><img src="https://picsum.photos/500/400" alt=""></div>
+  <div class="portfolio-item" data-title="Visual"><img src="https://picsum.photos/450/450" alt=""></div>
+</div>
 </section>
 
 <section id="contact">
