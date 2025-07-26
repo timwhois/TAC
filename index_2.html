@@ -230,6 +230,17 @@ footer img {
 footer img:hover {
   opacity: 1;
 }
+  
+  /* Mobile Fix */
+@media (max-width: 768px) {
+  .portfolio {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for mobile */
+    grid-auto-rows: 120px; /* Smaller row height */
+    height: auto; /* ✅ Remove fixed height so it doesn't overflow */
+    margin-bottom: 30px; /* Space before next section */
+  }
+}
+  
 </style>
 </head>
 <body>
