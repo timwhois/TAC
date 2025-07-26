@@ -104,6 +104,16 @@ section {
 section:nth-child(odd) { background: #1a1a1a; }
 section:nth-child(even) { background: #222; }
 
+  /* Mobile Hero Centering */
+@media (max-width: 768px) {
+  #home {
+    padding-top: 80px; /* smaller space for mobile */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .hero-logo {
   max-width: 280px;
   margin-bottom: 20px;
