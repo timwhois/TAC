@@ -100,7 +100,6 @@ section {
   align-items: center;
   padding: 120px 20px 40px;
   text-align: center;
-  position: relative;
 }
 section:nth-child(odd) {
   background: #1a1a1a;
@@ -117,23 +116,22 @@ section:nth-child(even) {
 /* Portfolio */
 .portfolio {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-auto-rows: 150px; /* ✅ fixed row height */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
   width: 90%;
   max-width: 1000px;
-  height: 70vh; /* ✅ fixed height for one-screen fit */
+  height: 65vh;
+  grid-auto-rows: 200px; /* Base height for rows */
 }
 .portfolio-item {
   position: relative;
-  border-radius: 8px;
   overflow: hidden;
-  cursor: pointer;
+  border-radius: 8px;
 }
 .portfolio-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* ✅ crops image to fill cell */
+  object-fit: cover; /* ✅ Crop to fit cell */
   display: block;
   transition: transform 0.3s ease;
 }
@@ -155,6 +153,12 @@ section:nth-child(even) {
 }
 .portfolio-item:hover::after {
   opacity: 1;
+}
+
+/* Jigsaw Effect (Desktop Only) */
+@media (min-width: 769px) {
+  .portfolio-item:nth-child(2) { grid-row: span 2; }
+  .portfolio-item:nth-child(4) { grid-column: span 2; }
 }
 
 /* Lightbox */
