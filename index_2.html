@@ -104,46 +104,56 @@ section {
 section:nth-child(odd) { background: #1a1a1a; }
 section:nth-child(even) { background: #222; }
 
-  /* Mobile Hero Centering */
+/* Hero */
+.hero-logo {
+  max-width: 280px;
+  margin-bottom: 20px;
+}
+.hero-text {
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.hero-text.top {
+  font-size: 1.4rem;
+  margin-bottom: 15px; /* space between top and bottom */
+}
+.hero-text.bottom {
+  font-size: 1rem;
+}
+
+/* Mobile Hero Centering */
 @media (max-width: 768px) {
   #home {
-    padding-top: 80px; /* smaller space for mobile */
+    padding-top: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 }
 
-.hero-logo {
-  max-width: 280px;
-  margin-bottom: 20px;
-}
+/* About Section */
 .about-content {
-  max-width: 700px;  /* ✅ Keeps everything within a nice width */
-  margin: 0 auto;    /* ✅ Centers horizontally */
+  max-width: 700px;
+  margin: 0 auto;
   text-align: center;
 }
-
-.about-content img {
-  max-width: 100%;   /* ✅ Prevents images from overflowing */
-  max-height: 300px;
-}
-
 .about-logo {
   max-width: 250px;
   display: block;
   margin: 0 auto 20px;
 }
-
 .placeholder {
+  max-width: 100%;
+  height: auto;
   border-radius: 8px;
   margin-top: 20px;
 }
 
 /* Work Section */
 section#work {
-   padding-top: 140px; /* More breathing space for title */
-  justify-content: flex-start; /* Title + text + gallery aligned nicely */
+  padding-top: 140px;
+  justify-content: flex-start;
 }
 section#work h2 {
   margin-bottom: 10px;
@@ -157,12 +167,12 @@ section#work p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-auto-rows: 200px;
-  grid-auto-flow: dense; /* ✅ Pack like masonry */
+  grid-auto-flow: dense;
   gap: 10px;
   width: 90%;
   max-width: 1100px;
-  height: calc(100vh - 300px); /* Adjusted for bigger title area */
-  justify-content: center; /* Helps center grid inside section */
+  height: calc(100vh - 300px);
+  justify-content: center;
 }
 .portfolio-item {
   position: relative;
@@ -172,8 +182,7 @@ section#work p {
 .portfolio-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* ✅ Crop images properly */
-  display: block;
+  object-fit: cover;
   transition: transform 0.3s ease;
 }
 .portfolio-item:hover img {
@@ -200,6 +209,16 @@ section#work p {
 @media (min-width: 769px) {
   .portfolio-item:nth-child(2) { grid-row: span 2; }
   .portfolio-item:nth-child(4) { grid-column: span 2; }
+}
+
+/* Mobile Fix for Gallery */
+@media (max-width: 768px) {
+  .portfolio {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 120px;
+    height: auto;
+    margin-bottom: 30px;
+  }
 }
 
 /* Lightbox */
@@ -252,16 +271,6 @@ footer img {
 footer img:hover {
   opacity: 1;
 }
-  
-  /* Mobile Fix */
-@media (max-width: 768px) {
-  .portfolio {
-    grid-template-columns: repeat(2, 1fr); /* Two columns for mobile */
-    grid-auto-rows: 120px; /* Smaller row height */
-    height: auto; /* ✅ Remove fixed height so it doesn't overflow */
-    margin-bottom: 30px; /* Space before next section */
-  }
-  
 </style>
 </head>
 <body>
@@ -282,9 +291,8 @@ footer img:hover {
 <section id="home">
   <div>
     <img src="logo/TA_2.png" alt="Hero Logo" class="hero-logo">
-    <p>DESIGN | BUILD | CAPTURE | CREATE</p>
-    <p> </p>
-    <p>3D DESIGN | STUDIO SET DESIGN | BUILD & PRODUCTION</p>
+    <p class="hero-text top">DESIGN | BUILD | CAPTURE | CREATE</p>
+    <p class="hero-text bottom">3D DESIGN | STUDIO SET DESIGN | BUILD & PRODUCTION</p>
   </div>
 </section>
 
@@ -302,15 +310,15 @@ At Third Axis Creative, we bring concepts to life through expert set design, set
   <h2>WORK</h2>
   <p>Explore our creative projects that redefine design aesthetics.</p>
   <div class="portfolio">
-  <div class="portfolio-item" data-title="Brand Identity"><img src="Images/KS_Rend1.png" alt=""></div>
-  <div class="portfolio-item" data-title="Assets"><img src="Images/BoltANIM0001-0250-2an.gif" alt=""></div>
-  <div class="portfolio-item" data-title="Textures & Materials"><img src="Images/grass.png" alt=""></div>
-  <div class="portfolio-item" data-title="Product"><img src="Images/Perfume Bubbles_V1.png" alt=""></div>
-  <div class="portfolio-item" data-title="Spaces"><img src="Images/forest_road.png" alt=""></div>
-  <div class="portfolio-item" data-title="Concept"><img src="Images/appartmentpt4.png" alt=""></div>
-  <div class="portfolio-item" data-title="Digital"><img src="Images/2detail.png" alt=""></div>
-  <div class="portfolio-item" data-title="Visual"><img src="Images/Mustang_2.png" alt=""></div>
-</div>
+    <div class="portfolio-item" data-title="Brand Identity"><img src="Images/KS_Rend1.png" alt=""></div>
+    <div class="portfolio-item" data-title="Assets"><img src="Images/BoltANIM0001-0250-2an.gif" alt=""></div>
+    <div class="portfolio-item" data-title="Textures & Materials"><img src="Images/grass.png" alt=""></div>
+    <div class="portfolio-item" data-title="Product"><img src="Images/Perfume Bubbles_V1.png" alt=""></div>
+    <div class="portfolio-item" data-title="Spaces"><img src="Images/forest_road.png" alt=""></div>
+    <div class="portfolio-item" data-title="Concept"><img src="Images/appartmentpt4.png" alt=""></div>
+    <div class="portfolio-item" data-title="Digital"><img src="Images/2detail.png" alt=""></div>
+    <div class="portfolio-item" data-title="Visual"><img src="Images/Mustang_2.png" alt=""></div>
+  </div>
 </section>
 
 <section id="contact">
