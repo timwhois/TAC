@@ -115,16 +115,17 @@ section:nth-child(even) { background: #222; }
   text-transform: uppercase;
   text-align: center;
   line-height: 1.4;
-  white-space: normal;
 }
 
 .hero-text.top {
   font-size: clamp(1.2rem, 5vw, 2rem);
   margin-bottom: 15px;
+  white-space: nowrap; /* ✅ No wrap */
 }
 
 .hero-text.bottom {
-  font-size: clamp(1rem, 3.5vw, 1.5rem);
+  font-size: clamp(0.9rem, 2.8vw, 1.4rem);
+  white-space: nowrap; /* ✅ No wrap */
 }
 
 /* About Section */
