@@ -116,7 +116,7 @@ section:nth-child(even) { background: #222; }
 }
 .hero-text.top {
   font-size: 1.4rem;
-  margin-bottom: 15px; /* space between top and bottom */
+  margin-bottom: 15px;
 }
 .hero-text.bottom {
   font-size: 1rem;
@@ -137,17 +137,24 @@ section:nth-child(even) { background: #222; }
   max-width: 700px;
   margin: 0 auto;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.about-content p {
+  line-height: 1.6;
+  margin: 10px 0;
 }
 .about-logo {
   max-width: 250px;
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto;
 }
 .placeholder {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
-  margin-top: 20px;
 }
 
 /* Work Section */
@@ -300,7 +307,11 @@ footer img:hover {
   <div class="about-content">
     <img src="logo/TA_4.png" alt="Third Axis Logo" class="about-logo">
     <p>
-At Third Axis Creative, we bring concepts to life through expert set design, set build, photography, and creative direction. We are passionate about crafting immersive spaces and visuals that inspire, connect, and captivate. From initial ideas to the final shot, our collaborative approach ensures every detail aligns with your vision. Whether it’s a photoshoot, brand campaign, or full-scale production, we provide the creativity, technical expertise, and hands-on execution to make it happen. With Third Axis Creative, your imagination has no limits.
+      At Third Axis Creative, we bring concepts to life through expert set design, set build, photography, and creative direction.
+      We are passionate about crafting immersive spaces and visuals that inspire, connect, and captivate.
+      From initial ideas to the final shot, our collaborative approach ensures every detail aligns with your vision.
+      Whether it’s a photoshoot, brand campaign, or full-scale production, we provide the creativity, technical expertise,
+      and hands-on execution to make it happen. With Third Axis Creative, your imagination has no limits.
     </p>
     <img src="Images/Mustangmtn.png" alt="About Placeholder" class="placeholder">
   </div>
