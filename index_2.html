@@ -9,7 +9,6 @@
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <style>
-/* ================= VARIABLES ================= */
 :root{
   --bg:#0c0f12;
   --bg-2:#0f141a;
@@ -23,7 +22,6 @@
   --radius:18px;
 }
 
-/* ================= BASE ================= */
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{
   height:100%;
@@ -37,7 +35,7 @@ html,body{
   color:var(--text);
 }
 
-/* ================= NAV ================= */
+/* NAV */
 nav{
   position:fixed;
   top:0;
@@ -59,11 +57,10 @@ nav a{
   letter-spacing:1.4px;
   padding:.65rem .85rem;
   border-radius:999px;
-  font-weight:500;
 }
 nav a:hover{color:#fff;background:rgba(255,255,255,.08);}
 
-/* ================= SECTIONS ================= */
+/* SECTIONS */
 header,section{
   scroll-snap-align:start;
   min-height:100vh;
@@ -79,19 +76,24 @@ header,section{
 .visible{opacity:1;transform:none;}
 .container{width:100%;max-width:1100px;margin:0 auto;}
 
-/* ================= TYPOGRAPHY ================= */
-h1,h2,h3{
-  text-transform:uppercase;
-  letter-spacing:1.6px;
-  font-weight:600;
-}
+/* TYPE */
+h1,h2,h3{text-transform:uppercase;letter-spacing:1.6px;font-weight:600;}
 h1{font-size:clamp(2.2rem,5vw,3.5rem);text-align:center;}
 h2{font-size:clamp(1.5rem,4vw,2.4rem);color:var(--accent);margin-bottom:1.5rem;text-align:center;}
 p{color:var(--muted);line-height:1.65;font-size:1.08rem;}
 .lead{text-align:center;max-width:960px;margin:0 auto 1rem;font-size:1.2rem;}
 .strong{color:#fff;font-weight:700;}
 
-/* ================= HERO ================= */
+.hero-subline{
+  display:block;
+  margin-top:.35rem;
+  font-size:.78em;
+  font-weight:500;
+  letter-spacing:1.2px;
+  color:var(--muted);
+}
+
+/* HERO */
 header{
   position:relative;
   text-align:center;
@@ -117,7 +119,11 @@ header img{
   filter:drop-shadow(0 12px 28px rgba(0,0,0,.55));
 }
 .pill-row{
-  display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:1.5rem;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:.6rem;
+  margin-top:1.5rem;
 }
 .pill{
   padding:.55rem .8rem;
@@ -127,7 +133,7 @@ header img{
   font-size:.85rem;
 }
 
-/* ================= PANELS ================= */
+/* PANELS */
 .panel{
   width:100%;
   background:var(--panel);
@@ -137,17 +143,11 @@ header img{
   box-shadow:var(--shadow);
 }
 .panel + .panel{margin-top:1rem;}
+.panel.centered{text-align:center;}
+.panel.centered .list{align-items:center;}
+.panel.centered .li{justify-content:center;max-width:700px;text-align:left;}
 
-/* centered panels ONLY where applied */
-.panel.centered{ text-align:center; }
-.panel.centered .list{ align-items:center; }
-.panel.centered .li{
-  justify-content:center;
-  max-width:700px;
-  text-align:left;
-}
-
-/* ================= LISTS ================= */
+/* LISTS */
 .list{margin-top:.9rem;display:flex;flex-direction:column;gap:.65rem;}
 .li{display:flex;gap:.7rem;}
 .dot{
@@ -156,7 +156,7 @@ header img{
   margin-top:.45rem;
 }
 
-/* ================= EXPANDERS ================= */
+/* EXPANDERS */
 .expander{
   border:1px solid rgba(255,255,255,.12);
   border-radius:var(--radius);
@@ -190,7 +190,7 @@ header img{
   padding:1rem 1.2rem 1.3rem;
 }
 
-/* ================= 3D ================= */
+/* 3D */
 .models-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -206,12 +206,11 @@ model-viewer{
   border:1px solid rgba(255,255,255,.12);
 }
 
-/* ================= GALLERY (ORIGINAL-STYLE, IRREGULAR) ================= */
+/* GALLERY */
 .gallery{
   display:flex;
   flex-wrap:wrap;
   gap:1rem;
-  margin-top:1rem;
 }
 .gallery img{
   width:calc(33% - 1rem);
@@ -220,11 +219,9 @@ model-viewer{
   border-radius:var(--radius);
   border:1px solid rgba(255,255,255,.12);
 }
-.gallery img:nth-child(3n){
-  width:calc(66% - 1rem);
-}
+.gallery img:nth-child(3n){width:calc(66% - 1rem);}
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
   padding:2rem;
   text-align:center;
@@ -240,14 +237,17 @@ footer{
   <a href="#about">About</a>
   <a href="#endtoend">End-to-End</a>
   <a href="#digital">Digital & 3D</a>
-  <a href="#showcase">3D Reel</a>
+  <a href="#showcase">3D</a>
   <a href="#gallery">Gallery</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <header>
   <img src="logo2.png" alt="Third Axis Creative">
-  <h1>End-to-end production for a new creative era</h1>
+  <h1>
+    End-to-end production<br>
+    <span class="hero-subline">For a new creative era</span>
+  </h1>
   <p class="lead">
     Third Axis Creative connects <span class="strong">physical, digital, and AI-assisted</span>
     content creation into one structured production system.
@@ -258,107 +258,3 @@ footer{
     <div class="pill">Photography</div>
     <div class="pill">Digital & 3D</div>
     <div class="pill">AI Imagery</div>
-    <div class="pill">Scalable Output</div>
-  </div>
-</header>
-
-<section id="about">
-  <div class="container">
-    <h2>What Production Means Now</h2>
-    <div class="panel centered">
-      <p class="lead">
-        Production is no longer linear. It is a system — shaped by planning,
-        logistics, technology, and creative intent long before capture.
-      </p>
-      <div class="list">
-        <div class="li"><span class="dot"></span><span>Systems before output</span></div>
-        <div class="li"><span class="dot"></span><span>Decisions made earlier reduce rework later</span></div>
-        <div class="li"><span class="dot"></span><span>Physical and digital production are no longer separate</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="digital">
-  <div class="container">
-    <h2>Digital & 3D</h2>
-    <div class="panel centered">
-      <p class="lead">
-        Digital tools allow us to define space, light, and composition before committing to physical production.
-      </p>
-      <div class="list">
-        <div class="li"><span class="dot"></span><span>Pre-visualisation and layout testing</span></div>
-        <div class="li"><span class="dot"></span><span>Lighting and material exploration</span></div>
-        <div class="li"><span class="dot"></span><span>Digital environments that inform physical sets</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="showcase">
-  <div class="container">
-    <h2>3D Showreel</h2>
-    <div class="panel">
-      <p class="lead">
-        Interactive 3D assets used as planning tools, digital extensions, and hybrid production references.
-      </p>
-      <div class="models-grid">
-        <model-viewer src="Wheel.glb" auto-rotate camera-controls></model-viewer>
-        <model-viewer src="Wheel.glb" auto-rotate camera-controls></model-viewer>
-        <model-viewer src="Wheel.glb" auto-rotate camera-controls></model-viewer>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="gallery">
-  <div class="container">
-    <h2>Gallery</h2>
-    <div class="panel">
-      <div class="gallery">
-        <img src="https://raw.githubusercontent.com/timwhois/Spinner/main/Images/2.png">
-        <img src="https://raw.githubusercontent.com/timwhois/Spinner/main/Images/2detail.png">
-        <img src="https://raw.githubusercontent.com/timwhois/Spinner/main/Images/3detail.png">
-        <img src="https://raw.githubusercontent.com/timwhois/Spinner/main/Images/Bolt0019.png">
-        <img src="https://raw.githubusercontent.com/timwhois/Spinner/main/Images/Perfume%20Bubbles_V1.png">
-        <img src="https://raw.githubusercontent.com/timwhois/Spinner/main/Images/cool%20sphere.png">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <h2>Contact</h2>
-    <div class="panel">
-      <p class="lead">
-        Interested in working together or rethinking how your content is produced?
-      </p>
-      <p style="text-align:center;max-width:820px;margin:1.2rem auto;color:var(--muted);">
-        Describe your project, your challenges, or your ideas —
-        and let’s explore how physical, digital, and AI-assisted production can work together.
-      </p>
-      <p style="text-align:center;margin-top:1.4rem;font-size:1.1rem;">
-        Email us at<br>
-        <a href="mailto:hello@thirdaxis.co.uk" style="color:var(--accent);text-decoration:none;font-weight:600;">
-          hello@thirdaxis.co.uk
-        </a>
-      </p>
-    </div>
-  </div>
-</section>
-
-<footer>© 2026 Third Axis Creative</footer>
-
-<script>
-document.querySelectorAll(".expander-toggle").forEach(btn=>{
-  btn.addEventListener("click",()=>btn.parentElement.classList.toggle("open"));
-});
-const obs=new IntersectionObserver(e=>{
-  e.forEach(i=>i.isIntersecting&&i.target.classList.add("visible"));
-},{threshold:.4});
-document.querySelectorAll("header,section").forEach(s=>obs.observe(s));
-</script>
-
-</body>
-</html>
