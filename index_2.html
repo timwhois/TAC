@@ -109,8 +109,8 @@ header::before{
   content:"";
   position:absolute;
   inset:0;
-  background:url("https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
-  filter:brightness(.6);
+  background:url('https://source.unsplash.com/1600x900/?design,abstract') center/cover no-repeat;
+  filter:brightness(.65);
 }
 header::after{
   content:"";
@@ -126,21 +126,6 @@ header img{
   filter:drop-shadow(0 12px 28px rgba(0,0,0,.55));
 }
 
-.pill-row{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:.6rem;
-  margin-top:1.5rem;
-}
-.pill{
-  padding:.55rem .8rem;
-  border-radius:999px;
-  background:rgba(0,0,0,.25);
-  border:1px solid rgba(255,255,255,.14);
-  font-size:.85rem;
-}
-
 /* PANELS */
 .panel{
   width:100%;
@@ -152,23 +137,6 @@ header img{
 }
 .panel + .panel{margin-top:1rem;}
 
-/* IMAGE PLACEHOLDER */
-.image-placeholder{
-  width:100%;
-  height:320px;
-  margin-top:1rem;
-  border-radius:var(--radius);
-  border:1px dashed rgba(255,255,255,.18);
-  background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:.8rem;
-  color:rgba(255,255,255,.45);
-}
-
 /* LISTS */
 .list{
   margin-top:.9rem;
@@ -179,7 +147,6 @@ header img{
 .li{
   display:flex;
   gap:.7rem;
-  align-items:flex-start;
 }
 .dot{
   width:9px;height:9px;
@@ -188,49 +155,12 @@ header img{
   margin-top:.45rem;
 }
 
-/* EXPANDERS */
-.expander{
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:var(--radius);
-  background:rgba(255,255,255,.04);
-  overflow:hidden;
-}
-.expander + .expander{margin-top:.8rem;}
-
-.expander-toggle{
-  width:100%;
-  background:none;
-  border:none;
-  color:#fff;
-  padding:1.1rem 1.2rem;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  cursor:pointer;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-.expander-icon{font-size:1.4rem;}
-.expander.open .expander-icon{transform:rotate(45deg);}
-
-.expander-content{
-  max-height:0;
-  overflow:hidden;
-  padding:0 1.2rem;
-  transition:max-height .4s ease;
-}
-.expander.open .expander-content{
-  max-height:900px;
-  padding:1rem 1.2rem 1.3rem;
-}
-
 /* 3D */
 .models-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:1.2rem;
   justify-items:center;
-  margin-top:1rem;
 }
 model-viewer{
   width:100%;
@@ -241,27 +171,26 @@ model-viewer{
   border:1px solid rgba(255,255,255,.12);
 }
 
-/* GALLERY */
+/* GALLERY (YOUR IMAGES) */
 .gallery{
   display:flex;
   gap:1rem;
   overflow-x:auto;
   margin-top:1rem;
 }
-.gallery-item{
-  min-width:260px;
+.gallery img{
+  width:260px;
   height:180px;
+  object-fit:cover;
   border-radius:var(--radius);
-  background:rgba(255,255,255,.08);
   border:1px solid rgba(255,255,255,.12);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:rgba(255,255,255,.45);
 }
 
 /* FORM */
-form{max-width:700px;margin:1rem auto 0;}
+form{
+  max-width:700px;
+  margin:1rem auto 0;
+}
 input,textarea{
   width:100%;
   padding:1rem;
@@ -278,6 +207,7 @@ button{
   border-radius:12px;
   background:linear-gradient(135deg,var(--accent),var(--accent-2));
   font-weight:800;
+  cursor:pointer;
 }
 
 /* FOOTER */
@@ -296,7 +226,6 @@ footer{
   <a href="#about">About</a>
   <a href="#endtoend">End-to-End</a>
   <a href="#digital">Digital & 3D</a>
-  <a href="#ai">AI</a>
   <a href="#showcase">3D Reel</a>
   <a href="#gallery">Gallery</a>
   <a href="#contact">Contact</a>
@@ -309,105 +238,31 @@ footer{
     Third Axis Creative connects <span class="strong">physical, digital, and AI-assisted</span>
     content creation into one structured production system.
   </p>
-  <div class="pill-row">
-    <div class="pill">Stock Flow</div>
-    <div class="pill">Set Build</div>
-    <div class="pill">Photography</div>
-    <div class="pill">Digital & 3D</div>
-    <div class="pill">AI Imagery</div>
-    <div class="pill">Scalable Output</div>
-  </div>
 </header>
 
-<!-- ABOUT -->
-<section id="about">
+<section id="gallery">
   <div class="container">
-    <h2>What Production Means Now</h2>
+    <h2>Selected Work</h2>
     <div class="panel">
-      <p class="lead">
-        Production is no longer linear. It is a system — shaped by planning,
-        logistics, technology, and creative intent long before capture.
-      </p>
-      <div class="list">
-        <div class="li"><span class="dot"></span><span>Systems before output</span></div>
-        <div class="li"><span class="dot"></span><span>Decisions made earlier reduce rework later</span></div>
-        <div class="li"><span class="dot"></span><span>Physical and digital production are no longer separate</span></div>
-      </div>
-      <div class="image-placeholder">Planning / Set / Workflow Image</div>
-    </div>
-  </div>
-</section>
-
-<!-- END TO END -->
-<section id="endtoend">
-  <div class="container">
-    <h2>End-to-End Production</h2>
-
-    <div class="panel">
-      <div class="expander">
-        <button class="expander-toggle"><span>Stock & Intake</span><span class="expander-icon">+</span></button>
-        <div class="expander-content">
-          <p>Stock flow defines everything that follows.</p>
-          <div class="list">
-            <div class="li"><span class="dot"></span><span>Sample tracking and readiness</span></div>
-            <div class="li"><span class="dot"></span><span>Clear ownership and sequencing</span></div>
-            <div class="li"><span class="dot"></span><span>Fewer bottlenecks and reshoots</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="expander">
-        <button class="expander-toggle"><span>Concept & Planning</span><span class="expander-icon">+</span></button>
-        <div class="expander-content">
-          <p>Ideas gain clarity before build or shoot.</p>
-          <div class="list">
-            <div class="li"><span class="dot"></span><span>Creative direction & intent</span></div>
-            <div class="li"><span class="dot"></span><span>Set and environment definition</span></div>
-            <div class="li"><span class="dot"></span><span>Faster internal approvals</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="expander">
-        <button class="expander-toggle"><span>Physical Production</span><span class="expander-icon">+</span></button>
-        <div class="expander-content">
-          <p>Executed with repeatable standards.</p>
-          <div class="list">
-            <div class="li"><span class="dot"></span><span>Set build & environments</span></div>
-            <div class="li"><span class="dot"></span><span>Product and model photography</span></div>
-            <div class="li"><span class="dot"></span><span>Lighting systems for consistency</span></div>
-          </div>
-        </div>
+      <div class="gallery">
+        <img src="https://raw.githubusercontent.com/timwhois/Spinner/main/Images/2.png">
+        <img src="https://raw.githubusercontent.com/timwhois/Spinner/main/Images/2detail.png">
+        <img src="https://raw.githubusercontent.com/timwhois/Spinner/main/Images/3detail.png">
+        <img src="https://raw.githubusercontent.com/timwhois/Spinner/main/Images/Bolt0019.png">
+        <img src="https://raw.githubusercontent.com/timwhois/Spinner/main/Images/Perfume%20Bubbles_V1.png">
+        <img src="https://raw.githubusercontent.com/timwhois/Spinner/main/Images/cool%20sphere.png">
       </div>
     </div>
   </div>
 </section>
 
-<!-- DIGITAL -->
-<section id="digital">
-  <div class="container">
-    <h2>Digital & 3D</h2>
-    <div class="panel">
-      <p class="lead">
-        Digital tools allow us to define space, light, and composition before committing to physical production.
-      </p>
-      <div class="list">
-        <div class="li"><span class="dot"></span><span>Pre-visualisation and layout testing</span></div>
-        <div class="li"><span class="dot"></span><span>Lighting and material exploration</span></div>
-        <div class="li"><span class="dot"></span><span>Digital environments that inform physical sets</span></div>
-      </div>
-      <div class="image-placeholder">3D Environment / Pre-Viz Image</div>
-    </div>
-  </div>
-</section>
-
-<!-- 3D SHOWREEL -->
 <section id="showcase">
   <div class="container">
     <h2>3D Showreel</h2>
     <div class="panel">
       <p class="lead">
-        Interactive 3D assets used as planning tools, digital extensions, and production references.
+        Interactive 3D assets used for planning, digital extensions,
+        and hybrid production workflows.
       </p>
       <div class="models-grid">
         <model-viewer src="Wheel.glb" auto-rotate camera-controls></model-viewer>
@@ -418,36 +273,20 @@ footer{
   </div>
 </section>
 
-<!-- GALLERY -->
-<section id="gallery">
-  <div class="container">
-    <h2>Gallery</h2>
-    <div class="panel">
-      <p class="lead">A mix of physical, digital, and hybrid production outputs.</p>
-      <div class="gallery">
-        <div class="gallery-item">Image</div>
-        <div class="gallery-item">Image</div>
-        <div class="gallery-item">Image</div>
-        <div class="gallery-item">Image</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <h2>Contact</h2>
     <div class="panel">
       <p class="lead">
-        If you’re rethinking how content is produced — physically, digitally, or with AI —
-        we’d love to talk.
+        If you’re rethinking how content is produced — we’d love to talk.
       </p>
-      <form>
-        <input placeholder="Your name">
-        <input placeholder="Your email">
-        <textarea rows="6" placeholder="Your message"></textarea>
-        <button>Send message</button>
+
+      <!-- EMAIL FORM -->
+      <form action="mailto:hello@thirdaxis.co.uk" method="post" enctype="text/plain">
+        <input type="text" name="Name" placeholder="Your name" required>
+        <input type="email" name="Email" placeholder="Your email" required>
+        <textarea name="Message" rows="6" placeholder="Your message" required></textarea>
+        <button type="submit">Send message</button>
       </form>
     </div>
   </div>
@@ -456,12 +295,6 @@ footer{
 <footer>© 2026 Third Axis Creative</footer>
 
 <script>
-document.querySelectorAll(".expander-toggle").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    btn.parentElement.classList.toggle("open");
-  });
-});
-
 const obs=new IntersectionObserver(e=>{
   e.forEach(i=>i.isIntersecting&&i.target.classList.add("visible"));
 },{threshold:.4});
