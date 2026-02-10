@@ -17,14 +17,14 @@
 :root{
   --bg:#f2f4f6;
   --bg-2:#e9edf1;
-  --panel:rgba(255,255,255,.88);
+  --panel:rgba(255,255,255,.9);
   --border:rgba(0,0,0,.08);
   --text:#111;
   --muted:rgba(0,0,0,.65);
   --accent:#6fbfa5;
   --accent-2:#7aa7c7;
   --shadow:0 22px 50px rgba(0,0,0,.08);
-  --radius:26px;
+  --radius:28px;
   --nav-height:72px;
 }
 
@@ -79,7 +79,7 @@ nav a:hover{
 }
 
 /* ===============================
-   TYPOGRAPHY (NAV STYLE EVERYWHERE)
+   TYPOGRAPHY
 ================================ */
 h1,h2,h3{
   font-weight:600;
@@ -105,7 +105,6 @@ p{
   font-size:1.05rem;
   line-height:1.65;
   color:var(--muted);
-  text-transform:none;
   letter-spacing:.1px;
 }
 .lead{
@@ -147,12 +146,16 @@ header{
   text-align:center;
 }
 
-/* logo plate so white logo survives */
+/* FROSTED LOGO TREATMENT */
 .logo-wrap{
-  background:white;
-  padding:1.2rem 1.6rem;
-  border-radius:32px;
-  box-shadow:0 18px 40px rgba(0,0,0,.12);
+  padding:1.4rem 1.8rem;
+  border-radius:36px;
+  background:rgba(255,255,255,.22);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.18),
+    inset 0 1px 0 rgba(255,255,255,.5);
   margin-bottom:2rem;
 }
 .logo-wrap img{
@@ -213,21 +216,6 @@ header{
 .grid-2 .card:nth-child(2){margin-top:2rem;}
 .grid-3 .card:nth-child(2){margin-top:1.6rem;}
 .grid-3 .card:nth-child(3){margin-top:.8rem;}
-
-/* ===============================
-   3D
-================================ */
-.models-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:1.2rem;
-}
-model-viewer{
-  height:300px;
-  background:#f7f8fa;
-  border-radius:24px;
-  border:1px solid var(--border);
-}
 
 /* ===============================
    PORTFOLIO
@@ -320,10 +308,17 @@ footer{
   </div>
 
   <h1>End-to-end production for a new creative era</h1>
+
   <p class="lead">
     A future-ready production company designing modern workflows for
     <span class="strong">physical, digital, and AI-assisted</span> content creation —
     from stock flow and set build to scalable imagery.
+  </p>
+
+  <p class="lead" style="margin-top:1.4rem;">
+    We work across the full production lifecycle, connecting logistics,
+    creative direction, physical production, digital tools, and emerging
+    technologies into a single coherent system.
   </p>
 
   <div class="pill-row">
@@ -343,6 +338,12 @@ footer{
         Production today is more than photography.
         It’s planning, logistics, systems, and decision-making long before a camera is switched on.
       </p>
+
+      <p style="margin-top:1.4rem;">
+        Third Axis Creative is built around understanding how visual content is actually produced —
+        from stock intake and readiness, through concept development and set build,
+        to physical capture, digital creation, AI-assisted imagery, and final delivery at scale.
+      </p>
     </div>
   </div>
 </section>
@@ -351,9 +352,18 @@ footer{
   <div class="container">
     <h2>End-to-End Thinking</h2>
     <div class="panel grid-3">
-      <div class="card"><h3>Stock & Flow</h3><p>Structure, readiness, and movement of assets.</p></div>
-      <div class="card"><h3>Concept & Build</h3><p>Set design, intent, and dimensional planning.</p></div>
-      <div class="card"><h3>Scale & Output</h3><p>Consistent imagery across platforms.</p></div>
+      <div class="card">
+        <h3>Stock & Flow</h3>
+        <p>How products move through a system defines everything that follows.</p>
+      </div>
+      <div class="card">
+        <h3>Concept & Build</h3>
+        <p>Ideas shaped through creative direction, spatial planning, and set definition.</p>
+      </div>
+      <div class="card">
+        <h3>Scale & Output</h3>
+        <p>Imagery designed to work across channels, formats, and volumes.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -363,8 +373,12 @@ footer{
     <h2>Digital & 3D</h2>
     <div class="panel">
       <p class="lead">
-        Digital tools allow ideas to be defined before committing to physical production —
-        reducing risk and improving clarity.
+        Digital tools allow ideas to be defined before committing to physical production.
+      </p>
+
+      <p style="margin-top:1.2rem;">
+        We use digital and 3D environments to explore composition, lighting behaviour,
+        scale, and spatial relationships — reducing uncertainty and improving consistency.
       </p>
     </div>
   </div>
@@ -374,8 +388,14 @@ footer{
   <div class="container">
     <h2>AI-Assisted Production</h2>
     <div class="panel grid-2">
-      <div class="card"><h3>Extend</h3><p>Expand physical shoots digitally.</p></div>
-      <div class="card"><h3>Scale</h3><p>Generate controlled variations efficiently.</p></div>
+      <div class="card">
+        <h3>Extend</h3>
+        <p>Extend physical shoots digitally without repeating full production.</p>
+      </div>
+      <div class="card">
+        <h3>Scale</h3>
+        <p>Generate controlled variations to support modern e-commerce demands.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -383,6 +403,10 @@ footer{
 <section id="portfolio">
   <div class="container">
     <h2>Portfolio</h2>
+    <p class="lead" style="margin-bottom:1.5rem;">
+      Production tests, digital studies, and hybrid workflows exploring how
+      physical, digital, and AI-assisted creation intersect.
+    </p>
     <div class="portfolio-scroll">
       <div class="portfolio-grid" id="portfolioGrid"></div>
     </div>
@@ -412,7 +436,7 @@ const obs=new IntersectionObserver(e=>{
 },{threshold:.45});
 document.querySelectorAll("header, section").forEach(s=>obs.observe(s));
 
-/* portfolio */
+/* portfolio filler */
 const imgs=[
   "https://raw.githubusercontent.com/timwhois/Spinner/main/Images/2.png",
   "https://raw.githubusercontent.com/timwhois/Spinner/main/Images/3detail.png",
