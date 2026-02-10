@@ -138,6 +138,15 @@ header img{
 }
 .panel + .panel{margin-top:1rem;}
 
+/* centered panels ONLY where applied */
+.panel.centered{ text-align:center; }
+.panel.centered .list{ align-items:center; }
+.panel.centered .li{
+  justify-content:center;
+  max-width:700px;
+  text-align:left;
+}
+
 /* ================= LISTS ================= */
 .list{margin-top:.9rem;display:flex;flex-direction:column;gap:.65rem;}
 .li{display:flex;gap:.7rem;}
@@ -197,17 +206,22 @@ model-viewer{
   border:1px solid rgba(255,255,255,.12);
 }
 
-/* ================= GALLERY ================= */
+/* ================= GALLERY (ORIGINAL-STYLE, IRREGULAR) ================= */
 .gallery{
   display:flex;
+  flex-wrap:wrap;
   gap:1rem;
-  overflow-x:auto;
+  margin-top:1rem;
 }
 .gallery img{
-  width:260px;height:180px;
+  width:calc(33% - 1rem);
+  height:200px;
   object-fit:cover;
   border-radius:var(--radius);
   border:1px solid rgba(255,255,255,.12);
+}
+.gallery img:nth-child(3n){
+  width:calc(66% - 1rem);
 }
 
 /* ================= FOOTER ================= */
@@ -248,11 +262,10 @@ footer{
   </div>
 </header>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <h2>What Production Means Now</h2>
-    <div class="panel">
+    <div class="panel centered">
       <p class="lead">
         Production is no longer linear. It is a system — shaped by planning,
         logistics, technology, and creative intent long before capture.
@@ -266,52 +279,10 @@ footer{
   </div>
 </section>
 
-<!-- END TO END -->
-<section id="endtoend">
-  <div class="container">
-    <h2>End-to-End Production</h2>
-    <div class="panel">
-      <div class="expander">
-        <button class="expander-toggle"><span>Stock & Intake</span><span class="expander-icon">+</span></button>
-        <div class="expander-content">
-          <div class="list">
-            <div class="li"><span class="dot"></span><span>Sample tracking and readiness</span></div>
-            <div class="li"><span class="dot"></span><span>Clear ownership and sequencing</span></div>
-            <div class="li"><span class="dot"></span><span>Fewer bottlenecks and reshoots</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="expander">
-        <button class="expander-toggle"><span>Concept & Planning</span><span class="expander-icon">+</span></button>
-        <div class="expander-content">
-          <div class="list">
-            <div class="li"><span class="dot"></span><span>Creative direction & intent</span></div>
-            <div class="li"><span class="dot"></span><span>Set and environment definition</span></div>
-            <div class="li"><span class="dot"></span><span>Faster internal approvals</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="expander">
-        <button class="expander-toggle"><span>Physical Production</span><span class="expander-icon">+</span></button>
-        <div class="expander-content">
-          <div class="list">
-            <div class="li"><span class="dot"></span><span>Set build & environments</span></div>
-            <div class="li"><span class="dot"></span><span>Product and model photography</span></div>
-            <div class="li"><span class="dot"></span><span>Lighting systems for consistency</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DIGITAL -->
 <section id="digital">
   <div class="container">
     <h2>Digital & 3D</h2>
-    <div class="panel">
+    <div class="panel centered">
       <p class="lead">
         Digital tools allow us to define space, light, and composition before committing to physical production.
       </p>
@@ -324,7 +295,6 @@ footer{
   </div>
 </section>
 
-<!-- 3D SHOWREEL -->
 <section id="showcase">
   <div class="container">
     <h2>3D Showreel</h2>
@@ -341,12 +311,10 @@ footer{
   </div>
 </section>
 
-<!-- GALLERY -->
 <section id="gallery">
   <div class="container">
     <h2>Gallery</h2>
     <div class="panel">
-      <p class="lead">A mix of physical, digital, and hybrid production outputs.</p>
       <div class="gallery">
         <img src="https://raw.githubusercontent.com/timwhois/Spinner/main/Images/2.png">
         <img src="https://raw.githubusercontent.com/timwhois/Spinner/main/Images/2detail.png">
@@ -359,7 +327,6 @@ footer{
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <h2>Contact</h2>
@@ -369,8 +336,7 @@ footer{
       </p>
       <p style="text-align:center;max-width:820px;margin:1.2rem auto;color:var(--muted);">
         Describe your project, your challenges, or your ideas —
-        and let’s explore how physical, digital, and AI-assisted production
-        can work together.
+        and let’s explore how physical, digital, and AI-assisted production can work together.
       </p>
       <p style="text-align:center;margin-top:1.4rem;font-size:1.1rem;">
         Email us at<br>
@@ -386,9 +352,7 @@ footer{
 
 <script>
 document.querySelectorAll(".expander-toggle").forEach(btn=>{
-  btn.addEventListener("click",()=>{
-    btn.parentElement.classList.toggle("open");
-  });
+  btn.addEventListener("click",()=>btn.parentElement.classList.toggle("open"));
 });
 const obs=new IntersectionObserver(e=>{
   e.forEach(i=>i.isIntersecting&&i.target.classList.add("visible"));
