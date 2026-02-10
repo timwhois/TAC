@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Third Axis Creative</title>
 
-<!-- Inter font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <style>
@@ -98,7 +96,7 @@ h2{
   text-align:center;
 }
 p{color:var(--muted);line-height:1.65;font-size:1.08rem;}
-.lead{text-align:center;max-width:960px;margin:0 auto;font-size:1.2rem;}
+.lead{text-align:center;max-width:960px;margin:0 auto 1rem;font-size:1.2rem;}
 .strong{color:#fff;font-weight:700;}
 
 /* HERO */
@@ -158,18 +156,36 @@ header img{
 .image-placeholder{
   width:100%;
   height:320px;
+  margin-top:1rem;
   border-radius:var(--radius);
   border:1px dashed rgba(255,255,255,.18);
-  background:
-    linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
   display:flex;
   align-items:center;
   justify-content:center;
-  color:rgba(255,255,255,.4);
   text-transform:uppercase;
   letter-spacing:2px;
-  font-size:.85rem;
-  margin-top:1rem;
+  font-size:.8rem;
+  color:rgba(255,255,255,.45);
+}
+
+/* LISTS */
+.list{
+  margin-top:.9rem;
+  display:flex;
+  flex-direction:column;
+  gap:.65rem;
+}
+.li{
+  display:flex;
+  gap:.7rem;
+  align-items:flex-start;
+}
+.dot{
+  width:9px;height:9px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  margin-top:.45rem;
 }
 
 /* EXPANDERS */
@@ -204,8 +220,25 @@ header img{
   transition:max-height .4s ease;
 }
 .expander.open .expander-content{
-  max-height:800px;
+  max-height:900px;
   padding:1rem 1.2rem 1.3rem;
+}
+
+/* 3D */
+.models-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.2rem;
+  justify-items:center;
+  margin-top:1rem;
+}
+model-viewer{
+  width:100%;
+  max-width:420px;
+  height:300px;
+  border-radius:var(--radius);
+  background:#000;
+  border:1px solid rgba(255,255,255,.12);
 }
 
 /* GALLERY */
@@ -213,7 +246,7 @@ header img{
   display:flex;
   gap:1rem;
   overflow-x:auto;
-  padding:1rem 0;
+  margin-top:1rem;
 }
 .gallery-item{
   min-width:260px;
@@ -224,24 +257,11 @@ header img{
   display:flex;
   align-items:center;
   justify-content:center;
-  color:rgba(255,255,255,.4);
-}
-
-/* 3D */
-.models-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:1rem;
-}
-model-viewer{
-  height:300px;
-  border-radius:var(--radius);
-  background:#000;
-  border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.45);
 }
 
 /* FORM */
-form{width:100%;max-width:700px;margin-top:1rem;}
+form{max-width:700px;margin:1rem auto 0;}
 input,textarea{
   width:100%;
   padding:1rem;
@@ -277,7 +297,7 @@ footer{
   <a href="#endtoend">End-to-End</a>
   <a href="#digital">Digital & 3D</a>
   <a href="#ai">AI</a>
-  <a href="#showcase">3D</a>
+  <a href="#showcase">3D Reel</a>
   <a href="#gallery">Gallery</a>
   <a href="#contact">Contact</a>
 </nav>
@@ -287,56 +307,110 @@ footer{
   <h1>End-to-end production for a new creative era</h1>
   <p class="lead">
     Third Axis Creative connects <span class="strong">physical, digital, and AI-assisted</span>
-    content creation into one intelligent production system.
+    content creation into one structured production system.
   </p>
   <div class="pill-row">
     <div class="pill">Stock Flow</div>
     <div class="pill">Set Build</div>
     <div class="pill">Photography</div>
-    <div class="pill">3D</div>
+    <div class="pill">Digital & 3D</div>
     <div class="pill">AI Imagery</div>
+    <div class="pill">Scalable Output</div>
   </div>
 </header>
 
+<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <h2>What Production Means Now</h2>
     <div class="panel">
       <p class="lead">
-        Production today is no longer linear. It is a system — shaped by planning,
+        Production is no longer linear. It is a system — shaped by planning,
         logistics, technology, and creative intent long before capture.
       </p>
-      <div class="image-placeholder">Concept / Set / Planning Image</div>
+      <div class="list">
+        <div class="li"><span class="dot"></span><span>Systems before output</span></div>
+        <div class="li"><span class="dot"></span><span>Decisions made earlier reduce rework later</span></div>
+        <div class="li"><span class="dot"></span><span>Physical and digital production are no longer separate</span></div>
+      </div>
+      <div class="image-placeholder">Planning / Set / Workflow Image</div>
     </div>
   </div>
 </section>
 
+<!-- END TO END -->
 <section id="endtoend">
   <div class="container">
     <h2>End-to-End Production</h2>
+
     <div class="panel">
       <div class="expander">
         <button class="expander-toggle"><span>Stock & Intake</span><span class="expander-icon">+</span></button>
-        <div class="expander-content"><p>We design stock flow systems that remove ambiguity and bottlenecks.</p></div>
+        <div class="expander-content">
+          <p>Stock flow defines everything that follows.</p>
+          <div class="list">
+            <div class="li"><span class="dot"></span><span>Sample tracking and readiness</span></div>
+            <div class="li"><span class="dot"></span><span>Clear ownership and sequencing</span></div>
+            <div class="li"><span class="dot"></span><span>Fewer bottlenecks and reshoots</span></div>
+          </div>
+        </div>
       </div>
+
       <div class="expander">
         <button class="expander-toggle"><span>Concept & Planning</span><span class="expander-icon">+</span></button>
-        <div class="expander-content"><p>Creative direction grounded in structure and intent.</p></div>
+        <div class="expander-content">
+          <p>Ideas gain clarity before build or shoot.</p>
+          <div class="list">
+            <div class="li"><span class="dot"></span><span>Creative direction & intent</span></div>
+            <div class="li"><span class="dot"></span><span>Set and environment definition</span></div>
+            <div class="li"><span class="dot"></span><span>Faster internal approvals</span></div>
+          </div>
+        </div>
       </div>
+
       <div class="expander">
         <button class="expander-toggle"><span>Physical Production</span><span class="expander-icon">+</span></button>
-        <div class="expander-content"><p>Real materials, real light, repeatable standards.</p></div>
+        <div class="expander-content">
+          <p>Executed with repeatable standards.</p>
+          <div class="list">
+            <div class="li"><span class="dot"></span><span>Set build & environments</span></div>
+            <div class="li"><span class="dot"></span><span>Product and model photography</span></div>
+            <div class="li"><span class="dot"></span><span>Lighting systems for consistency</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- DIGITAL -->
 <section id="digital">
   <div class="container">
     <h2>Digital & 3D</h2>
     <div class="panel">
-      <p class="lead">Digital tools add a dimensional planning layer.</p>
+      <p class="lead">
+        Digital tools allow us to define space, light, and composition before committing to physical production.
+      </p>
+      <div class="list">
+        <div class="li"><span class="dot"></span><span>Pre-visualisation and layout testing</span></div>
+        <div class="li"><span class="dot"></span><span>Lighting and material exploration</span></div>
+        <div class="li"><span class="dot"></span><span>Digital environments that inform physical sets</span></div>
+      </div>
+      <div class="image-placeholder">3D Environment / Pre-Viz Image</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3D SHOWREEL -->
+<section id="showcase">
+  <div class="container">
+    <h2>3D Showreel</h2>
+    <div class="panel">
+      <p class="lead">
+        Interactive 3D assets used as planning tools, digital extensions, and production references.
+      </p>
       <div class="models-grid">
+        <model-viewer src="Wheel.glb" auto-rotate camera-controls></model-viewer>
         <model-viewer src="Wheel.glb" auto-rotate camera-controls></model-viewer>
         <model-viewer src="Wheel.glb" auto-rotate camera-controls></model-viewer>
       </div>
@@ -344,26 +418,35 @@ footer{
   </div>
 </section>
 
+<!-- GALLERY -->
 <section id="gallery">
   <div class="container">
     <h2>Gallery</h2>
-    <div class="gallery">
-      <div class="gallery-item">Image</div>
-      <div class="gallery-item">Image</div>
-      <div class="gallery-item">Image</div>
+    <div class="panel">
+      <p class="lead">A mix of physical, digital, and hybrid production outputs.</p>
+      <div class="gallery">
+        <div class="gallery-item">Image</div>
+        <div class="gallery-item">Image</div>
+        <div class="gallery-item">Image</div>
+        <div class="gallery-item">Image</div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <h2>Contact</h2>
     <div class="panel">
-      <p class="lead">Let’s talk about how your content is produced.</p>
+      <p class="lead">
+        If you’re rethinking how content is produced — physically, digitally, or with AI —
+        we’d love to talk.
+      </p>
       <form>
-        <input placeholder="Name">
-        <input placeholder="Email">
-        <textarea rows="5" placeholder="Message"></textarea>
+        <input placeholder="Your name">
+        <input placeholder="Your email">
+        <textarea rows="6" placeholder="Your message"></textarea>
         <button>Send message</button>
       </form>
     </div>
@@ -378,6 +461,7 @@ document.querySelectorAll(".expander-toggle").forEach(btn=>{
     btn.parentElement.classList.toggle("open");
   });
 });
+
 const obs=new IntersectionObserver(e=>{
   e.forEach(i=>i.isIntersecting&&i.target.classList.add("visible"));
 },{threshold:.4});
