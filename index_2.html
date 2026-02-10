@@ -1,53 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Third Axis Creative</title>
 
-<!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <style>
-/* ===============================
-   DESIGN SYSTEM
-================================ */
 :root{
   --bg:#f2f4f6;
   --bg-2:#e9edf1;
-  --panel:rgba(255,255,255,.9);
+  --panel:rgba(255,255,255,.95);
   --border:rgba(0,0,0,.08);
   --text:#111;
   --muted:rgba(0,0,0,.65);
   --accent:#6fbfa5;
-  --accent-2:#7aa7c7;
-  --shadow:0 22px 50px rgba(0,0,0,.08);
+  --shadow:0 20px 50px rgba(0,0,0,.08);
   --radius:28px;
   --nav-height:72px;
 }
 
-/* ===============================
-   BASE
-================================ */
 *{margin:0;padding:0;box-sizing:border-box;}
+
 html{
   scroll-behavior:smooth;
   scroll-snap-type:y mandatory;
 }
+
 body{
-  font-family:'Inter', Arial, sans-serif;
-  color:var(--text);
+  font-family:'Inter',sans-serif;
   background:
     radial-gradient(900px 400px at 20% -10%, rgba(111,191,165,.18), transparent 55%),
     radial-gradient(700px 380px at 90% 10%, rgba(122,167,199,.15), transparent 55%),
     linear-gradient(180deg,var(--bg),var(--bg-2));
+  color:var(--text);
 }
 
-/* ===============================
-   NAV
-================================ */
+/* NAV */
 nav{
   position:fixed;
   top:0;
@@ -56,8 +47,8 @@ nav{
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:.4rem;
-  background:rgba(255,255,255,.72);
+  gap:.5rem;
+  background:rgba(255,255,255,.75);
   backdrop-filter:blur(14px);
   border-bottom:1px solid var(--border);
   z-index:1000;
@@ -67,188 +58,153 @@ nav a{
   text-transform:uppercase;
   font-size:.72rem;
   letter-spacing:1.8px;
-  padding:.55rem .85rem;
+  padding:.55rem .9rem;
   border-radius:999px;
   color:var(--muted);
   font-weight:500;
-  transition:.25s;
 }
 nav a:hover{
   background:rgba(0,0,0,.06);
   color:var(--text);
 }
 
-/* ===============================
-   TYPOGRAPHY
-================================ */
+/* TYPOGRAPHY */
 h1,h2,h3{
-  font-weight:600;
-  letter-spacing:1.6px;
   text-transform:uppercase;
+  letter-spacing:1.6px;
+  font-weight:600;
+  text-align:center;
 }
 h1{
-  font-size:clamp(2.2rem,5vw,3.4rem);
-  line-height:1.1;
-  text-align:center;
-  max-width:960px;
+  font-size:clamp(2.3rem,5vw,3.4rem);
+  max-width:1000px;
 }
 h2{
-  font-size:clamp(1.5rem,3.5vw,2.2rem);
-  text-align:center;
-  margin-bottom:1.5rem;
-}
-h3{
-  font-size:.85rem;
-  margin-bottom:.6rem;
+  font-size:clamp(1.6rem,4vw,2.4rem);
+  margin-bottom:1.8rem;
 }
 p{
   font-size:1.05rem;
-  line-height:1.65;
+  line-height:1.7;
   color:var(--muted);
-  letter-spacing:.1px;
+  text-align:center;
 }
 .lead{
   font-size:1.2rem;
-  max-width:960px;
-  text-align:center;
+  max-width:900px;
+  margin:0 auto;
 }
-.strong{font-weight:600;color:#111}
 
-/* ===============================
-   SCROLL SECTIONS
-================================ */
+/* SECTIONS */
 header, section{
   min-height:100vh;
-  padding: calc(var(--nav-height) + 4rem) 1.5rem 4rem;
+  padding:calc(var(--nav-height) + 4rem) 1.5rem 4rem;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   scroll-snap-align:center;
   scroll-margin-top:var(--nav-height);
   opacity:0;
   transform:translateY(40px);
   transition:.9s ease;
 }
-.visible{
-  opacity:1;
-  transform:none;
-}
+.visible{opacity:1;transform:none;}
+
 .container{
   width:100%;
   max-width:1100px;
 }
 
-/* ===============================
-   HERO
-================================ */
-header{
-  flex-direction:column;
-  text-align:center;
-}
-
-/* FROSTED LOGO TREATMENT */
+/* HERO */
 .logo-wrap{
   padding:1.4rem 1.8rem;
   border-radius:36px;
   background:rgba(255,255,255,.22);
   backdrop-filter:blur(14px);
-  border:1px solid rgba(0,0,0,.08);
-  box-shadow:
-    0 18px 40px rgba(0,0,0,.18),
-    inset 0 1px 0 rgba(255,255,255,.5);
-  margin-bottom:2rem;
+  border:1px solid var(--border);
+  box-shadow:0 18px 40px rgba(0,0,0,.18);
+  margin:0 auto 2rem;
+  width:fit-content;
 }
-.logo-wrap img{
-  max-width:300px;
-  display:block;
-}
+.logo-wrap img{max-width:300px;display:block;}
 
-.pill-row{
+.pills{
   display:flex;
   flex-wrap:wrap;
-  gap:.6rem;
   justify-content:center;
-  margin-top:1.5rem;
+  gap:.7rem;
+  margin-top:1.8rem;
 }
 .pill{
-  padding:.5rem .85rem;
+  padding:.55rem .95rem;
   border-radius:999px;
   background:white;
   border:1px solid var(--border);
-  font-size:.7rem;
+  font-size:.72rem;
   letter-spacing:1.4px;
   text-transform:uppercase;
 }
 
-/* ===============================
-   PANELS & JIGSAW CARDS
-================================ */
+/* PANELS */
 .panel{
   background:var(--panel);
   border:1px solid var(--border);
-  border-radius:34px;
-  padding:2rem;
+  border-radius:var(--radius);
+  padding:2.4rem 2.2rem;
   box-shadow:var(--shadow);
 }
-.panel + .panel{margin-top:1.2rem;}
+.panel + .panel{margin-top:1.6rem;}
 
-.grid-2{
+.panel ul{
+  list-style:none;
+  margin-top:1.4rem;
+}
+.panel li{
+  margin:.6rem 0;
+  font-size:1.05rem;
+  color:var(--muted);
+}
+
+/* 3D */
+.models{
   display:grid;
-  grid-template-columns:1.2fr .8fr;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:1.2rem;
-}
-.grid-3{
-  display:grid;
-  grid-template-columns:1fr 1.1fr .9fr;
-  gap:1.2rem;
-}
-
-.card{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:28px;
-  padding:1.4rem;
-  box-shadow:0 14px 40px rgba(0,0,0,.07);
-}
-.card:nth-child(odd){border-top-left-radius:38px;}
-.card:nth-child(even){border-bottom-right-radius:38px;}
-
-.grid-2 .card:nth-child(2){margin-top:2rem;}
-.grid-3 .card:nth-child(2){margin-top:1.6rem;}
-.grid-3 .card:nth-child(3){margin-top:.8rem;}
-
-/* ===============================
-   PORTFOLIO
-================================ */
-.portfolio-scroll{
-  overflow-x:auto;
   margin-top:1.5rem;
 }
-.portfolio-grid{
+model-viewer{
+  height:300px;
+  border-radius:22px;
+  background:#f7f8fa;
+  border:1px solid var(--border);
+}
+
+/* PORTFOLIO */
+.portfolio{
   display:flex;
   gap:1rem;
+  overflow-x:auto;
+  margin-top:1.8rem;
 }
-.portfolio-tile{
+.tile{
   width:180px;
-  height:160px;
+  height:180px;
   border-radius:22px;
   background:white;
   border:1px solid var(--border);
   overflow:hidden;
   box-shadow:0 14px 40px rgba(0,0,0,.1);
 }
-.portfolio-tile img{
+.tile img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-/* ===============================
-   CONTACT
-================================ */
+/* CONTACT */
 form{
   max-width:700px;
-  margin:0 auto;
+  margin:2rem auto 0;
 }
 input,textarea{
   width:100%;
@@ -256,37 +212,29 @@ input,textarea{
   margin-bottom:1rem;
   border-radius:14px;
   border:1px solid var(--border);
-  font-family:'Inter',sans-serif;
 }
 button{
   width:100%;
   padding:1rem;
   border:none;
   border-radius:14px;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  background:linear-gradient(135deg,var(--accent),#7aa7c7);
   font-weight:600;
-  text-transform:uppercase;
   letter-spacing:1.4px;
-  cursor:pointer;
+  text-transform:uppercase;
 }
 
-/* ===============================
-   FOOTER
-================================ */
 footer{
-  padding:2rem;
   text-align:center;
+  padding:2rem;
   font-size:.8rem;
   letter-spacing:1.2px;
   text-transform:uppercase;
   color:var(--muted);
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
 @media(max-width:900px){
-  .grid-2,.grid-3{grid-template-columns:1fr;}
+  p{text-align:left;}
 }
 </style>
 </head>
@@ -298,35 +246,38 @@ footer{
   <a href="#endtoend">End-to-End</a>
   <a href="#digital">Digital</a>
   <a href="#ai">AI</a>
+  <a href="#showcase">3D</a>
   <a href="#portfolio">Portfolio</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <header id="top">
-  <div class="logo-wrap">
-    <img src="logo2.png" alt="Third Axis Creative">
-  </div>
+  <div class="container">
+    <div class="logo-wrap">
+      <img src="logo2.png" alt="Third Axis Creative">
+    </div>
 
-  <h1>End-to-end production for a new creative era</h1>
+    <h1>End-to-end production for a new creative era</h1>
 
-  <p class="lead">
-    A future-ready production company designing modern workflows for
-    <span class="strong">physical, digital, and AI-assisted</span> content creation —
-    from stock flow and set build to scalable imagery.
-  </p>
+    <p class="lead" style="margin-top:1.6rem;">
+      Third Axis Creative is a future-ready production company delivering complete
+      creative workflows — from stock flow and set build to physical photography,
+      digital creation, 3D environments, and AI-assisted imagery.
+    </p>
 
-  <p class="lead" style="margin-top:1.4rem;">
-    We work across the full production lifecycle, connecting logistics,
-    creative direction, physical production, digital tools, and emerging
-    technologies into a single coherent system.
-  </p>
+    <p class="lead" style="margin-top:1.2rem;">
+      We design systems that allow content to be produced intelligently,
+      consistently, and at scale — without losing realism or creative intent.
+    </p>
 
-  <div class="pill-row">
-    <div class="pill">Stock Flow</div>
-    <div class="pill">Set Build</div>
-    <div class="pill">Photography</div>
-    <div class="pill">3D</div>
-    <div class="pill">AI Imagery</div>
+    <div class="pills">
+      <div class="pill">Stock Flow</div>
+      <div class="pill">Set Build</div>
+      <div class="pill">Photography</div>
+      <div class="pill">3D</div>
+      <div class="pill">AI Imagery</div>
+      <div class="pill">Scalable Output</div>
+    </div>
   </div>
 </header>
 
@@ -335,14 +286,16 @@ footer{
     <h2>What Production Means Now</h2>
     <div class="panel">
       <p class="lead">
-        Production today is more than photography.
-        It’s planning, logistics, systems, and decision-making long before a camera is switched on.
+        Modern production is no longer defined by a single medium.
       </p>
-
       <p style="margin-top:1.4rem;">
-        Third Axis Creative is built around understanding how visual content is actually produced —
-        from stock intake and readiness, through concept development and set build,
-        to physical capture, digital creation, AI-assisted imagery, and final delivery at scale.
+        Today, visual content is shaped by logistics, planning, technology,
+        and creative decision-making long before a camera is switched on.
+      </p>
+      <p style="margin-top:1rem;">
+        We focus on understanding how content moves through a system —
+        from initial stock intake, through concept development and execution,
+        to final delivery across platforms.
       </p>
     </div>
   </div>
@@ -351,19 +304,18 @@ footer{
 <section id="endtoend">
   <div class="container">
     <h2>End-to-End Thinking</h2>
-    <div class="panel grid-3">
-      <div class="card">
-        <h3>Stock & Flow</h3>
-        <p>How products move through a system defines everything that follows.</p>
-      </div>
-      <div class="card">
-        <h3>Concept & Build</h3>
-        <p>Ideas shaped through creative direction, spatial planning, and set definition.</p>
-      </div>
-      <div class="card">
-        <h3>Scale & Output</h3>
-        <p>Imagery designed to work across channels, formats, and volumes.</p>
-      </div>
+    <div class="panel">
+      <p class="lead">
+        We don’t start with images. We start with flow.
+      </p>
+      <ul>
+        <li>• Stock intake, tracking, and readiness</li>
+        <li>• Creative direction and set design</li>
+        <li>• Physical photography and lighting</li>
+        <li>• Digital and 3D environments</li>
+        <li>• AI-assisted image creation</li>
+        <li>• Consistent output at scale</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -375,10 +327,10 @@ footer{
       <p class="lead">
         Digital tools allow ideas to be defined before committing to physical production.
       </p>
-
-      <p style="margin-top:1.2rem;">
-        We use digital and 3D environments to explore composition, lighting behaviour,
-        scale, and spatial relationships — reducing uncertainty and improving consistency.
+      <p style="margin-top:1.4rem;">
+        We use 3D and digital environments to explore composition, lighting,
+        and spatial relationships — adding a dimensional planning layer
+        that reduces risk and improves consistency.
       </p>
     </div>
   </div>
@@ -387,15 +339,26 @@ footer{
 <section id="ai">
   <div class="container">
     <h2>AI-Assisted Production</h2>
-    <div class="panel grid-2">
-      <div class="card">
-        <h3>Extend</h3>
-        <p>Extend physical shoots digitally without repeating full production.</p>
-      </div>
-      <div class="card">
-        <h3>Scale</h3>
-        <p>Generate controlled variations to support modern e-commerce demands.</p>
-      </div>
+    <div class="panel">
+      <p class="lead">
+        AI is integrated where it adds value — not as a replacement for craft.
+      </p>
+      <p style="margin-top:1.4rem;">
+        When grounded in real production data and creative direction,
+        AI allows imagery to be extended, varied, and scaled efficiently,
+        supporting modern e-commerce and creative workflows.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="showcase">
+  <div class="container">
+    <h2>3D Showreel</h2>
+    <div class="models">
+      <model-viewer src="Wheel.glb" auto-rotate camera-controls></model-viewer>
+      <model-viewer src="Wheel.glb" auto-rotate camera-controls></model-viewer>
+      <model-viewer src="Wheel.glb" auto-rotate camera-controls></model-viewer>
     </div>
   </div>
 </section>
@@ -403,25 +366,28 @@ footer{
 <section id="portfolio">
   <div class="container">
     <h2>Portfolio</h2>
-    <p class="lead" style="margin-bottom:1.5rem;">
-      Production tests, digital studies, and hybrid workflows exploring how
-      physical, digital, and AI-assisted creation intersect.
+    <p class="lead">
+      A selection of production tests, digital studies,
+      and hybrid workflows exploring modern content creation.
     </p>
-    <div class="portfolio-scroll">
-      <div class="portfolio-grid" id="portfolioGrid"></div>
-    </div>
+    <div class="portfolio" id="portfolioGrid"></div>
   </div>
 </section>
 
 <section id="contact">
   <div class="container">
     <h2>Contact</h2>
-    <form>
-      <input placeholder="Your name" required>
-      <input type="email" placeholder="Your email" required>
-      <textarea rows="5" placeholder="Your message" required></textarea>
-      <button>Send Message</button>
-    </form>
+    <div class="panel">
+      <p class="lead">
+        If you’re rethinking how content is produced, we’d love to talk.
+      </p>
+      <form>
+        <input placeholder="Your name" required>
+        <input type="email" placeholder="Your email" required>
+        <textarea rows="5" placeholder="Your message" required></textarea>
+        <button>Send Message</button>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -430,13 +396,11 @@ footer{
 </footer>
 
 <script>
-/* reveal on scroll */
 const obs=new IntersectionObserver(e=>{
   e.forEach(i=>i.isIntersecting&&i.target.classList.add("visible"))
 },{threshold:.45});
-document.querySelectorAll("header, section").forEach(s=>obs.observe(s));
+document.querySelectorAll("header,section").forEach(s=>obs.observe(s));
 
-/* portfolio filler */
 const imgs=[
   "https://raw.githubusercontent.com/timwhois/Spinner/main/Images/2.png",
   "https://raw.githubusercontent.com/timwhois/Spinner/main/Images/3detail.png",
@@ -444,10 +408,9 @@ const imgs=[
   "https://raw.githubusercontent.com/timwhois/Spinner/main/Images/cool%20sphere.png"
 ];
 const grid=document.getElementById("portfolioGrid");
-for(let i=0;i<18;i++){
+for(let i=0;i<20;i++){
   const d=document.createElement("div");
-  d.className="portfolio-tile";
-  d.style.height=140+Math.random()*80+"px";
+  d.className="tile";
   const im=document.createElement("img");
   im.src=imgs[Math.floor(Math.random()*imgs.length)];
   d.appendChild(im);
