@@ -1108,15 +1108,12 @@ footer{
   justify-content: center;
   gap: 10px;
   background: rgba(238,235,228,.03);
-  transition: background .18s, border-color .18s;
-  cursor: pointer;
+  transition: background .18s;
+  cursor: default;
   position: relative;
   overflow: hidden;
 }
-.avp-img-placeholder:hover {
-  background: rgba(238,235,228,.06);
-  border-color: rgba(238,235,228,.3);
-}
+
 .avp-img-placeholder img {
   position: absolute;
   inset: 0;
@@ -1250,10 +1247,10 @@ body {
      ╚══════════════════════════════════════════════╝ -->
 <script>
   var AI_IMAGES = {
-    'avp-ph-1': 'Images/base.png',          // Step 1 — Base AI model
-    'avp-ph-2': 'Images/man.png',           // Step 2 — Mannequin (source garment)
-    'avp-ph-3': 'Images/modelgarment.png',  // Step 2 — Model wearing garment
-    'avp-ph-4': 'Images/editorial.png'      // Step 3 — Editorial output
+    'avp-ph-1': 'images/base.png',          // Step 1 — Base AI model
+    'avp-ph-2': 'images/man.png',           // Step 2 — Mannequin (source garment)
+    'avp-ph-3': 'images/modelgarment.png',  // Step 2 — Model wearing garment
+    'avp-ph-4': 'images/editorial.png'      // Step 3 — Editorial output
   };
 </script>
 <!-- ══════════════════════════════════════════════ -->
@@ -1580,7 +1577,7 @@ body {
       <div class="avp-group">
         <div class="avp-images single">
           <div class="avp-img-wrap">
-            <div class="avp-img-placeholder" id="avp-ph-1" onclick="triggerUpload('avp-ph-1')">
+            <div class="avp-img-placeholder" id="avp-ph-1">
               <span class="avp-img-icon">
                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="1" y="1" width="26" height="26" stroke="rgba(238,235,228,.2)" stroke-width="1"/><circle cx="14" cy="11" r="4" stroke="rgba(238,235,228,.2)" stroke-width="1"/><path d="M5 26c0-4.97 4.03-9 9-9s9 4.03 9 9" stroke="rgba(238,235,228,.2)" stroke-width="1"/></svg>
               </span>
@@ -1604,7 +1601,7 @@ body {
       <div class="avp-group">
         <div class="avp-images double">
           <div class="avp-img-wrap">
-            <div class="avp-img-placeholder" id="avp-ph-2" onclick="triggerUpload('avp-ph-2')">
+            <div class="avp-img-placeholder" id="avp-ph-2">
               <span class="avp-img-icon">
                 <svg width="24" height="28" viewBox="0 0 24 28" fill="none"><rect x="1" y="1" width="22" height="26" stroke="rgba(238,235,228,.2)" stroke-width="1"/><path d="M8 8h8M8 12h8M8 16h5" stroke="rgba(238,235,228,.2)" stroke-width="1"/></svg>
               </span>
@@ -1615,7 +1612,7 @@ body {
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><line x1="0" y1="10" x2="16" y2="10" stroke="rgba(238,235,228,.3)" stroke-width="1"/><polyline points="10,4 16,10 10,16" fill="none" stroke="rgba(238,235,228,.3)" stroke-width="1"/></svg>
           </div>
           <div class="avp-img-wrap">
-            <div class="avp-img-placeholder" id="avp-ph-3" onclick="triggerUpload('avp-ph-3')">
+            <div class="avp-img-placeholder" id="avp-ph-3">
               <span class="avp-img-icon">
                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="1" y="1" width="26" height="26" stroke="rgba(238,235,228,.2)" stroke-width="1"/><circle cx="14" cy="11" r="4" stroke="rgba(238,235,228,.2)" stroke-width="1"/><path d="M5 26c0-4.97 4.03-9 9-9s9 4.03 9 9" stroke="rgba(238,235,228,.2)" stroke-width="1"/></svg>
               </span>
@@ -1639,7 +1636,7 @@ body {
       <div class="avp-group">
         <div class="avp-images single">
           <div class="avp-img-wrap">
-            <div class="avp-img-placeholder" id="avp-ph-4" onclick="triggerUpload('avp-ph-4')">
+            <div class="avp-img-placeholder" id="avp-ph-4">
               <span class="avp-img-icon">
                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="1" y="1" width="26" height="26" stroke="rgba(238,235,228,.2)" stroke-width="1"/><path d="M1 20l7-7 5 5 4-4 10 10" stroke="rgba(238,235,228,.2)" stroke-width="1"/><circle cx="21" cy="8" r="3" stroke="rgba(238,235,228,.2)" stroke-width="1"/></svg>
               </span>
@@ -1840,43 +1837,5 @@ document.querySelectorAll('.snap, .snap-short').forEach(s => snapObs.observe(s))
 </script>
 
 
-<!-- Hidden file inputs for AI pipeline -->
-<input type="file" id="file-avp-ph-1" accept="image/*" style="display:none" onchange="loadImage('avp-ph-1', this)">
-<input type="file" id="file-avp-ph-2" accept="image/*" style="display:none" onchange="loadImage('avp-ph-2', this)">
-<input type="file" id="file-avp-ph-3" accept="image/*" style="display:none" onchange="loadImage('avp-ph-3', this)">
-<input type="file" id="file-avp-ph-4" accept="image/*" style="display:none" onchange="loadImage('avp-ph-4', this)">
-
-<script>
-// ── AI PIPELINE IMAGES ──
-// Load from AI_IMAGES config on page load
-function setPlaceholderImage(id, src) {
-  const placeholder = document.getElementById(id);
-  if (!placeholder || !src) return;
-  const existing = placeholder.querySelector('img');
-  if (existing) existing.remove();
-  const img = document.createElement('img');
-  img.src = src;
-  img.onload = () => placeholder.classList.add('has-image');
-  img.onerror = () => {}; // silently fail if file not found
-  placeholder.insertBefore(img, placeholder.firstChild);
-}
-
-// Apply config on load
-if (typeof AI_IMAGES !== 'undefined') {
-  Object.entries(AI_IMAGES).forEach(([id, src]) => setPlaceholderImage(id, src));
-}
-
-// Still allow click-to-replace
-function triggerUpload(placeholderId) {
-  document.getElementById('file-' + placeholderId).click();
-}
-
-function loadImage(placeholderId, input) {
-  if (!input.files || !input.files[0]) return;
-  const reader = new FileReader();
-  reader.onload = e => setPlaceholderImage(placeholderId, e.target.result);
-  reader.readAsDataURL(input.files[0]);
-}
-</script>
 </body>
 </html>
