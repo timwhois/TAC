@@ -41,35 +41,51 @@
   "serviceType": ["Commercial Photography", "3D Visualisation", "AI Imagery", "Set Build", "Stock Flow", "Content Production"]
 }
 
+
 // ── LIGHTBOX ──
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxClose = document.getElementById('lightbox-close');
+(function() {
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  var lbClose = document.getElementById('lightbox-close');
 
-document.querySelectorAll('.avp-img-placeholder.has-image').forEach(ph => {
-  ph.addEventListener('click', () => {
-    const img = ph.querySelector('img');
-    if (!img) return;
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightbox.classList.add('open');
+  function openLightbox(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('open');
     document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(function() { lbImg.src = ''; }, 300);
+  }
+
+  document.querySelectorAll('.avp-img-placeholder.has-image').forEach(function(ph) {
+    // Use both click and touchend so mobile works reliably
+    function handleOpen(e) {
+      e.preventDefault();
+      var img = ph.querySelector('img');
+      if (img) openLightbox(img.src, img.alt);
+    }
+    ph.addEventListener('click', handleOpen);
+    ph.addEventListener('touchend', handleOpen, { passive: false });
   });
-});
 
-function closeLightbox() {
-  lightbox.classList.remove('open');
-  document.body.style.overflow = '';
-  lightboxImg.src = '';
-}
+  lbClose.addEventListener('click', closeLightbox);
+  lbClose.addEventListener('touchend', function(e) { e.preventDefault(); closeLightbox(); }, { passive: false });
 
-lightbox.addEventListener('click', e => {
-  if (e.target !== lightboxImg) closeLightbox();
-});
-lightboxClose.addEventListener('click', closeLightbox);
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeLightbox();
-});
+  lb.addEventListener('click', function(e) {
+    if (e.target !== lbImg) closeLightbox();
+  });
+  lb.addEventListener('touchend', function(e) {
+    if (e.target !== lbImg && e.target !== lbClose) { e.preventDefault(); closeLightbox(); }
+  }, { passive: false });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
 
 </script>
 <title>Third Axis Creative — Commercial Content Production | Peterborough, UK</title>
@@ -173,9 +189,13 @@ body:not(.has-mouse){cursor:auto!important;}
   .ai-intro{ font-size:.78rem; line-height:1.6; }
   .ai-step-title{ font-size:.85rem; }
   .ai-step-body{ font-size:.68rem; line-height:1.6; }
-  .callout-t{ font-size:.85rem; }
-  .callout-b{ font-size:.54rem; }
-  .callout{ padding:12px; }
+  /* ai2 callout grid — compress to fit 100svh on mobile */
+  .callout-t{ font-size:.75rem; }
+  .callout-b{ font-size:.5rem; line-height:1.4; }
+  .callout{ padding:8px 10px; }
+  #ai2 .wrap{ padding-top:16px !important; padding-bottom:16px !important; }
+  #ai2 .sec-header{ margin-bottom:10px; padding:8px 0; }
+  .callout-grid{ margin-top:0; }
 
   /* Process */
   .process-intro{ font-size:.78rem; }
@@ -1939,36 +1959,6 @@ const snapObs = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll('.snap, .snap-short').forEach(s => snapObs.observe(s));
-
-// ── LIGHTBOX ──
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxClose = document.getElementById('lightbox-close');
-
-document.querySelectorAll('.avp-img-placeholder.has-image').forEach(ph => {
-  ph.addEventListener('click', () => {
-    const img = ph.querySelector('img');
-    if (!img) return;
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  });
-});
-
-function closeLightbox() {
-  lightbox.classList.remove('open');
-  document.body.style.overflow = '';
-  lightboxImg.src = '';
-}
-
-lightbox.addEventListener('click', e => {
-  if (e.target !== lightboxImg) closeLightbox();
-});
-lightboxClose.addEventListener('click', closeLightbox);
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeLightbox();
-});
 
 </script>
 
