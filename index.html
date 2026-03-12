@@ -40,6 +40,37 @@
   "sameAs": [],
   "serviceType": ["Commercial Photography", "3D Visualisation", "AI Imagery", "Set Build", "Stock Flow", "Content Production"]
 }
+
+// ── LIGHTBOX ──
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
+
+document.querySelectorAll('.avp-img-placeholder.has-image').forEach(ph => {
+  ph.addEventListener('click', () => {
+    const img = ph.querySelector('img');
+    if (!img) return;
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+  lightboxImg.src = '';
+}
+
+lightbox.addEventListener('click', e => {
+  if (e.target !== lightboxImg) closeLightbox();
+});
+lightboxClose.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
 </script>
 <title>Third Axis Creative — Commercial Content Production | Peterborough, UK</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1284,6 +1315,41 @@ body {
 #sdots.inv .sdot.on{background:var(--signal);border-color:var(--signal);}
 @media(max-width:600px){#sdots{display:none;}}
 
+
+/* ── LIGHTBOX ── */
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,.92);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+#lightbox.open { display: flex; }
+#lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 0 60px rgba(0,0,0,.6);
+  cursor: default;
+}
+#lightbox-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .1em;
+  color: rgba(238,235,228,.4);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: color .15s;
+}
+#lightbox-close:hover { color: var(--signal); }
+.avp-img-placeholder.has-image {
+  cursor: zoom-in;
+}
 </style>
 </head>
 <body>
@@ -1296,7 +1362,7 @@ body {
 <!-- ═══ NAV ═══ -->
 <nav>
   <div class="nav-left">
-    <img src="Images/logo_1.png" alt="Third Axis Creative">
+    <img src="logo/TA_4.png" alt="Third Axis Creative">
   </div>
   <div class="nav-mid">
     <a href="#about" class="nav-link">About</a>
@@ -1740,7 +1806,7 @@ body {
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-logo">
-        <img src="Images/logo_2.png" alt="Third Axis Creative">
+        <img src="logo/TA_2.png" alt="Third Axis Creative">
         <p class="footer-about">End-to-end production consultancy.<br>Physical to digital. From idea to scale.</p>
       </div>
       <div>
@@ -1873,8 +1939,45 @@ const snapObs = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll('.snap, .snap-short').forEach(s => snapObs.observe(s));
+
+// ── LIGHTBOX ──
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
+
+document.querySelectorAll('.avp-img-placeholder.has-image').forEach(ph => {
+  ph.addEventListener('click', () => {
+    const img = ph.querySelector('img');
+    if (!img) return;
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+  lightboxImg.src = '';
+}
+
+lightbox.addEventListener('click', e => {
+  if (e.target !== lightboxImg) closeLightbox();
+});
+lightboxClose.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
 </script>
 
 
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <span id="lightbox-close">Close ✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
 </body>
 </html>
