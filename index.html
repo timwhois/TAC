@@ -111,7 +111,7 @@ body:not(.has-mouse){cursor:auto!important;}
   .wrap{ padding:0 16px; }
 
   /* Section headers */
-  .sec-header{ margin-bottom:20px; padding:14px 0; }
+  .sec-header{ margin-bottom:12px; padding:10px 0; }
   .sec-num{ font-size:.52rem; padding:3px 6px; }
   .sec-title-text{ font-size:.85rem; }
 
@@ -136,7 +136,7 @@ body:not(.has-mouse){cursor:auto!important;}
   .about-body{ font-size:.8rem; line-height:1.65; }
 
   /* Digital h2 margin */
-  .digital-h2{ margin-bottom:24px; }
+  .digital-h2{ margin-bottom:16px; font-size:clamp(2rem,9vw,3rem); }
 
   /* AI */
   .ai-intro{ font-size:.78rem; line-height:1.6; }
@@ -732,9 +732,14 @@ nav{
   .svc-card:nth-child(1),.svc-card:nth-child(2){border-bottom:2px solid var(--ink);}
 }
 @media(max-width:500px){
-  .services-grid{grid-template-columns:1fr;}
-  .svc-card{border-right:none;border-bottom:2px solid var(--ink);}
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .svc-card{border-right:none;border-bottom:2px solid var(--ink);padding:14px 12px 16px;}
+  .svc-card:nth-child(odd){border-right:2px solid var(--ink);}
   .svc-card:last-child{border-bottom:none;}
+  .svc-card:nth-last-child(2):nth-child(odd){border-bottom:none;}
+  .svc-n{margin-bottom:8px;font-size:.48rem;}
+  .svc-title{font-size:1rem;margin-bottom:6px;}
+  .svc-body{font-size:.66rem;line-height:1.55;}
 }
 
 /* ════════════════════════════
@@ -1220,12 +1225,15 @@ footer{
 /* Mobile: stack vertically */
 @media(max-width:700px) {
   .ai-vis-pipeline { flex-direction: column; align-items: stretch; gap: 0; }
-  .avp-arrow { padding: 12px 0; padding-bottom: 12px; justify-content: center; transform: rotate(90deg); }
-  .avp-group { flex-direction: row; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(238,235,228,.08); }
+  .avp-arrow { padding: 8px 0; justify-content: center; transform: rotate(90deg); }
+  .avp-group { flex-direction: row; align-items: center; gap: 20px; padding: 20px 0; border-bottom: 1px solid rgba(238,235,228,.08); }
   .avp-group:last-child { border-bottom: none; }
-  .avp-images { flex: 0 0 auto; width: 140px; }
-  .avp-img-wrap { max-width: 60px; }
-  .avp-label { border-left: none; border-top: none; padding: 0; }
+  .avp-images { flex: 0 0 auto; width: 180px; }
+  .avp-images.double { gap: 6px; }
+  .avp-img-wrap { max-width: 80px; }
+  .avp-label { border-left: none; padding: 0; flex: 1; }
+  .avp-step-title { font-size: 1.1rem; }
+  .avp-step-sub { font-size: .6rem; }
 }
 
 /* ─── SCROLL SNAP ─── */
@@ -1288,7 +1296,7 @@ body {
 <!-- ═══ NAV ═══ -->
 <nav>
   <div class="nav-left">
-    <img src="logo/TA_4.png" alt="Third Axis Creative">
+    <img src="Images/logo_1.png" alt="Third Axis Creative">
   </div>
   <div class="nav-mid">
     <a href="#about" class="nav-link">About</a>
