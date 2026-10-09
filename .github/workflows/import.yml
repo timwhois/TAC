@@ -1,0 +1,33 @@
+name: Import site source from Vercel
+on:
+  push:
+    branches: [site]
+    paths: [".github/workflows/import.yml"]
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and verify
+        run: |
+          set -euo pipefail
+          SRC="https://tac-source-export-iwak49ytp-tim-durkin-3321s-projects.vercel.app"
+          while read -r sha f; do
+            mkdir -p "$(dirname "$f")"
+            curl -fsSL --retry 3 -o "$f" "$SRC/$f"
+            got=$(sha1sum "$f" | cut -c1-40)
+            [ "$got" = "$sha" ] || { echo "SHA mismatch $f $got != $sha"; exit 1; }
+            echo "ok $f"
+          done < manifest.txt
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          printf 'node_modules\ndist\n.vercel\n' > .gitignore
+          git rm -q --cached manifest.txt .github/workflows/import.yml
+          rm manifest.txt .github/workflows/import.yml
+          git add -A
+          git commit -m "Import Third Axis site source from Vercel deployment dpl_CSvxoJSXEDvYYa6C74duutL8dDdq"
+          git push
