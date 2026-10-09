@@ -6,7 +6,7 @@ import html, json, os, sys, datetime
 from urllib.parse import quote
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-from content import PAGES
+from content import PAGES, ABOUT
 
 ROOT = os.path.dirname(HERE)
 PUB = os.path.join(ROOT, "public")
@@ -49,7 +49,7 @@ def footer(current=None):
     return f'''<footer class="sfoot">
   <div class="wrap fgrid">
     <div><a href="/" class="wm"><span>THIRD AXIS</span><span>CREATIVE&nbsp;<b>//</b></span></a>
-      <p class="muted">Production studio · Peterborough, UK<br><a href="mailto:hello@thirdaxis.co.uk">hello@thirdaxis.co.uk</a></p></div>
+      <p class="muted">Production studio · Peterborough, UK<br><a href="/about">About the studio</a><br><a href="mailto:hello@thirdaxis.co.uk">hello@thirdaxis.co.uk</a></p></div>
     <nav aria-label="Services"><h2 class="fh">Services</h2><ul>{svc}</ul></nav>
     <div><h2 class="fh">Studio family</h2><p class="fl">{fam}</p><h2 class="fh">Follow</h2><p class="fl">{soc}</p></div>
   </div>
@@ -57,12 +57,23 @@ def footer(current=None):
 </footer>'''
 
 
+ABOUT_BLOCK = '''<section class="wrap block about">
+  <div><p class="eyebrow">Third Axis Creative</p><h2>The production studio behind Shootless and The Rail.</h2></div>
+  <p class="muted big">We handle production management, build the internal tools that automate the boring parts, shoot the photography and model the 3D — plus bespoke systems like sample tracking in between. Whatever moves your product from concept to campaign, we can build it, shoot it, or automate it. Based in Peterborough, working with brands across the UK.</p>
+</section>'''
+
+
 def page(p):
     url = f'{SITE}/{p["slug"]}'
     acc = ACCENT[p["accent"]]
-    svc_ld = {"@context": "https://schema.org", "@type": "Service", "name": cap(p["nav"]),
-              "description": p["desc"], "url": url, "areaServed": {"@type": "Country", "name": "United Kingdom"},
-              "provider": {"@id": f"{SITE}/#organization"}}
+    is_about = p.get("kind") == "about"
+    if is_about:
+        svc_ld = {"@context": "https://schema.org", "@type": "AboutPage", "name": p["title"], "description": p["desc"],
+                  "url": url, "about": {"@id": f"{SITE}/#organization"}}
+    else:
+        svc_ld = {"@context": "https://schema.org", "@type": "Service", "name": cap(p["nav"]),
+                  "description": p["desc"], "url": url, "areaServed": {"@type": "Country", "name": "United Kingdom"},
+                  "provider": {"@id": f"{SITE}/#organization"}}
     bc_ld = {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Third Axis Creative", "item": f"{SITE}/"},
         {"@type": "ListItem", "position": 2, "name": cap(p["nav"]), "item": url}]}
@@ -106,7 +117,7 @@ def page(p):
 <a class="skip" href="#main">Skip to content</a>
 <header class="snav"><div class="wrap navin">
   <a href="/" class="wm"><span>THIRD AXIS</span><span>CREATIVE&nbsp;<b>//</b></span></a>
-  <nav aria-label="Main"><a href="/#work">Work</a><a href="https://www.shootless.co.uk/" {EXT}>Shootless</a><a href="/#contact" class="pill">Get in touch</a></nav>
+  <nav aria-label="Main"><a href="/#work">Work</a><a href="/about">About</a><a href="https://www.shootless.co.uk/" {EXT}>Shootless</a><a href="/#contact" class="pill">Get in touch</a></nav>
 </div></header>
 <main id="main">
 <nav class="wrap crumbs" aria-label="Breadcrumb"><a href="/">Third Axis Creative</a> / <span aria-current="page">{e(cap(p["nav"]))}</span></nav>
@@ -114,18 +125,15 @@ def page(p):
   <p class="eyebrow">{e(p["eyebrow"])}</p>
   <h1>{e(p["h1"])}</h1>
   <p class="lead">{e(p["lead"])}</p>
-  <p class="ctas"><a class="btn" href="mailto:hello@thirdaxis.co.uk?subject={quote(cap(p["nav"]) + " enquiry")}">Start a conversation</a><a class="btn ghost" href="#what">What we do</a></p>
+  <p class="ctas"><a class="btn" href="mailto:hello@thirdaxis.co.uk?subject={quote("Enquiry" if is_about else cap(p["nav"]) + " enquiry")}">Start a conversation</a><a class="btn ghost" href="#what">{"How we work" if is_about else "What we do"}</a></p>
 </section>
 <section class="wrap prose">{intro}</section>
-<section class="wrap block" id="what"><h2>What's included</h2><div class="grid4">{cards}</div></section>
+<section class="wrap block" id="what"><h2>{e(p.get("cards_h", "What's included"))}</h2><div class="grid4">{cards}</div></section>
 <section class="wrap block prose"><h2>{e(p["deep_h"])}</h2>{deep}</section>
-<section class="wrap block"><h2>Who it's for</h2><div class="grid3">{uses}</div></section>
-<section class="wrap block about">
-  <div><p class="eyebrow">Third Axis Creative</p><h2>The production studio behind Shootless and The Rail.</h2></div>
-  <p class="muted big">We handle production management, build the internal tools that automate the boring parts, shoot the photography and model the 3D — plus bespoke systems like sample tracking in between. Whatever moves your product from concept to campaign, we can build it, shoot it, or automate it. Based in Peterborough, working with brands across the UK.</p>
-</section>
+<section class="wrap block"><h2>{e(p.get("uses_h", "Who it's for"))}</h2><div class="grid3">{uses}</div></section>
+{"" if is_about else ABOUT_BLOCK}
 <section class="wrap block faq"><h2>Questions</h2>{faq}</section>
-<section class="wrap block"><h2>Related services</h2><div class="grid3">{rel}</div></section>
+<section class="wrap block"><h2>{"What we do" if is_about else "Related services"}</h2><div class="grid3">{rel}</div></section>
 <section class="cta"><div class="wrap">
   <p class="eyebrow dark">Ready to remove the production ceiling?</p>
   <a class="mail" href="mailto:hello@thirdaxis.co.uk">hello@thirdaxis.co.uk</a>
@@ -192,13 +200,13 @@ h3{font-size:18px;font-weight:600;margin:0 0 .4em}
 
 os.makedirs(os.path.join(PUB, "css"), exist_ok=True)
 open(os.path.join(PUB, "css", "services.css"), "w").write(CSS)
-for p in PAGES:
+for p in PAGES + [ABOUT]:
     open(os.path.join(PUB, p["slug"] + ".html"), "w").write(page(p))
     # standalone footer snippet is not needed; homepage links are in React
 
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
       f"  <url><loc>{SITE}/</loc><lastmod>{TODAY}</lastmod></url>"]
-sm += [f"  <url><loc>{SITE}/{p['slug']}</loc><lastmod>{TODAY}</lastmod></url>" for p in PAGES]
+sm += [f"  <url><loc>{SITE}/{p['slug']}</loc><lastmod>{TODAY}</lastmod></url>" for p in PAGES + [ABOUT]]
 sm.append("</urlset>")
 open(os.path.join(PUB, "sitemap.xml"), "w").write("\n".join(sm) + "\n")
 open(os.path.join(PUB, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")

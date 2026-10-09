@@ -194,3 +194,47 @@ faq=[
 related=["production-management","ai-workflow-automation","fashion-photography"],
 ),
 ]
+
+# About page — studio-level only (no personal details).
+ABOUT = dict(
+slug="about",
+kind="about",
+nav="About",
+accent="brass",
+title="About Third Axis Creative | Production Studio in Peterborough, UK",
+desc="Third Axis Creative is a Peterborough production studio for fashion and retail: production management, AI and workflow automation, photography, 3D and bespoke systems. Home of Shootless and The Rail.",
+eyebrow="About · Peterborough, UK",
+h1="Built from inside production.",
+lead="Third Axis Creative is a production studio for fashion and retail brands. We started on set, and we build what we wished we'd had there.",
+intro=[
+ "Most of what slows content down isn't creative. It is samples that can't be found, shoots that wait on logistics, information re-keyed between departments and images that take weeks to reach the channels that need them. We know those problems because we have worked inside them — on studio floors, in sample rooms and across the handoffs between buying, studio, marketing and ecommerce.",
+ "Third Axis Creative exists to remove that friction. We run production, shoot photography and build 3D when a physical shoot is the right answer, and we build software and AI tools when it isn't. The aim is the same either way: get great product content made, faster, without lowering the standard.",
+],
+cards_h="How we work",
+cards=[
+ ("Workflow first", "We start by understanding how work actually moves through your team before recommending a shoot, a system or a tool."),
+ ("Right tool for the shot", "Physical photography, AI production, 3D or automation — chosen per brief, not by default."),
+ ("Production discipline", "Plans, schedules and handoffs that hold up on the day, not just on paper."),
+ ("Honest advice", "If something isn't worth automating or shooting, we'll say so."),
+],
+deep_h="One studio, three ways in",
+deep=[
+ "Third Axis Creative is the studio. It handles production management, photography, 3D, AI and workflow automation, and bespoke systems such as sample tracking for fashion and retail teams.",
+ "Shootless is our AI production platform. It turns garment photography into fully modelled, campaign-ready imagery without booking a model, a studio or a day of physical production — built from the same production experience as the rest of the studio.",
+ "The Rail is Third Axis Originals, our apparel line: the unofficial uniform for sets, production and everything in between.",
+],
+uses_h="Who we work with",
+uses=[
+ ("Fashion and retail brands", "Content, production and systems for teams that need more product imagery, faster."),
+ ("In-house studios", "Extra production capacity, better tools and fewer manual handoffs."),
+ ("Agencies and partners", "A production and technology partner behind your creative."),
+],
+faq=[
+ ("What does Third Axis Creative do?", "We are a production studio offering production management, AI and workflow automation, fashion and product photography, 3D and CGI rendering, and bespoke systems such as sample management for fashion and retail brands."),
+ ("Where are you based?", "Peterborough, UK. We work with brands across the UK."),
+ ("How do Shootless and The Rail relate to Third Axis?", "Both are part of Third Axis Creative. Shootless is our AI fashion imagery platform and The Rail is our apparel line."),
+ ("Do you work with small brands as well as large retailers?", "Yes. We scale the approach to the brief, from a single shoot or tool to ongoing production support."),
+ ("How do we start working together?", "Email hello@thirdaxis.co.uk with what you're working on and we'll come back to you."),
+],
+related=["production-management","ai-workflow-automation","fashion-photography","3d-product-rendering","sample-management-system"],
+)
