@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thirdaxis.co.uk/sitemap.xml
