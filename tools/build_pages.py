@@ -3,6 +3,7 @@
 Run from the repo root:  python3 tools/build_pages.py
 """
 import html, json, os, sys, datetime
+from urllib.parse import quote
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from content import PAGES
@@ -113,7 +114,7 @@ def page(p):
   <p class="eyebrow">{e(p["eyebrow"])}</p>
   <h1>{e(p["h1"])}</h1>
   <p class="lead">{e(p["lead"])}</p>
-  <p class="ctas"><a class="btn" href="mailto:hello@thirdaxis.co.uk?subject={e(cap(p["nav"]))}%20enquiry">Start a conversation</a><a class="btn ghost" href="#what">What we do</a></p>
+  <p class="ctas"><a class="btn" href="mailto:hello@thirdaxis.co.uk?subject={quote(cap(p["nav"]) + " enquiry")}">Start a conversation</a><a class="btn ghost" href="#what">What we do</a></p>
 </section>
 <section class="wrap prose">{intro}</section>
 <section class="wrap block" id="what"><h2>What's included</h2><div class="grid4">{cards}</div></section>
