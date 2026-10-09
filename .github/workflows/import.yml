@@ -13,10 +13,10 @@ jobs:
       - name: Download and verify
         run: |
           set -euo pipefail
-          SRC="https://tac-source-export-iwak49ytp-tim-durkin-3321s-projects.vercel.app"
-          while read -r sha f; do
+          SRC="https://tac-source-export-k4y82gsa2-tim-durkin-3321s-projects.vercel.app"
+          while read -r sha f src; do
             mkdir -p "$(dirname "$f")"
-            code=$(curl -sSL --retry 3 -o "$f" -w "%{http_code}" "$SRC/$f"); [ "$code" = "200" ] || { echo "::error::HTTP $code for $f"; exit 1; }
+            code=$(curl -sSL --retry 3 -o "$f" -w "%{http_code}" "$SRC/$src"); [ "$code" = "200" ] || { echo "::error::HTTP $code for $f"; exit 1; }
             got=$(sha1sum "$f" | cut -c1-40)
             [ "$got" = "$sha" ] || { echo "::error::SHA mismatch $f $got != $sha"; exit 1; }
             echo "ok $f"
