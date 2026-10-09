@@ -4,6 +4,7 @@ import { Contact } from "./sections/Contact"
 import { Hero } from "./sections/Hero"
 import { SampleSystems } from "./sections/SampleSystems"
 import { Showcase } from "./sections/Showcase"
+import SERVICES from "./services.json"
 
 function App() {
   return (
@@ -54,15 +55,30 @@ function App() {
       </main>
 
       <footer className="footer">
-        <span>© 2026 THIRD AXIS CREATIVE</span>
-        <div className="footer-links">
-          <a href="https://www.shootless.co.uk" target="_blank" rel="noopener noreferrer">
-            SHOOTLESS
-          </a>
-          <a href="https://shop.thirdaxis.co.uk" target="_blank" rel="noopener noreferrer">
-            THE RAIL
-          </a>
-          <a href="mailto:hello@thirdaxis.co.uk">CONTACT</a>
+        <nav className="footer-services" aria-label="Services">
+          {SERVICES.map((svc) => (
+            <a href={`/${svc.slug}`} key={svc.slug}>
+              {svc.nav}
+            </a>
+          ))}
+        </nav>
+        <div className="footer-row">
+          <span>© 2026 THIRD AXIS CREATIVE · PETERBOROUGH, UK</span>
+          <div className="footer-links">
+            <a href="https://www.shootless.co.uk" target="_blank" rel="noopener noreferrer">
+              SHOOTLESS
+            </a>
+            <a href="https://shop.thirdaxis.co.uk" target="_blank" rel="noopener noreferrer">
+              THE RAIL
+            </a>
+            <a href="https://www.instagram.com/thisisthirdaxis/" target="_blank" rel="noopener noreferrer">
+              INSTAGRAM
+            </a>
+            <a href="https://www.linkedin.com/company/third-axis-creative/" target="_blank" rel="noopener noreferrer">
+              LINKEDIN
+            </a>
+            <a href="mailto:hello@thirdaxis.co.uk">CONTACT</a>
+          </div>
         </div>
       </footer>
     </>

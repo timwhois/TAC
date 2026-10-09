@@ -33,6 +33,9 @@ export function SampleSystems() {
               <a className="btn btn-outline" href="#contact">
                 Talk To Us About Your Workflow →
               </a>
+              <a className="capability-link systems-more" href="/sample-management-system">
+                How our sample management systems work →
+              </a>
             </div>
           </div>
 

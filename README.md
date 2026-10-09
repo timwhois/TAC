@@ -30,3 +30,11 @@ If you are developing a production application, we recommend enabling type-aware
 ```
 
 See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+
+## Service pages
+
+Static SEO pages live in `public/*.html` and are generated from `tools/content.py`:
+
+    python3 tools/build_pages.py
+
+`npm run build` also pre-renders the homepage into `dist/index.html`.

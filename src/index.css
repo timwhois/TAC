@@ -387,6 +387,24 @@ button {
   color: rgba(242, 240, 235, 0.6);
 }
 
+.capability-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--brass);
+  margin-top: 0.2rem;
+}
+
+.capability-link:hover {
+  color: var(--cream);
+}
+
+.systems-more {
+  display: inline-block;
+  margin-top: 1.2rem;
+  margin-left: 0.2rem;
+}
+
 /* ---------------------------------------------------------------- showcase */
 
 .showcase {
@@ -502,16 +520,35 @@ button {
 .footer {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-  padding: 1.6rem var(--edge) 2.2rem;
+  gap: 1.4rem;
+  padding: 2rem var(--edge) 2.2rem;
   font-size: 0.78rem;
   letter-spacing: 0.05em;
   color: rgba(242, 240, 235, 0.45);
+  border-top: 1px solid rgba(242, 240, 235, 0.1);
+}
+
+.footer-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.6rem;
+  font-size: 0.85rem;
+  color: rgba(242, 240, 235, 0.7);
+}
+
+.footer-services a:hover {
+  color: var(--brass);
+}
+
+.footer-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
 }
 
 @media (min-width: 700px) {
-  .footer {
+  .footer-row {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -519,7 +556,9 @@ button {
 
 .footer-links {
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.5rem;
 }
 
 .footer-links a:hover {

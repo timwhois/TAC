@@ -1,0 +1,22 @@
+[
+ {
+  "slug": "production-management",
+  "nav": "Production management"
+ },
+ {
+  "slug": "ai-workflow-automation",
+  "nav": "AI & workflow automation"
+ },
+ {
+  "slug": "fashion-photography",
+  "nav": "Fashion & product photography"
+ },
+ {
+  "slug": "3d-product-rendering",
+  "nav": "3D & CGI product rendering"
+ },
+ {
+  "slug": "sample-management-system",
+  "nav": "Sample management systems"
+ }
+]
