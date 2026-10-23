@@ -14,7 +14,8 @@ export function Contact() {
   const [email,setEmail] = useState("")
   const [subject,setSubject] = useState(subjects[0].value)
   const [message,setMessage] = useState("")
-  const [status,setStatus] = useState("")\n  const [sending,setSending] = useState(false)
+  const [status,setStatus] = useState("")
+  const [sending,setSending] = useState(false)
   async function prepare(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setSending(true)
