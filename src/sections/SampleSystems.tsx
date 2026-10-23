@@ -34,7 +34,7 @@ export function SampleSystems() {
 
           <figure className="sample-concept-figure">
             <div className="sample-concept-frame">
-              <img src="/portfolio/sample-system-concept.svg" alt="Concept dashboard for sample logistics showing line-by-line sample statuses, locations, production progress and an imagery drawer" loading="lazy" />
+              <img src="https://cdn.shopify.com/s/files/1/1009/5824/1142/files/third-axis-sample-management-concept.png?v=1792755509" alt="Concept dashboard for sample logistics showing line-by-line sample statuses, locations, production progress and an imagery drawer" loading="lazy" />
             </div>
             <figcaption>CONCEPT // SAMPLE LOGISTICS &amp; PRODUCTION SYSTEM</figcaption>
           </figure>
