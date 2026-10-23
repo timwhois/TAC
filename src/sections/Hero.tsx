@@ -15,7 +15,7 @@ export function Hero() {
   return (
     <section className="hero" id="top">
       <div className="hero-copy">
-        <div className="eyebrow">PETERBOROUGH, UK · CREATIVE PRODUCTION + TECHNOLOGY</div>
+        <div className="eyebrow hero-kicker"><span className="hero-kicker-rule" /> INDEPENDENT CREATIVE STUDIO <span className="hero-kicker-cross">//</span> PETERBOROUGH, UK</div>
         <h1 className="display hero-title">
           CREATIVE{" "}
           <span className={`glitch ${play ? "play" : ""}`} data-text="THINKING.">
@@ -33,6 +33,7 @@ export function Hero() {
             Get In Touch
           </a>
         </div>
+        <div className="hero-family-links"><span>ONE CREATIVE THINKING PROCESS. MULTIPLE WAYS TO MAKE IT REAL.</span><a href="https://www.shootless.co.uk" target="_blank" rel="noopener noreferrer">MEET SHOOTLESS <b>↗</b></a></div>
       </div>
 
       <div className="axis-mark" aria-hidden="true">
