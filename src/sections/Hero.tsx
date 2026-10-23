@@ -17,7 +17,7 @@ export function Hero() {
       <div className="hero-copy">
         <div className="eyebrow">PETERBOROUGH, UK · CREATIVE PRODUCTION + TECHNOLOGY</div>
         <h1 className="display hero-title">
-          CREATIVE{" "
+          CREATIVE{" "}
           <span className={`glitch ${play ? "play" : ""}`} data-text="THINKING.">
             THINKING.
           </span>
