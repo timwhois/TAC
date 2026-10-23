@@ -39,36 +39,12 @@ export function SampleSystems() {
             </div>
           </div>
 
-          <div className="mockup-window" aria-hidden="true">
-            <div className="mockup-titlebar">
-              <span className="mockup-dot" style={{ background: "#f26421" }} />
-              <span className="mockup-dot" style={{ background: "#b08d57" }} />
-              <span className="mockup-dot" style={{ background: "#5eedc7" }} />
-              <span className="mockup-titletext">SAMPLE TRACKER · THIRD AXIS SYSTEMS</span>
+          <figure className="sample-concept-figure">
+            <div className="sample-concept-frame">
+              <img src="/portfolio/sample-system-concept.svg" alt="Concept dashboard for sample logistics showing line-by-line sample statuses, locations, production progress and an imagery drawer" loading="lazy" />
             </div>
-            <table className="mockup-table">
-              <thead>
-                <tr>
-                  <th>SAMPLE</th>
-                  <th>STYLE</th>
-                  <th>STATUS</th>
-                  <th>LOCATION</th>
-                </tr>
-              </thead>
-              <tbody>
-                {ROWS.map((r) => (
-                  <tr key={r.id}>
-                    <td>{r.id}</td>
-                    <td>{r.style}</td>
-                    <td>
-                      <span className={`status-pill status-${r.statusClass}`}>{r.status}</span>
-                    </td>
-                    <td>{r.location}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+            <figcaption>CONCEPT // SAMPLE LOGISTICS &amp; PRODUCTION SYSTEM</figcaption>
+          </figure>
         </div>
       </Reveal>
     </section>
