@@ -855,3 +855,26 @@ button {
  .hero::after { left:var(--edge); right:auto; }
 }
 @media(prefers-reduced-motion:reduce){.hero-cta-row .btn{transition:none}}
+
+/* Third Axis family visual system — editorial grid, brass accent, precise typography */
+.hero { position:relative; isolation:isolate; min-height:min(780px,85svh); }
+.hero::before { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; opacity:.36; background:linear-gradient(90deg,transparent calc(50% - .5px),rgba(242,240,235,.09) 50%,transparent calc(50% + .5px)),radial-gradient(ellipse at 88% 20%,rgba(176,141,87,.16),transparent 48%); }
+.hero-copy { max-width:920px; }
+.hero-kicker { display:flex; align-items:center; flex-wrap:wrap; gap:.75rem; font-size:.68rem; letter-spacing:.2em; }
+.hero-kicker-rule { width:28px; height:1px; background:var(--brass); display:inline-block; }
+.hero-kicker-cross { color:var(--brass); font-weight:700; }
+.hero-title { max-width:950px; font-size:clamp(3.5rem,9.4vw,9.5rem); line-height:.88; text-wrap:balance; }
+.hero-sub { max-width:640px; }
+.hero-family-links { display:flex; align-items:center; flex-wrap:wrap; gap:1.25rem; width:100%; margin-top:1.3rem; padding-top:1.25rem; border-top:1px solid rgba(242,240,235,.2); font-size:.66rem; letter-spacing:.12em; line-height:1.5; }
+.hero-family-links span { color:rgba(242,240,235,.48); flex:1; min-width:190px; }
+.hero-family-links a { color:var(--cream); white-space:nowrap; border-bottom:1px solid var(--brass); padding-bottom:.4rem; transition:color .2s; }
+.hero-family-links a:hover { color:var(--brass); }
+.hero-family-links b { color:var(--brass); }
+@media(max-width:700px) {
+ .hero { min-height:0; padding-top:clamp(3rem,9vh,5rem); }
+ .hero::before { opacity:.23; background:radial-gradient(ellipse at 95% 0%,rgba(176,141,87,.22),transparent 65%); }
+ .hero-title { font-size:clamp(3.1rem,12.5vw,5.8rem); line-height:.91; }
+ .hero-copy { gap:1.4rem; }
+ .hero-family-links { margin-top:.6rem; }
+}
+@media(prefers-reduced-motion:reduce){.hero-family-links a{transition:none}}
