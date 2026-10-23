@@ -3,28 +3,28 @@ import { Reveal } from "../components/Reveal"
 const ITEMS = [
   {
     index: "01",
-    label: "PRODUCTION",
+    label: "FREELANCE + PRODUCTION",
     href: "/production-management",
     linkText: "Production management",
-    copy: "Production assistance and management. Sourcing, scheduling, crew and logistics, handled end to end.",
+    copy: "Experienced on-set support, lighting, set builds, shoot planning and practical production management.",
   },
   {
     index: "02",
-    label: "AI & WORKFLOW AUTOMATION",
+    label: "BESPOKE SYSTEMS",
     href: "/ai-workflow-automation",
     linkText: "AI & workflow automation",
-    copy: "Internal tools that cut the manual handoffs between departments, so work moves without someone chasing it.",
+    copy: "Studio tools, automation and connected workflows designed around how your team actually works.",
   },
   {
     index: "03",
     label: "PHOTOGRAPHY",
     href: "/fashion-photography",
     linkText: "Fashion & product photography",
-    copy: "Studio and location photography, styling and physical production. Real sets, real garments, real light.",
+    copy: "Commercial photography and lighting for product, fashion and creative production. Available for freelance bookings.",
   },
   {
     index: "04",
-    label: "3D",
+    label: "3D + CGI",
     href: "/3d-product-rendering",
     linkText: "3D & CGI rendering",
     copy: "CGI product renders and 3D environments when a physical build isn't the answer.",
@@ -33,7 +33,7 @@ const ITEMS = [
 
 export function Capabilities() {
   return (
-    <section className="section" id="work">
+    <section className="section" id="services">
       <h2 className="sr-only">What Third Axis Creative does: production, AI and workflow automation, photography and 3D</h2>
       <Reveal>
         <div className="capabilities">
