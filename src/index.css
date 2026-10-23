@@ -794,3 +794,5 @@ button {
 .selected-info p{line-height:1.7;color:rgba(242,240,235,.72);margin:0}
 .selected-info a{font-size:.76rem;text-transform:uppercase;letter-spacing:.09em;font-weight:600;color:var(--mint);border-bottom:1px solid rgba(94,237,199,.35);padding-bottom:.35rem}
 @media(max-width:800px){.selected-heading{grid-template-columns:1fr;gap:1rem}.selected-grid{grid-template-columns:1fr}.selected-grid>.reveal:has(.selected-wide){grid-column:auto}.selected-wide{grid-template-columns:1fr;grid-template-rows:auto 1fr}.selected-media{min-height:270px}.selected-info{padding:1.5rem}.selected-placeholder strong{font-size:clamp(2.7rem,11vw,5rem)}}
+
+.sample-concept-figure{margin:0;min-width:0}.sample-concept-frame{overflow:hidden;border:1px solid rgba(242,240,235,.2);background:#0b1417;box-shadow:0 20px 70px rgba(0,0,0,.25)}.sample-concept-frame img{display:block;width:100%;height:auto}.sample-concept-figure figcaption{padding-top:12px;font-size:.66rem;letter-spacing:.13em;color:var(--brass);font-weight:600}
