@@ -878,3 +878,11 @@ button {
  .hero-family-links { margin-top:.6rem; }
 }
 @media(prefers-reduced-motion:reduce){.hero-family-links a{transition:none}}
+
+/* Exact supplied SVG wordmark; preserve its native proportions */
+.wordmark { display:inline-flex; align-items:center; width:clamp(135px,15vw,192px); min-width:0; }
+.wordmark .brand-logo { display:block; width:100%; height:auto; max-height:65px; object-fit:contain; object-position:left center; }
+@media(max-width:700px) {
+  .wordmark { width:145px; }
+  .wordmark .brand-logo { max-height:58px; }
+}
