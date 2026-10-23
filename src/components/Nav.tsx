@@ -30,10 +30,7 @@ export function Nav() {
     <>
       <header className={`nav ${scrolled ? "scrolled" : ""}`}>
         <a href="#top" className="wordmark" onClick={() => setOpen(false)}>
-          <span>THIRD AXIS</span>
-          <span>
-            CREATIVE&nbsp;<b>//</b>
-          </span>
+          <img src="/third-axis-creative-white.svg" alt="Third Axis Creative" className="brand-logo" />
         </a>
         <nav className="nav-links-desktop">
           {LINKS.map((l) => (
