@@ -14,13 +14,19 @@ export function Contact() {
   const [email,setEmail] = useState("")
   const [subject,setSubject] = useState(subjects[0].value)
   const [message,setMessage] = useState("")
-  const [prepared,setPrepared] = useState(false)
-  function prepare(event: React.FormEvent<HTMLFormElement>) {
+  const [status,setStatus] = useState("")\n  const [sending,setSending] = useState(false)
+  async function prepare(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    const body = `Name: ${name.trim()}\nEmail: ${email.trim()}\nProject: ${subject}\n\n${message.trim()}`
-    const url = `mailto:hello@thirdaxis.co.uk?subject=${encodeURIComponent("Third Axis enquiry // " + subject)}&body=${encodeURIComponent(body)}`
-    setPrepared(true)
-    window.location.href = url
+    setSending(true)
+    setStatus("")
+    try {
+      const response = await fetch("/api/contact", {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({site:"thirdaxis",name,email,subject,message,website:""})})
+      if (!response.ok) throw new Error("Delivery unavailable")
+      setStatus("Thanks — your enquiry has been sent. We'll be in touch.")
+      setName("");setEmail("");setMessage("")
+    } catch {
+      setStatus("We couldn't send that just yet. Please email hello@thirdaxis.co.uk directly.")
+    } finally { setSending(false) }
   }
   return <section className="section contact" id="contact">
     <div className="eyebrow" style={{color:"var(--brass)"}}>LET'S MAKE SOMETHING WORK.</div>
@@ -34,10 +40,8 @@ export function Contact() {
         </div>
         <label>What can we help with?<select value={subject} onChange={e=>setSubject(e.target.value)}>{subjects.map(item=><option key={item.value} value={item.value}>{item.label}</option>)}</select></label>
         <label>Tell us about it<textarea required minLength={10} maxLength={4000} rows={5} value={message} onChange={e=>setMessage(e.target.value)} placeholder="A little about your project, timescales, or the problem you're trying to solve…" /></label>
-        <button type="submit" className="btn btn-primary">OPEN EMAIL TO SEND ↗</button>
-        <p className="contact-form-note">This opens your email app with your enquiry prepared. Please press Send there — nothing is submitted automatically.</p>
-        {prepared && <p className="contact-form-note" role="status">Your email should be ready in your email app. If it didn't open, email us directly at <a href="mailto:hello@thirdaxis.co.uk">hello@thirdaxis.co.uk</a>.</p>}
-      </form>
+        <button type="submit" disabled={sending} className="btn btn-primary">{sending ? "SENDING…" : "SEND ENQUIRY ↗"}</button>
+        {status && <p className="contact-form-note" role="status">{status}</p>}\n      </form>
       <aside className="contact-aside"><span className="eyebrow">DIRECT CONTACT</span><a className="display contact-email" href="mailto:hello@thirdaxis.co.uk">HELLO@THIRDAXIS.CO.UK ↗</a><p>Prefer an email? That's absolutely fine. Based in Peterborough, working with creative teams and brands across the UK.</p><span className="contact-coords">52.6326° N &nbsp; 0.2864° W · PETERBOROUGH, UK</span></aside>
     </div>
   </section>
