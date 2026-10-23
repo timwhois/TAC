@@ -15,26 +15,19 @@ export function Hero() {
   return (
     <section className="hero" id="top">
       <div className="hero-copy">
-        <div className="eyebrow">PETERBOROUGH, UK · PRODUCTION STUDIO</div>
+        <div className="eyebrow">PETERBOROUGH, UK · CREATIVE PRODUCTION + TECHNOLOGY</div>
         <h1 className="display hero-title">
-          PRODUCTION.{" "}
-          <span className={`glitch ${play ? "play" : ""}`} data-text="AUTOMATION.">
-            AUTOMATION.
+          CREATIVE{" "
+          <span className={`glitch ${play ? "play" : ""}`} data-text="THINKING.">
+            THINKING.
           </span>
           <br />
-          PHOTOGRAPHY. 3D.
+          TECHNICAL EXECUTION.
         </h1>
-        <p className="hero-sub">
-          Third Axis Creative is the production studio behind Shootless and The Rail. We handle
-          production management, build the internal tools that automate the boring parts, shoot
-          the photography and model the 3D, plus bespoke systems like{" "}
-          <span className="highlight">sample tracking</span> in between. Whatever moves your
-          product from concept to campaign, we can build it, shoot it, or{" "}
-          <span className="highlight">automate it</span>.
-        </p>
+        <p className="hero-sub">Independent creative production with real studio experience behind it. <span className="highlight">Commercial photography, freelance production, AI imaging, 3D and bespoke systems.</span> Whether you need an extra pair of hands on set or a smarter way to run production, we make ideas work in the real world.</p>
         <div className="hero-cta-row">
           <a className="btn btn-primary" href="#work">
-            See The Work
+            Explore Selected Work
           </a>
           <a className="btn btn-outline" href="#contact">
             Get In Touch
