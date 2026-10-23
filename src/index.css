@@ -834,3 +834,24 @@ button {
 .contact-aside{display:flex;flex-direction:column;gap:1.5rem;align-items:flex-start}
 .contact-aside .contact-email{font-size:clamp(1.7rem,3.2vw,2.8rem);overflow-wrap:anywhere;word-break:normal}
 .contact-aside p{line-height:1.65;color:rgba(242,240,235,.7)}
+
+/* 2026 family visual system: editorial geometry, restrained accents */
+.hero { position:relative; min-height:min(790px,calc(100svh - 84px)); overflow:hidden; isolation:isolate; }
+.hero::before { content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; background:radial-gradient(ellipse at 88% 26%,rgba(176,141,87,.11),transparent 48%),linear-gradient(110deg,transparent 62%,rgba(176,141,87,.055) 62.1%,transparent 62.3%); }
+.hero::after { content:"// 01 — CREATIVE PRODUCTION"; position:absolute; bottom:20px; right:var(--edge); font:500 10px/1.4 var(--font-body); letter-spacing:.18em; color:rgba(242,240,235,.36); }
+.hero-copy { position:relative; }
+.hero-copy::before { content:""; display:block; width:58px; height:3px; background:var(--brass); margin-bottom:4px; }
+.hero-title { max-width:1000px; text-wrap:balance; }
+.hero-sub { border-left:1px solid rgba(176,141,87,.55); padding-left:clamp(14px,2vw,24px); max-width:660px; }
+.hero-cta-row .btn { transition:transform .25s ease,background .25s ease,border-color .25s ease; }
+.hero-cta-row .btn:hover { transform:translateY(-3px); }
+.nav { backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
+@media(max-width:640px) {
+ .hero { min-height:auto; padding-top:clamp(70px,11vh,120px); padding-bottom:96px; }
+ .hero-title { font-size:clamp(3.25rem,12vw,5.3rem); line-height:.91; }
+ .hero-sub { font-size:1rem; line-height:1.7; }
+ .hero-cta-row { width:100%; }
+ .hero-cta-row .btn { min-height:52px; display:inline-flex; align-items:center; justify-content:center; }
+ .hero::after { left:var(--edge); right:auto; }
+}
+@media(prefers-reduced-motion:reduce){.hero-cta-row .btn{transition:none}}
