@@ -23,8 +23,8 @@ function App() {
           index="01"
           labelColor="var(--orange)"
           title="SHOOTLESS."
-          copy="Shootless turns garment photography into fully modelled, campaign-ready imagery — using structured references and a controlled production workflow. Built for brands exploring flexible ways to extend their visual content."
-          ctaLabel="Visit Shootless.co.uk"
+          copy="A Third Axis Creative imaging venture. Shootless explores a more controlled way to produce AI fashion and ecommerce imagery — combining studio experience, structured garment references and production-led creative direction."
+          ctaLabel="Explore Shootless Studio ↗"
           ctaHref="https://www.shootless.co.uk"
           ctaClass="btn-outline-cream"
           stats={[
@@ -65,7 +65,7 @@ function App() {
           ))}
         </nav>
         <div className="footer-row">
-          <span>© 2026 THIRD AXIS CREATIVE · PETERBOROUGH, UK</span>
+          <span>© 2026 THIRD AXIS CREATIVE · PETERBOROUGH, UK · INDEPENDENT CREATIVE PRODUCTION & TECHNOLOGY</span>
           <div className="footer-links">
             <a href="https://www.shootless.co.uk" target="_blank" rel="noopener noreferrer">
               SHOOTLESS
