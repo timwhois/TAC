@@ -934,3 +934,48 @@ button {
  .hero-sidecard p { margin:8px 0; font-size:15px; }
  .hero-sidecard a { margin-top:10px; }
 }
+
+/* CINEMATIC SCROLL — THIRD AXIS, shared motion language with Shootless */
+.axis-film { height:300svh; position:relative; background:#081b16; color:#f2f0eb; }
+.axis-film-sticky { position:sticky; top:0; height:100svh; min-height:570px; overflow:hidden; isolation:isolate; background:radial-gradient(ellipse at 75% 52%,rgba(47,169,118,.16),transparent 56%),linear-gradient(140deg,#07100e,#0c221a 65%,#081610); }
+.axis-film-grid { position:absolute; inset:0; opacity:.3; pointer-events:none; background-image:linear-gradient(rgba(47,169,118,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(47,169,118,.14) 1px,transparent 1px); background-size:80px 80px; mask-image:linear-gradient(to right,transparent 10%,black 90%); }
+.axis-film-topline,.axis-film-bottom { position:absolute; left:var(--edge); right:var(--edge); z-index:4; display:flex; justify-content:space-between; gap:18px; font-size:10px; font-weight:700; letter-spacing:.16em; color:#a4bdb0; }
+.axis-film-topline { top:clamp(104px,14vh,145px); border-top:1px solid rgba(47,169,118,.6); padding-top:16px; }
+.axis-film-topline b { color:#f3a12a; }
+.axis-film-bottom { bottom:clamp(22px,4vh,44px); border-top:1px solid rgba(255,255,255,.17); padding-top:15px; }
+.axis-film-progress { position:absolute; top:0; left:0; right:0; height:3px; background:rgba(255,255,255,.1); z-index:8; }
+.axis-film-progress span { display:block; height:100%; width:100%; background:#2fa976; transform-origin:left; }
+.axis-film-panel { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:clamp(145px,20vh,200px) var(--edge) 90px; will-change:opacity,transform; }
+.axis-film-kicker { color:#2fa976; font-size:clamp(10px,1vw,13px); font-weight:750; letter-spacing:.2em; margin-bottom:clamp(22px,4vh,42px); }
+.axis-film-dot { display:inline-block; width:7px; height:7px; background:#f3a12a; border-radius:50%; margin-right:10px; }
+.axis-film-panel h1,.axis-film-panel h2 { font-family:var(--font-display); font-weight:400; font-size:clamp(65px,10.1vw,175px); line-height:.88; letter-spacing:-.012em; margin:0; max-width:1500px; }
+.axis-film-panel h2 { font-size:clamp(74px,11vw,185px); }
+.axis-film-panel h1 em,.axis-film-panel h2 em { font-style:normal; color:#2fa976; }
+.axis-film-panel-three h2 em { color:#f3a12a; }
+.axis-film-panel p { font-size:clamp(15px,1.4vw,20px); line-height:1.65; color:#c6d8cd; max-width:610px; margin:clamp(18px,3vh,34px) 0 0; }
+.axis-film-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(20px,3vh,36px); }
+.axis-film-actions a { display:flex; align-items:center; justify-content:space-between; gap:32px; padding:17px 23px; font-size:11px; font-weight:800; letter-spacing:.1em; border:1px solid #2fa976; min-height:52px; }
+.axis-film-actions a:first-child { background:#2fa976; color:#06150f; }
+.axis-film-actions a:last-child { color:#f2f0eb; }
+.axis-film-actions a:hover { background:#f3a12a; border-color:#f3a12a; color:#111; }
+.axis-film-textlink { display:inline-block; margin-top:30px; padding-bottom:12px; border-bottom:1px solid #f3a12a; color:#f3a12a; font-size:12px; font-weight:800; letter-spacing:.13em; }
+.axis-film-shootless { display:block; width:clamp(140px,19vw,300px); max-height:80px; object-fit:contain; object-position:left; margin-bottom:25px; }
+@media(max-width:700px) {
+ .axis-film-sticky { min-height:0; }
+ .axis-film-topline { top:92px; font-size:8px; line-height:1.5; }
+ .axis-film-topline span:last-child { max-width:115px; text-align:right; }
+ .axis-film-panel { padding:145px 24px 90px; justify-content:center; }
+ .axis-film-panel h1,.axis-film-panel h2 { font-size:clamp(58px,13vw,95px); line-height:.91; }
+ .axis-film-panel p { font-size:15px; line-height:1.55; max-width:33ch; }
+ .axis-film-bottom { font-size:8px; }
+ .axis-film-bottom span:first-child { display:none; }
+ .axis-film-actions { width:100%; }
+ .axis-film-actions a { padding:13px 14px; gap:12px; font-size:10px; }
+ .axis-film-shootless { width:180px; margin-bottom:20px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .axis-film { height:auto; }
+ .axis-film-sticky { position:relative; height:auto; min-height:0; overflow:visible; padding-top:100px; }
+ .axis-film-panel { position:relative; opacity:1 !important; transform:none !important; pointer-events:auto !important; min-height:80vh; padding-top:100px; }
+ .axis-film-bottom,.axis-film-progress { display:none; }
+}
