@@ -2,10 +2,10 @@
   --cream: #f2f0eb;
   --black: #0a0a0c;
   --forest: #082821;
-  --orange: #f26421;
+  --orange: #f3a12a;
   --navy: #042f43;
-  --mint: #5eedc7;
-  --brass: #b08d57;
+  --mint: #2fa976;
+  --brass: #2fa976;
 
   --font-display: "Bebas Neue", "Arial Narrow", sans-serif;
   --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
@@ -885,4 +885,30 @@ button {
 @media(max-width:700px) {
   .wordmark { width:145px; }
   .wordmark .brand-logo { max-height:58px; }
+}
+
+/* THIRD AXIS / SHOOTLESS FAMILY SYSTEM — source-of-truth brand SVG palette
+   Family green #2FA976 | Family amber #F3A12A | ink #1A1A1A | white #FFFFFF
+   Third Axis leads with green; Shootless leads with amber. */
+:root { --family-green:#2FA976; --family-amber:#F3A12A; --family-ink:#1A1A1A; --family-white:#FFFFFF; }
+.hero { min-height:auto; padding-block:clamp(2.5rem,6vw,6rem); }
+.hero-copy { max-width:1050px; }
+.hero-kicker { color:var(--family-green); }
+.hero-kicker-cross, .hero-family-links b { color:var(--family-amber); }
+.hero .hero-title { font-size:clamp(3.8rem,9.2vw,9rem); }
+.hero .hero-sub { border-color:var(--family-green); }
+.hero-cta-row .btn-primary { background:var(--family-green); border-color:var(--family-green); color:#08130e; }
+.hero-cta-row .btn-primary:hover { background:#54bf91; }
+.hero-cta-row .btn-outline { border-color:var(--family-amber); }
+.hero-cta-row .btn-outline:hover { background:var(--family-amber); color:var(--family-ink); }
+.hero-family-links { border-top:1px solid rgba(47,169,118,.42); padding-top:18px; }
+.hero-family-links a { color:var(--family-amber); }
+.nav.scrolled { border-bottom-color:rgba(47,169,118,.35); }
+::selection { background:var(--family-green); color:var(--family-ink); }
+@media(max-width:700px){
+  .hero { padding-top:clamp(1.8rem,5vh,3.5rem); padding-bottom:4rem; }
+  .hero .hero-title { font-size:clamp(3.2rem,10.8vw,5.6rem); line-height:.94; }
+  .hero .hero-sub { font-size:clamp(.94rem,3.7vw,1.1rem); line-height:1.55; }
+  .hero-cta-row { margin-top:1rem; }
+  .hero-cta-row .btn { min-height:54px; }
 }
