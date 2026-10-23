@@ -912,3 +912,25 @@ button {
   .hero-cta-row { margin-top:1rem; }
   .hero-cta-row .btn { min-height:54px; }
 }
+
+/* UNIFIED FAMILY / EDITORIAL GRID V1 */
+.family-overline { display:flex; justify-content:space-between; gap:16px; border-top:1px solid rgba(47,169,118,.6); padding-top:16px; margin-bottom:clamp(28px,5vw,64px); color:#b7c8bf; font-size:10px; letter-spacing:.15em; font-weight:650; }
+.hero { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(260px,.62fr); align-items:stretch; gap:clamp(30px,5vw,90px); min-height:min(820px,calc(100svh - 80px)); }
+.hero-copy { align-self:center; }
+.hero-sidecard { display:flex; flex-direction:column; justify-content:flex-end; align-self:stretch; padding:clamp(26px,3vw,44px); background:linear-gradient(150deg,#103e30,#082821 72%); border:1px solid rgba(47,169,118,.42); border-radius:2px; min-height:450px; position:relative; }
+.hero-sidecard:before { content:""; position:absolute; top:22px; right:22px; width:24px; height:24px; border-top:2px solid var(--family-amber); border-right:2px solid var(--family-amber); }
+.hero-sidecard-index { position:absolute; top:34px; left:clamp(26px,3vw,44px); color:#8fb3a2; font-size:10px; letter-spacing:.16em; }
+.hero-sidecard img { width:100%; max-width:280px; height:auto; margin-bottom:28px; }
+.hero-sidecard p { color:#d3e2d9; font-size:clamp(15px,1.5vw,19px); line-height:1.5; max-width:28ch; }
+.hero-sidecard a { margin-top:26px; padding-top:16px; border-top:1px solid rgba(255,255,255,.25); display:flex; justify-content:space-between; font-size:12px; letter-spacing:.12em; color:var(--family-amber); font-weight:700; }
+.hero-sidecard a:hover { color:white; }
+@media(max-width:850px) {
+ .hero { display:flex; flex-direction:column; gap:24px; min-height:auto; }
+ .family-overline { font-size:9px; margin-bottom:24px; }
+ .family-overline span:last-child { text-align:right; }
+ .hero-sidecard { min-height:230px; padding:24px; }
+ .hero-sidecard-index { top:20px; left:24px; }
+ .hero-sidecard img { max-width:210px; margin-top:45px; margin-bottom:6px; }
+ .hero-sidecard p { margin:8px 0; font-size:15px; }
+ .hero-sidecard a { margin-top:10px; }
+}
