@@ -796,3 +796,41 @@ button {
 @media(max-width:800px){.selected-heading{grid-template-columns:1fr;gap:1rem}.selected-grid{grid-template-columns:1fr}.selected-grid>.reveal:has(.selected-wide){grid-column:auto}.selected-wide{grid-template-columns:1fr;grid-template-rows:auto 1fr}.selected-media{min-height:270px}.selected-info{padding:1.5rem}.selected-placeholder strong{font-size:clamp(2.7rem,11vw,5rem)}}
 
 .sample-concept-figure{margin:0;min-width:0}.sample-concept-frame{overflow:hidden;border:1px solid rgba(242,240,235,.2);background:#0b1417;box-shadow:0 20px 70px rgba(0,0,0,.25)}.sample-concept-frame img{display:block;width:100%;height:auto}.sample-concept-figure figcaption{padding-top:12px;font-size:.66rem;letter-spacing:.13em;color:var(--brass);font-weight:600}
+
+
+/* Project detail experiences */
+.selected-open{display:block;width:100%;padding:0;border:0;background:transparent;color:inherit;text-align:left;cursor:pointer;font:inherit}
+.selected-open:focus-visible,.selected-detail-link:focus-visible,.project-close:focus-visible{outline:2px solid var(--brass);outline-offset:4px}
+.selected-detail-link{border:0;background:none;padding:0;color:var(--cream);font:inherit;font-size:.85rem;letter-spacing:.04em;cursor:pointer;text-align:left}
+.selected-detail-link:hover{color:var(--brass)}
+.project-backdrop{position:fixed;inset:0;z-index:100;overflow-y:auto;background:rgba(0,0,0,.86);padding:clamp(1rem,4vw,3rem);display:flex;align-items:flex-start;justify-content:center}
+.project-dialog{position:relative;width:min(1100px,100%);background:#151618;border:1px solid rgba(242,240,235,.2);padding:clamp(1.5rem,4vw,3rem);margin:auto 0;box-shadow:0 30px 100px rgba(0,0,0,.5)}
+.project-dialog h2{font-size:clamp(2.5rem,6vw,5.5rem);margin:1rem 3rem 2rem 0}
+.project-close{position:absolute;right:1rem;top:.8rem;background:none;border:0;color:var(--cream);font-size:2.5rem;line-height:1;cursor:pointer}
+.project-dialog-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+@media(min-width:850px){.project-dialog-grid{grid-template-columns:1.2fr 1fr}}
+.project-dialog-media{background:#101112;align-self:start}
+.project-dialog-media img{width:100%;height:auto}
+.project-dialog-copy h3{font-size:.76rem;letter-spacing:.15em;color:var(--brass);margin:0 0 .5rem}
+.project-dialog-copy p{line-height:1.65;color:rgba(242,240,235,.8);margin:0 0 1.6rem}
+.project-dialog-copy ul{line-height:1.8;padding-left:1.2rem;margin:0 0 2rem}
+.project-concept{font-size:.72rem;letter-spacing:.08em;color:var(--brass);margin:-1rem 0 2rem}
+/* Guided contact enquiries */
+.contact-heading{font-size:clamp(2.5rem,6vw,5rem);margin:0}
+.contact-intro{max-width:660px;line-height:1.65;color:rgba(242,240,235,.75);margin:0}
+.contact-layout{width:100%;max-width:1100px;display:grid;grid-template-columns:1fr;gap:3rem;text-align:left;margin-top:1.3rem}
+@media(min-width:900px){.contact-layout{grid-template-columns:1.35fr 1fr;gap:5rem}}
+.contact-form{display:flex;flex-direction:column;gap:1.2rem}
+.contact-field-row{display:grid;grid-template-columns:1fr;gap:1.2rem}
+@media(min-width:650px){.contact-field-row{grid-template-columns:1fr 1fr}}
+.contact-form label{display:flex;flex-direction:column;gap:.5rem;font-size:.78rem;font-weight:600;letter-spacing:.04em}
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;border:1px solid rgba(242,240,235,.3);border-radius:0;background:#17181a;color:var(--cream);padding:1rem;font:inherit;font-size:.95rem;line-height:1.4}
+.contact-form select option{background:#17181a;color:var(--cream)}
+.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{outline:2px solid var(--brass);outline-offset:1px}
+.contact-form textarea{resize:vertical}
+.contact-form .btn{align-self:flex-start;cursor:pointer}
+.contact-form-note{font-size:.78rem;line-height:1.6;color:rgba(242,240,235,.6);margin:0}
+.contact-form-note a{text-decoration:underline}
+.contact-aside{display:flex;flex-direction:column;gap:1.5rem;align-items:flex-start}
+.contact-aside .contact-email{font-size:clamp(1.7rem,3.2vw,2.8rem);overflow-wrap:anywhere;word-break:normal}
+.contact-aside p{line-height:1.65;color:rgba(242,240,235,.7)}
