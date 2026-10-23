@@ -3,6 +3,7 @@ import { Capabilities } from "./sections/Capabilities"
 import { Contact } from "./sections/Contact"
 import { Hero } from "./sections/Hero"
 import { SampleSystems } from "./sections/SampleSystems"
+import { SelectedWork } from "./sections/SelectedWork"
 import { Showcase } from "./sections/Showcase"
 import SERVICES from "./services.json"
 
@@ -14,6 +15,7 @@ function App() {
       <main>
         <Hero />
         <Capabilities />
+        <SelectedWork />
 
         <Showcase
           id="shootless"
@@ -21,14 +23,14 @@ function App() {
           index="01"
           labelColor="var(--orange)"
           title="SHOOTLESS."
-          copy="Shootless turns garment photography into fully modelled, campaign-ready imagery — without booking a model, a studio, or a single day of physical production. Built by Third Axis Creative for brands who need content faster than a shoot allows."
+          copy="Shootless turns garment photography into fully modelled, campaign-ready imagery — using structured references and a controlled production workflow. Built for brands exploring flexible ways to extend their visual content."
           ctaLabel="Visit Shootless.co.uk"
           ctaHref="https://www.shootless.co.uk"
           ctaClass="btn-outline-cream"
           stats={[
-            { num: "HRS", label: "Not Weeks" },
-            { num: "0", label: "Studio Bookings" },
-            { num: "1→∞", label: "Placements Per Shoot" },
+            { num: "AI", label: "Imaging workflows" },
+            { num: "PDP", label: "Product imagery" },
+            { num: "CAMPAIGN", label: "Creative concepts" },
           ]}
         />
 
