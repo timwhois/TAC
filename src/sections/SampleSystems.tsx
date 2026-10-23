@@ -1,12 +1,5 @@
 import { Reveal } from "../components/Reveal"
 
-const ROWS = [
-  { id: "TA-0231", style: "Oversized Hoodie — Navy", status: "IN STUDIO", statusClass: "mint", location: "Studio B — Rail 2" },
-  { id: "TA-0198", style: "Cargo Pant — Olive", status: "WITH STYLIST", statusClass: "orange", location: "Sarah K." },
-  { id: "TA-0227", style: "Crew Tee — Cream", status: "IN TRANSIT", statusClass: "brass", location: "Courier → Studio" },
-  { id: "TA-0184", style: "Shell Jacket — Black", status: "RETURNED", statusClass: "muted", location: "Sample Wall — A4" },
-]
-
 export function SampleSystems() {
   return (
     <section className="section" id="systems">
