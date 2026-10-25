@@ -20,35 +20,6 @@ export function Hero() {
     return () => observer.disconnect()
   }, [])
 
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 700px)").matches) return
-    const panels = Array.from(document.querySelectorAll<HTMLElement>(".axis-film-panel"))
-    let lockedUntil = 0
-    const onWheel = (event: WheelEvent) => {
-      if (event.ctrlKey || Math.abs(event.deltaY) < 5) return
-      const now = performance.now()
-      if (now < lockedUntil) {
-        const current = panels.some(p => { const b = p.getBoundingClientRect(); return b.top < window.innerHeight && b.bottom > 0 })
-        if (current) event.preventDefault()
-        return
-      }
-      const direction = Math.sign(event.deltaY)
-      const viewport = window.innerHeight
-      const currentIndex = panels.findIndex(p => {
-        const b = p.getBoundingClientRect()
-        return b.top <= viewport * .45 && b.bottom >= viewport * .45
-      })
-      if (currentIndex < 0) return
-      const next = currentIndex + direction
-      if (next < 0 || next >= panels.length) return
-      event.preventDefault()
-      lockedUntil = now + 800
-      panels[next].scrollIntoView({ behavior:"smooth", block:"start" })
-    }
-    window.addEventListener("wheel", onWheel, { passive:false })
-    return () => window.removeEventListener("wheel", onWheel)
-  }, [])
-
   return (
     <section className="axis-film" id="top" aria-label="Third Axis Creative introduction">
       <div className="axis-film-sticky">
