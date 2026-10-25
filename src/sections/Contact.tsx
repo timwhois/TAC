@@ -34,7 +34,7 @@ export function Contact() {
     <Reveal><h2 className="display contact-heading">TELL US WHAT YOU'RE WORKING ON.</h2></Reveal>
     <p className="contact-intro">A shoot, a visual idea or a production bottleneck — tell us a little about it. We'll start with a conversation, not a sales pitch.</p>
     <div className="contact-layout">
-      <form className="contact-form" onSubmit={prepare}>
+      <form id="contact-form" className="contact-form" onSubmit={prepare}>
         <div className="contact-field-row">
           <label>Your name<input required autoComplete="name" maxLength={120} value={name} onChange={e=>setName(e.target.value)} placeholder="Your name" /></label>
           <label>Email address<input required type="email" autoComplete="email" maxLength={254} value={email} onChange={e=>setEmail(e.target.value)} placeholder="you@company.co.uk" /></label>
@@ -44,7 +44,7 @@ export function Contact() {
         <button type="submit" disabled={sending} className="btn btn-primary">{sending ? "SENDING…" : "SEND ENQUIRY ↗"}</button>
         {status && <p className="contact-form-note" role="status">{status}</p>}
       </form>
-      <aside className="contact-aside"><span className="eyebrow">DIRECT CONTACT</span><a className="display contact-email" href="mailto:hello@thirdaxis.co.uk">HELLO@THIRDAXIS.CO.UK ↗</a><p>Prefer an email? That's absolutely fine. Based in Peterborough, working with creative teams and brands across the UK.</p><span className="contact-coords">52.6326° N &nbsp; 0.2864° W · PETERBOROUGH, UK</span></aside>
+      <aside className="contact-aside"><span className="eyebrow">HAVE AN IDEA?</span><a className="display contact-email" href="#contact-form">LET’S MAKE IT HAPPEN. ↗</a><p>Big ideas, small challenges, and everything in between. Tell us what you’re working on using the form. Based in Peterborough, collaborating with brands and creative teams across the UK.</p><span className="contact-coords">52.6326° N &nbsp; 0.2864° W · PETERBOROUGH, UK</span></aside>
     </div>
   </section>
 }
