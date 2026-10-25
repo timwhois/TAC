@@ -42,7 +42,8 @@ export function Contact() {
         <label>What can we help with?<select value={subject} onChange={e=>setSubject(e.target.value)}>{subjects.map(item=><option key={item.value} value={item.value}>{item.label}</option>)}</select></label>
         <label>Tell us about it<textarea required minLength={10} maxLength={4000} rows={5} value={message} onChange={e=>setMessage(e.target.value)} placeholder="A little about your project, timescales, or the problem you're trying to solve…" /></label>
         <button type="submit" disabled={sending} className="btn btn-primary">{sending ? "SENDING…" : "SEND ENQUIRY ↗"}</button>
-        {status && <p className="contact-form-note" role="status">{status}</p>}\n      </form>
+        {status && <p className="contact-form-note" role="status">{status}</p>}
+      </form>
       <aside className="contact-aside"><span className="eyebrow">DIRECT CONTACT</span><a className="display contact-email" href="mailto:hello@thirdaxis.co.uk">HELLO@THIRDAXIS.CO.UK ↗</a><p>Prefer an email? That's absolutely fine. Based in Peterborough, working with creative teams and brands across the UK.</p><span className="contact-coords">52.6326° N &nbsp; 0.2864° W · PETERBOROUGH, UK</span></aside>
     </div>
   </section>
