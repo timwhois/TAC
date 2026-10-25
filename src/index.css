@@ -1519,3 +1519,12 @@ html,body { overflow-x:clip; }
 @media (prefers-reduced-motion:reduce) {
   html { scroll-behavior:auto !important; }
 }
+
+/* Keep the concept-to-reality feature comfortably inside one desktop viewport. */
+@media (min-width:701px) {
+  .concept-reality {
+    height: min(720px, calc(100dvh - var(--axis-nav-height, 82px) - 90px)) !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+}
