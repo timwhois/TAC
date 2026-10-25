@@ -1218,3 +1218,28 @@ button {
   .concept-reality-caption h3 { font-size:clamp(44px,10vw,72px); }
   .concept-reality-media { height:auto; aspect-ratio:16/10; }
 }
+
+/* First-chapter scroll cue: keep visible above the fold on laptop screens. */
+.axis-film-panel-one { position:relative; }
+.axis-scroll-cue {
+  position:absolute;
+  left:var(--edge);
+  bottom:clamp(20px,5vh,48px);
+  z-index:10;
+  display:inline-flex;
+  align-items:center;
+  gap:18px;
+  color:#b8cfc3;
+  font-size:11px;
+  font-weight:750;
+  letter-spacing:.16em;
+  text-decoration:none;
+  border-top:1px solid rgba(47,169,118,.55);
+  padding-top:14px;
+}
+.axis-scroll-cue span:last-child { color:#2fa976; font-size:22px; line-height:1; }
+.axis-scroll-cue:hover { color:#fff; }
+.axis-film-bottom { display:none; }
+@media(max-width:700px) {
+  .axis-scroll-cue { left:24px; bottom:25px; font-size:9px; }
+}
