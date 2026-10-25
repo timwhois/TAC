@@ -1515,3 +1515,10 @@ html,body { overflow-x:clip; }
 @media(prefers-reduced-motion:reduce) {
   html,body { scroll-snap-type:none !important; }
 }
+
+/* Section navigation is handled by the standalone wheel/settle controller.
+   Disable native snapping to prevent competing scroll destinations. */
+@media (min-width:701px) {
+  html, body { scroll-snap-type:none !important; }
+  .axis-film-panel, main > section { scroll-snap-align:none !important; }
+}
