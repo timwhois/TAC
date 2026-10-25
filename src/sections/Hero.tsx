@@ -1,4 +1,25 @@
+import { useEffect } from "react"
+
 export function Hero() {
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+    const chapters = Array.from(document.querySelectorAll<HTMLElement>(".axis-film-panel-two, .axis-film-panel-three"))
+    if (!("IntersectionObserver" in window)) return
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("axis-chapter-visible")
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" })
+    chapters.forEach((chapter) => {
+      chapter.classList.add("axis-chapter-animate")
+      observer.observe(chapter)
+    })
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section className="axis-film" id="top" aria-label="Third Axis Creative introduction">
       <div className="axis-film-sticky">
