@@ -1259,3 +1259,35 @@ button {
   .axis-film-panel { scroll-snap-align:start; scroll-snap-stop:normal; }
   main > .section, main > section:not(.axis-film) { scroll-snap-align:start; scroll-margin-top:72px; }
 }
+
+/* Viewport chapter alignment: account for the real navigation height. */
+:root { --axis-nav-height: 82px; }
+.nav { min-height:var(--axis-nav-height); }
+.axis-film-panel {
+  box-sizing:border-box;
+  min-height:100dvh !important;
+  padding:clamp(55px,8vh,95px) var(--edge) !important;
+  justify-content:center !important;
+}
+.axis-film-panel-one {
+  min-height:calc(100dvh - var(--axis-nav-height)) !important;
+  padding-top:clamp(50px,8vh,90px) !important;
+  padding-bottom:clamp(70px,11vh,110px) !important;
+}
+.axis-film-topline { top:clamp(22px,4vh,42px); }
+.axis-scroll-cue { bottom:clamp(16px,3vh,30px); }
+@media(min-width:701px) and (prefers-reduced-motion:no-preference) {
+  html { scroll-snap-type:y mandatory; scroll-padding-top:0; }
+  .axis-film-panel { scroll-snap-align:start; scroll-snap-stop:always; }
+  main > section:not(.axis-film) { scroll-snap-align:start; scroll-snap-stop:normal; scroll-margin-top:var(--axis-nav-height); }
+}
+@media(max-width:700px) {
+  :root { --axis-nav-height:72px; }
+  .axis-film-panel { min-height:100svh !important; padding:clamp(95px,15vh,135px) 24px clamp(70px,10vh,100px) !important; }
+  .axis-film-panel-one { min-height:calc(100svh - var(--axis-nav-height)) !important; padding-top:clamp(95px,15vh,135px) !important; padding-bottom:75px !important; }
+  .axis-film-topline { top:20px; }
+  .axis-scroll-cue { bottom:14px; }
+  html { scroll-snap-type:y proximity; scroll-padding-top:0; }
+  .axis-film-panel { scroll-snap-align:start; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-snap-type:none; } }
