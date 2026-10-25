@@ -44,7 +44,7 @@ export function SelectedWork() {
           <div className="project-dialog-grid">
             <div className="project-dialog-media"><img src={active.image} alt={active.concept ? "Illustrative creative concept, not a completed client project" : active.type} onError={event => {event.currentTarget.style.display="none"}} /></div>
             <div className="project-dialog-copy"><h3>THE IDEA</h3><p>{active.overview}</p><h3>THE APPROACH</h3><p>{active.approach}</p><h3>WHAT WE CAN DELIVER</h3><ul>{active.deliverables.map(item => <li key={item}>{item}</li>)}</ul>
-              <a className="btn btn-primary" href={active.href === "#contact" ? `mailto:hello@thirdaxis.co.uk?subject=${encodeURIComponent(active.type + " enquiry")}` : active.href}>{active.cta} ↗</a>
+              <a className="btn btn-primary" href={active.href === "#contact" ? "#contact-form" : active.href} onClick={active.href === "#contact" ? () => setActive(null) : undefined}>{active.cta} ↗</a>
             </div>
           </div>
         </div>
