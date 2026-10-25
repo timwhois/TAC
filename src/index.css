@@ -1491,13 +1491,14 @@ html,body { overflow-x:clip; }
   }
 }
 
-/* Canonical browser-native snapping. Earlier rules accidentally disabled it. */
-@media (min-width:701px) and (prefers-reduced-motion:no-preference) {
+/* Single authoritative magnetic snapping configuration.
+   Proximity preserves natural wheel/touchpad scrolling and long-form reading.
+   Reduced-motion users still get alignment without animated movement. */
+@media (min-width:701px) {
   html {
     overflow-x:clip !important;
-    overflow-y:auto;
-    scroll-snap-type:y mandatory !important;
-    scroll-padding-top:var(--axis-nav-height,82px) !important;
+    scroll-snap-type:y proximity !important;
+    scroll-padding-top:0 !important;
   }
   body { overflow-x:clip !important; scroll-snap-type:none !important; }
   .axis-film-panel {
@@ -1512,13 +1513,9 @@ html,body { overflow-x:clip; }
   }
   .concept-reality { scroll-snap-align:none !important; }
 }
-@media(prefers-reduced-motion:reduce) {
+@media (max-width:700px) {
   html,body { scroll-snap-type:none !important; }
 }
-
-/* Section navigation is handled by the standalone wheel/settle controller.
-   Disable native snapping to prevent competing scroll destinations. */
-@media (min-width:701px) {
-  html, body { scroll-snap-type:none !important; }
-  .axis-film-panel, main > section { scroll-snap-align:none !important; }
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto !important; }
 }
