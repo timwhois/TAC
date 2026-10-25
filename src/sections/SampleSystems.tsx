@@ -34,9 +34,9 @@ export function SampleSystems() {
 
           <figure className="sample-concept-figure">
             <div className="sample-concept-frame">
-              <img src="/portfolio/sample-system-concept.png" alt="Concept dashboard for sample logistics showing line-by-line sample statuses, locations, production progress and an imagery drawer" loading="lazy" />
+              <img src="/portfolio/third-axis-14.webp" alt="Illustrative studio workflow transformation from fragmented paperwork to a connected production management system" loading="lazy" />
             </div>
-            <figcaption>CONCEPT // SAMPLE LOGISTICS &amp; PRODUCTION SYSTEM</figcaption>
+            <figcaption>CONCEPT VISUAL // BESPOKE STUDIO WORKFLOW</figcaption>
           </figure>
         </div>
       </Reveal>
