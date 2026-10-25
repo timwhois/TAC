@@ -39,7 +39,7 @@ export function Capabilities() {
         <div className="capabilities">
           {ITEMS.map((item) => (
             <div className="capability" key={item.index}>
-              <div className="capability-index">{item.index}</div>
+              <div className="capability-image"><img src={(["/portfolio/third-axis-02.webp", "/portfolio/third-axis-10.webp", "/portfolio/third-axis-08.webp", "/portfolio/third-axis-13.webp"])[Number(item.index)-1]} alt="" loading="lazy" /></div><div className="capability-index">{item.index}</div>
               <h3 className="capability-label">{item.label}</h3>
               <p>{item.copy}</p>
               <a className="capability-link" href={item.href}>
