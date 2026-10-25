@@ -1035,3 +1035,18 @@ button {
   .axis-film-panel h1 { font-size:clamp(48px,6vw,85px); }
   .axis-film-kicker { margin-bottom:14px; }
 }
+
+/* Stable scroll narrative: three real panels, never an empty sticky viewport. */
+.axis-film { height:auto !important; }
+.axis-film-sticky { position:relative !important; top:auto !important; height:auto !important; min-height:0 !important; overflow:visible !important; }
+.axis-film-panel { position:relative !important; inset:auto !important; min-height:92svh; opacity:1 !important; transform:none !important; pointer-events:auto !important; overflow:visible !important; display:flex; justify-content:center; padding-top:clamp(135px,17vh,190px) !important; padding-bottom:clamp(130px,17vh,185px) !important; }
+.axis-film-panel-two { background:linear-gradient(135deg,#091812,#10271e); border-top:1px solid rgba(47,169,118,.24); }
+.axis-film-panel-three { background:linear-gradient(135deg,#0d1b17,#17211a); border-top:1px solid rgba(243,161,42,.24); }
+.axis-film-bottom { top:calc(92svh - 105px); bottom:auto !important; }
+.axis-film-topline { top:clamp(88px,11vh,118px); }
+@media(max-width:700px) {
+  .axis-film-panel { min-height:90svh; padding:clamp(140px,18svh,190px) 24px 110px !important; justify-content:center !important; }
+  .axis-film-bottom { top:calc(90svh - 90px); bottom:auto !important; }
+  .axis-film-panel h1,.axis-film-panel h2 { font-size:clamp(39px,10vw,65px); }
+}
+@media(prefers-reduced-motion:reduce) { .axis-film-panel { min-height:0; } }
