@@ -1068,3 +1068,15 @@ button {
   .axis-film-panel.axis-chapter-animate > *:nth-child(3) { transition-delay:220ms; }
   .axis-film-panel.axis-chapter-animate > *:nth-child(4) { transition-delay:300ms; }
 }
+
+.concept-reality{display:block;position:relative;margin-top:clamp(48px,8vw,110px);background:#101b1a;color:#f5f2ea;text-decoration:none;overflow:hidden}
+.concept-reality-media{width:100%;aspect-ratio:16/9;overflow:hidden;background:#14232b}
+.concept-reality-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.concept-reality:hover .concept-reality-media img{transform:scale(1.025)}
+.concept-reality-caption{padding:clamp(25px,4.5vw,65px);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(240px,.7fr);gap:14px 35px;align-items:end}
+.concept-reality-caption>span{grid-column:1/-1;color:#2fa976;font-size:11px;font-weight:750;letter-spacing:.18em}
+.concept-reality-caption h3{margin:0;font-family:var(--font-display);font-size:clamp(46px,7.5vw,110px);line-height:.92;font-weight:400}
+.concept-reality-caption h3 em{font-style:normal;color:#2fa976}
+.concept-reality-caption p{margin:0;color:#c6d5cc;max-width:450px;line-height:1.6}
+.concept-reality-caption strong{grid-column:2;font-size:11px;letter-spacing:.12em;color:#f3a12a}
+@media(max-width:700px){.concept-reality-media{aspect-ratio:4/3}.concept-reality-caption{grid-template-columns:1fr;gap:20px}.concept-reality-caption>span,.concept-reality-caption strong{grid-column:1}.concept-reality-caption h3{font-size:clamp(46px,12vw,76px)}}
