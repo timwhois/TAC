@@ -1498,7 +1498,7 @@ html,body { overflow-x:clip; }
   html {
     overflow-x:clip !important;
     scroll-snap-type:y proximity !important;
-    scroll-padding-top:0 !important;
+    scroll-padding-top:var(--axis-nav-height, 82px) !important;
   }
   body { overflow-x:clip !important; scroll-snap-type:none !important; }
   .axis-film-panel {
