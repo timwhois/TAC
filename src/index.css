@@ -1243,3 +1243,19 @@ button {
 @media(max-width:700px) {
   .axis-scroll-cue { left:24px; bottom:25px; font-size:9px; }
 }
+
+/* Gentle section snapping: centred film chapters, accessible long-form content. */
+@media (min-width: 701px) and (prefers-reduced-motion: no-preference) {
+  html { scroll-snap-type:y proximity; scroll-padding-top:72px; }
+  .axis-film-panel { scroll-snap-align:center; scroll-snap-stop:normal; }
+  main > .section, main > section:not(.axis-film), footer {
+    scroll-snap-align:start;
+    scroll-snap-stop:normal;
+    scroll-margin-top:72px;
+  }
+}
+@media (max-width:700px) and (prefers-reduced-motion:no-preference) {
+  html { scroll-snap-type:y proximity; scroll-padding-top:72px; }
+  .axis-film-panel { scroll-snap-align:start; scroll-snap-stop:normal; }
+  main > .section, main > section:not(.axis-film) { scroll-snap-align:start; scroll-margin-top:72px; }
+}
