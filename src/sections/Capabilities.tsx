@@ -51,7 +51,7 @@ export function Capabilities() {
       </Reveal>
       <Reveal>
         <a className="concept-reality" href="/3d-product-rendering" aria-label="Explore 3D design and visualisation">
-          <div className="concept-reality-media"><img src="/images/set-design-concept-reality.jpg" alt="Studio set transitioning from physical build to dimensioned 3D blueprint" loading="lazy" /></div>
+          <div className="concept-reality-media"><img src="https://cdn.shopify.com/s/files/1/1009/5824/1142/files/third-axis-set-design-concept-reality.jpg?v=1792921559" alt="Studio set transitioning from physical build to dimensioned 3D blueprint" loading="lazy" /></div>
           <div className="concept-reality-caption">
             <span>03 / 3D DESIGN + VISUALISATION</span>
             <h3>FROM CONCEPT<br /><em>TO REALITY.</em></h3>
