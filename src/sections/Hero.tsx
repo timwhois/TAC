@@ -32,6 +32,7 @@ export function Hero() {
           <h1>CREATIVE THINKING.<br /><em>TECHNICAL EXECUTION.</em></h1>
           <p>Commercial photography, creative production, 3D and intelligent systems. Real-world studio experience, built for what's next.</p>
           <div className="axis-film-actions"><a href="#work">EXPLORE THE WORK <span>↗</span></a><a href="#contact">START A PROJECT <span>↗</span></a></div>
+          <a className="axis-scroll-cue" href="#services" aria-label="Scroll to explore services"><span>SCROLL TO EXPLORE</span><span aria-hidden="true">↓</span></a>
         </div>
 
         <div className="axis-film-panel axis-film-panel-two">
