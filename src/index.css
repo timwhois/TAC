@@ -1450,3 +1450,9 @@ html,body { overflow-x:clip; }
     padding-bottom:115px !important;
   }
 }
+
+/* Wheel chapter navigation owns desktop snapping; avoid CSS fighting JS. */
+@media (min-width:701px) {
+  html, body { scroll-snap-type:none !important; }
+  .axis-film-panel, main > section, .concept-reality { scroll-snap-align:none !important; }
+}
