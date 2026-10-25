@@ -1538,3 +1538,23 @@ html,body { overflow-x:clip; }
     scroll-margin-top:0 !important;
   }
 }
+
+/* Opening hero: still-image placeholder for the future cinematic launch film.
+   Replace the asset with video later; retain the foreground content and layout. */
+.axis-film-panel-one {
+  isolation:isolate;
+  background-image:
+    linear-gradient(90deg, rgba(4, 10, 12, .82) 0%, rgba(4, 10, 12, .58) 44%, rgba(4, 10, 12, .12) 100%),
+    url("/wow-factor-placeholder.png");
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+}
+@media (max-width:700px) {
+  .axis-film-panel-one {
+    background-image:
+      linear-gradient(90deg, rgba(4, 10, 12, .83), rgba(4, 10, 12, .42)),
+      url("/wow-factor-placeholder.png");
+    background-position:42% center;
+  }
+}
