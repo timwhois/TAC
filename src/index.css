@@ -1354,3 +1354,17 @@ button {
   .concept-reality-caption h3 { font-size:clamp(43px,11vw,67px); }
   .concept-reality-caption p { font-size:14px; line-height:1.5; }
 }
+
+/* Fix scroll snapping at the document scroller: overflow-x:hidden on html/body
+   creates an unintended scrolling container in some browsers. */
+html,body { overflow-x:clip; }
+@media(min-width:701px) and (prefers-reduced-motion:no-preference) {
+  html { scroll-snap-type:y mandatory; scroll-padding-top:0; }
+  body { scroll-snap-type:y mandatory; }
+  .axis-film-panel { scroll-snap-align:start; scroll-snap-stop:always; }
+  main > section:not(.axis-film) { scroll-snap-align:start; scroll-snap-stop:normal; }
+  .concept-reality { scroll-snap-align:start; scroll-margin-top:var(--axis-nav-height,82px); }
+}
+@media(max-width:700px) and (prefers-reduced-motion:no-preference) {
+  html,body { scroll-snap-type:y proximity; }
+}
