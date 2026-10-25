@@ -1291,3 +1291,66 @@ button {
   .axis-film-panel { scroll-snap-align:start; }
 }
 @media(prefers-reduced-motion:reduce) { html { scroll-snap-type:none; } }
+
+/* Set design feature: one viewport, readable copy directly over the artwork. */
+.concept-reality {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  min-height:0;
+  height:calc(100dvh - var(--axis-nav-height,82px) - 20px);
+  max-height:850px;
+  overflow:hidden;
+  isolation:isolate;
+  background:#0b1916;
+}
+.concept-reality-media {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  aspect-ratio:auto;
+  z-index:0;
+  order:0;
+}
+.concept-reality-media img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 55%;
+}
+.concept-reality::after {
+  content:"";
+  display:block;
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(5,18,15,.92),rgba(5,18,15,.76) 46%,rgba(5,18,15,.22) 100%);
+}
+.concept-reality-caption {
+  position:relative;
+  z-index:2;
+  order:1;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:clamp(12px,2vh,24px);
+  padding:clamp(30px,5vw,75px);
+  max-width:750px;
+  text-shadow:0 2px 15px rgba(0,0,0,.3);
+}
+.concept-reality-caption > span,.concept-reality-caption h3,.concept-reality-caption p,.concept-reality-caption strong { grid-column:auto; margin:0; }
+.concept-reality-caption h3 { font-size:clamp(48px,6.8vw,96px); line-height:.91; }
+.concept-reality-caption p { max-width:52ch; color:#f0f3ef; }
+.concept-reality-caption strong { margin-top:clamp(5px,1vh,15px); }
+@media(max-width:700px) {
+  .concept-reality { height:calc(100svh - var(--axis-nav-height,72px) - 12px); max-height:none; min-height:470px; }
+  .concept-reality-media { height:100%; aspect-ratio:auto; }
+  .concept-reality-media img { object-position:47% center; }
+  .concept-reality::after { background:linear-gradient(0deg,rgba(5,18,15,.96) 0%,rgba(5,18,15,.82) 54%,rgba(5,18,15,.12) 100%); }
+  .concept-reality-caption { padding:clamp(22px,5vw,34px); gap:14px; }
+  .concept-reality-caption h3 { font-size:clamp(43px,11vw,67px); }
+  .concept-reality-caption p { font-size:14px; line-height:1.5; }
+}
