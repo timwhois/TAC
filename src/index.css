@@ -1106,3 +1106,32 @@ button {
     margin-bottom: 18px;
   }
 }
+
+/* Portfolio framing: retain full Shootless contact sheet and the model's head. */
+.selected-card:has(.selected-media img[src*="third-axis-03"]) .selected-media {
+  background:#efefec;
+}
+.selected-card:has(.selected-media img[src*="third-axis-03"]) .selected-media > img {
+  object-fit:contain;
+  object-position:center;
+}
+.selected-card:has(.selected-media img[src*="third-axis-08"]) .selected-media > img {
+  object-position:50% 12%;
+}
+/* Concept-to-reality: editorial heading first, compact complete set image second. */
+.concept-reality { display:flex; flex-direction:column; }
+.concept-reality-caption { order:0; }
+.concept-reality-media {
+  order:1;
+  aspect-ratio:auto;
+  height:clamp(260px,38vw,520px);
+}
+.concept-reality-media img { object-fit:contain; object-position:center; }
+@media(max-width:800px){
+  .selected-card:has(.selected-media img[src*="third-axis-03"]) .selected-media {
+    min-height:0; aspect-ratio:16/9;
+  }
+  .concept-reality-caption { padding:clamp(22px,5vw,36px); }
+  .concept-reality-caption h3 { font-size:clamp(42px,9vw,70px); }
+  .concept-reality-media { height:auto; aspect-ratio:16/9; }
+}
