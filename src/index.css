@@ -1436,3 +1436,17 @@ html,body { overflow-x:clip; }
 @media(max-height:640px) and (min-width:701px) {
   .axis-film-panel-one { overflow:auto !important; justify-content:flex-start !important; padding-top:65px !important; }
 }
+
+/* Raise opening hero composition without moving the top rule or scroll cue. */
+@media (min-width:701px) {
+  .axis-film-panel-one {
+    padding-top:25px !important;
+    padding-bottom:155px !important;
+  }
+}
+@media (max-width:700px) {
+  .axis-film-panel-one {
+    padding-top:25px !important;
+    padding-bottom:115px !important;
+  }
+}
