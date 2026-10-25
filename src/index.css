@@ -1011,3 +1011,13 @@ button {
 @media (prefers-reduced-motion:reduce) {
   .axis-film { height:auto; }
 }
+
+/* Film framing correction: move content and bottom rail up into visible viewport. */
+@media (min-width:701px) {
+  .axis-film-panel { padding-top:clamp(115px,15vh,150px); padding-bottom:clamp(115px,16vh,165px); transform-origin:center; }
+  .axis-film-bottom { bottom:clamp(52px,9vh,100px); }
+  .axis-film-topline { top:clamp(88px,11vh,118px); }
+}
+@media (max-width:700px) {
+  .axis-film-bottom { bottom:calc(env(safe-area-inset-bottom,0px) + 44px); }
+}
