@@ -28,7 +28,7 @@ function App() {
         top: index === 0 ? 0 : Math.max(0, element.getBoundingClientRect().top + current - navHeight),
         height: element.getBoundingClientRect().height
       }))
-      const active = anchors.findLast(anchor => anchor.top <= current + viewport * .3)
+      const active = [...anchors].reverse().find(anchor => anchor.top <= current + viewport * .3)
       if (active && active.height > viewport + 100 && current > active.top + 70 && current < active.top + active.height - viewport - 70) return
       const nearest = anchors.reduce<typeof anchors[number] | null>((best, anchor) =>
         !best || Math.abs(anchor.top - current) < Math.abs(best.top - current) ? anchor : best, null)
