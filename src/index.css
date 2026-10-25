@@ -1490,3 +1490,28 @@ html,body { overflow-x:clip; }
     margin-top:22px;
   }
 }
+
+/* Canonical browser-native snapping. Earlier rules accidentally disabled it. */
+@media (min-width:701px) and (prefers-reduced-motion:no-preference) {
+  html {
+    overflow-x:clip !important;
+    overflow-y:auto;
+    scroll-snap-type:y mandatory !important;
+    scroll-padding-top:var(--axis-nav-height,82px) !important;
+  }
+  body { overflow-x:clip !important; scroll-snap-type:none !important; }
+  .axis-film-panel {
+    scroll-snap-align:start !important;
+    scroll-snap-stop:normal !important;
+    scroll-margin-top:0 !important;
+  }
+  main > section:not(.axis-film) {
+    scroll-snap-align:start !important;
+    scroll-snap-stop:normal !important;
+    scroll-margin-top:0 !important;
+  }
+  .concept-reality { scroll-snap-align:none !important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  html,body { scroll-snap-type:none !important; }
+}
