@@ -1179,3 +1179,42 @@ button {
   .concept-reality-caption h3 { font-size:clamp(43px,10vw,70px); }
   .concept-reality::after { background:linear-gradient(0deg,rgba(5,14,14,.97),rgba(5,14,14,.76) 47%,rgba(5,14,14,.13) 100%); }
 }
+
+/* Spacious set-design editorial: copy above the artwork, no crowded overlay. */
+.concept-reality {
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+  align-items:stretch;
+  isolation:auto;
+}
+.concept-reality::after { display:none; }
+.concept-reality-caption {
+  order:0;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(250px,.65fr);
+  gap:clamp(16px,2.8vw,38px);
+  align-items:center;
+  padding:clamp(32px,5vw,72px);
+  text-shadow:none;
+}
+.concept-reality-caption > span { grid-column:1/-1; }
+.concept-reality-caption h3 { font-size:clamp(44px,6.3vw,88px); }
+.concept-reality-caption p { max-width:52ch; }
+.concept-reality-caption strong { grid-column:2; }
+.concept-reality-media {
+  order:1;
+  position:relative;
+  inset:auto;
+  z-index:auto;
+  width:100%;
+  height:auto;
+  aspect-ratio:16/8;
+}
+.concept-reality-media img { object-fit:cover; object-position:center; }
+@media(max-width:800px) {
+  .concept-reality-caption { grid-template-columns:1fr; gap:20px; padding:clamp(26px,5vw,42px); }
+  .concept-reality-caption > span,.concept-reality-caption strong { grid-column:1; }
+  .concept-reality-caption h3 { font-size:clamp(44px,10vw,72px); }
+  .concept-reality-media { height:auto; aspect-ratio:16/10; }
+}
