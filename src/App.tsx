@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { Nav } from "./components/Nav"
 import { Capabilities } from "./sections/Capabilities"
 import { Contact } from "./sections/Contact"
@@ -8,6 +9,45 @@ import { Showcase } from "./sections/Showcase"
 import SERVICES from "./services.json"
 
 function App() {
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 700px)").matches) return
+    let lockedUntil = 0
+    let accumulated = 0
+    const onWheel = (event: WheelEvent) => {
+      if (event.ctrlKey || event.altKey || event.shiftKey || Math.abs(event.deltaY) < 2) return
+      if ((event.target as Element)?.closest("dialog, [role=dialog], textarea, select, [data-no-snap]")) return
+      const now = performance.now()
+      if (now < lockedUntil) { event.preventDefault(); return }
+      const sections = Array.from(document.querySelectorAll<HTMLElement>(".axis-film-panel, main > section:not(.axis-film)"))
+      const nav = document.querySelector<HTMLElement>("header.nav")?.getBoundingClientRect().height ?? 0
+      const viewport = window.innerHeight
+      const direction = Math.sign(event.deltaY)
+      const index = sections.findIndex(section => {
+        const rect = section.getBoundingClientRect()
+        return rect.top <= nav + viewport * .3 && rect.bottom > nav + viewport * .3
+      })
+      if (index < 0) return
+      const rect = sections[index].getBoundingClientRect()
+      if (rect.height > viewport + 90) {
+        if ((direction > 0 && rect.bottom > viewport + 8) || (direction < 0 && rect.top < nav - 8)) {
+          accumulated = 0
+          return
+        }
+      }
+      const next = index + direction
+      if (next < 0 || next >= sections.length) return
+      const destination = next === 0 ? 0 : Math.max(0, sections[next].getBoundingClientRect().top + window.scrollY - nav)
+      if (Math.abs(destination - window.scrollY) < 8) return
+      accumulated += event.deltaY
+      if (Math.abs(accumulated) < 18) return
+      accumulated = 0
+      event.preventDefault()
+      lockedUntil = now + 900
+      window.scrollTo({ top: destination, behavior: "smooth" })
+    }
+    window.addEventListener("wheel", onWheel, { passive: false })
+    return () => window.removeEventListener("wheel", onWheel)
+  }, [])
   return (
     <>
       <Nav />
