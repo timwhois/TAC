@@ -24,7 +24,6 @@ export function Hero() {
     <section className="axis-film" id="top" aria-label="Third Axis Creative introduction">
       <div className="axis-film-sticky">
         <div className="axis-film-grid" aria-hidden="true" />
-        <div className="axis-film-topline"><span>THIRD AXIS CREATIVE <b>//</b></span><span>INDEPENDENT CREATIVE STUDIO · UK</span></div>
         
 
         <div className="axis-film-panel axis-film-panel-one">
