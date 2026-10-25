@@ -1558,3 +1558,24 @@ html,body { overflow-x:clip; }
     background-position:42% center;
   }
 }
+
+/* Opening chapter: lower the copy and pin the scroll invitation to the bottom.
+   This deliberately overrides the earlier raised-content and in-flow cue rules. */
+@media (min-width:701px) and (min-height:641px) {
+  .axis-film-panel-one {
+    position:relative !important;
+    padding-top:55px !important;
+    padding-bottom:75px !important;
+  }
+  .axis-film-panel-one > :not(.axis-scroll-cue) {
+    top:0 !important;
+  }
+  .axis-film-panel-one .axis-scroll-cue {
+    position:absolute !important;
+    top:auto !important;
+    bottom:24px !important;
+    left:var(--edge) !important;
+    margin-top:0 !important;
+    padding-top:0 !important;
+  }
+}
