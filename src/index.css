@@ -1135,3 +1135,47 @@ button {
   .concept-reality-caption h3 { font-size:clamp(42px,9vw,70px); }
   .concept-reality-media { height:auto; aspect-ratio:16/9; }
 }
+
+/* Concept-to-reality: editorial copy overlaid on the set design artwork. */
+.concept-reality {
+  display:grid;
+  isolation:isolate;
+  min-height:clamp(410px,48vw,680px);
+  align-items:end;
+}
+.concept-reality-media {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  aspect-ratio:auto;
+  z-index:-1;
+}
+.concept-reality-media img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+.concept-reality::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:linear-gradient(0deg,rgba(5,14,14,.96) 0%,rgba(5,14,14,.83) 28%,rgba(5,14,14,.35) 62%,transparent 100%);
+}
+.concept-reality-caption {
+  order:initial;
+  position:relative;
+  z-index:1;
+  padding:clamp(25px,4vw,55px);
+  text-shadow:0 2px 14px rgba(0,0,0,.45);
+}
+@media(max-width:700px) {
+  .concept-reality { min-height:clamp(450px,75svh,630px); }
+  .concept-reality-media { height:100%; aspect-ratio:auto; }
+  .concept-reality-caption { padding:25px; }
+  .concept-reality-caption h3 { font-size:clamp(43px,10vw,70px); }
+  .concept-reality::after { background:linear-gradient(0deg,rgba(5,14,14,.97),rgba(5,14,14,.76) 47%,rgba(5,14,14,.13) 100%); }
+}
