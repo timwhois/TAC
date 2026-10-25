@@ -27,9 +27,9 @@ export function Hero() {
     }
   }, [])
 
-  const panel1 = clamp(1 - Math.max(0, progress - .12) / .18)
-  const panel2 = clamp((progress - .18) / .17) * clamp(1 - Math.max(0, progress - .58) / .16)
-  const panel3 = clamp((progress - .66) / .18)
+  const panel1 = clamp(1 - Math.max(0, progress - .08) / .22)
+  const panel2 = clamp((progress - .12) / .18) * clamp(1 - Math.max(0, progress - .55) / .19)
+  const panel3 = clamp((progress - .57) / .19)
 
   return (
     <section className="axis-film" id="top" ref={sectionRef} aria-label="Third Axis Creative introduction">
