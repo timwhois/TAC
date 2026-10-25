@@ -1456,3 +1456,37 @@ html,body { overflow-x:clip; }
   html, body { scroll-snap-type:none !important; }
   .axis-film-panel, main > section, .concept-reality { scroll-snap-align:none !important; }
 }
+
+/* First hero: compact editorial grouping with an in-flow scroll invitation. */
+@media(min-width:701px) {
+  .axis-film-panel-one {
+    justify-content:center !important;
+    padding:20px var(--edge) 35px !important;
+    height:calc(100dvh - var(--axis-nav-height,82px)) !important;
+    min-height:0 !important;
+  }
+  .axis-film-panel-one > :not(.axis-scroll-cue) {
+    position:relative;
+    top:-65px;
+  }
+  .axis-film-panel-one .axis-scroll-cue {
+    position:relative !important;
+    top:-35px !important;
+    bottom:auto !important;
+    left:auto !important;
+    align-self:flex-start;
+    margin-top:24px;
+    padding-top:10px;
+    flex-shrink:0;
+  }
+}
+@media(max-width:700px) {
+  .axis-film-panel-one .axis-scroll-cue {
+    position:relative !important;
+    top:auto !important;
+    bottom:auto !important;
+    left:auto !important;
+    align-self:flex-start;
+    margin-top:22px;
+  }
+}
