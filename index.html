@@ -103,7 +103,8 @@
     <script>
       /* Independent section navigation, intentionally not tied to React hydration. */
       (() => {
-        if (matchMedia("(prefers-reduced-motion: reduce), (max-width: 700px)").matches) return;
+        if (matchMedia("(max-width: 700px)").matches) return;
+        const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
         let busy = false;
         let unlockTimer;
         let scrollTimer;
@@ -122,7 +123,7 @@
           busy = true;
           clearTimeout(scrollTimer);
           clearTimeout(unlockTimer);
-          window.scrollTo({ top, behavior: "smooth" });
+          window.scrollTo({ top, behavior: reducedMotion ? "instant" : "smooth" });
           unlockTimer = setTimeout(() => { busy = false; }, 850);
         };
         const inLongSection = (items, y, direction) => {
