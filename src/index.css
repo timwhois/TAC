@@ -1399,3 +1399,40 @@ html,body { overflow-x:clip; }
   .axis-film-panel-one { padding-top:clamp(95px,14vh,120px) !important; }
   body { scroll-snap-type:none !important; }
 }
+
+/* Definitive opening chapter geometry; earlier large padding overrides were
+   making the first chapter taller than the visible area. */
+.axis-film-sticky { position:relative !important; }
+.axis-film-panel,
+.axis-film-panel-one {
+  height:100dvh !important;
+  min-height:100dvh !important;
+  padding:80px var(--edge) 70px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+}
+.axis-film-panel-one {
+  height:calc(100dvh - var(--axis-nav-height,82px)) !important;
+  min-height:calc(100dvh - var(--axis-nav-height,82px)) !important;
+  padding:45px var(--edge) 75px !important;
+}
+.axis-film-panel-one .axis-film-kicker { margin-bottom:20px; }
+.axis-film-panel-one .axis-scroll-cue {
+  position:absolute !important;
+  left:var(--edge) !important;
+  bottom:20px !important;
+  top:auto !important;
+  display:inline-flex !important;
+  z-index:20;
+}
+.axis-film-sticky::before { top:30px; }
+@media(max-width:700px) {
+  .axis-film-panel { height:100svh !important; min-height:100svh !important; padding:90px 24px 55px !important; overflow:visible !important; }
+  .axis-film-panel-one { height:calc(100svh - var(--axis-nav-height,72px)) !important; min-height:calc(100svh - var(--axis-nav-height,72px)) !important; padding:45px 24px 65px !important; }
+  .axis-film-panel-one .axis-scroll-cue { left:24px !important; bottom:14px !important; }
+}
+@media(max-height:640px) and (min-width:701px) {
+  .axis-film-panel-one { overflow:auto !important; justify-content:flex-start !important; padding-top:65px !important; }
+}
