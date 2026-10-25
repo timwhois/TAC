@@ -1065,3 +1065,21 @@ button {
     }
   }
 }
+
+/* Browser-compatible chapter fades; applied only after observer initializes. */
+@media (prefers-reduced-motion:no-preference) {
+  .axis-film-panel.axis-chapter-animate > * {
+    opacity:0;
+    transform:translateY(34px);
+    filter:blur(7px);
+    transition:opacity 950ms ease,transform 1050ms cubic-bezier(.2,.7,.2,1),filter 1050ms ease;
+  }
+  .axis-film-panel.axis-chapter-visible > * {
+    opacity:1;
+    transform:translateY(0);
+    filter:blur(0);
+  }
+  .axis-film-panel.axis-chapter-animate > *:nth-child(2) { transition-delay:120ms; }
+  .axis-film-panel.axis-chapter-animate > *:nth-child(3) { transition-delay:220ms; }
+  .axis-film-panel.axis-chapter-animate > *:nth-child(4) { transition-delay:300ms; }
+}
