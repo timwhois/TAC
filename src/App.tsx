@@ -10,43 +10,46 @@ import SERVICES from "./services.json"
 
 function App() {
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 700px)").matches) return
-    let lockedUntil = 0
-    let accumulated = 0
-    const onWheel = (event: WheelEvent) => {
-      if (event.ctrlKey || event.altKey || event.shiftKey || Math.abs(event.deltaY) < 2) return
-      if ((event.target as Element)?.closest("dialog, [role=dialog], textarea, select, [data-no-snap]")) return
-      const now = performance.now()
-      if (now < lockedUntil) { event.preventDefault(); return }
-      const sections = Array.from(document.querySelectorAll<HTMLElement>(".axis-film-panel, main > section:not(.axis-film)"))
-      const nav = document.querySelector<HTMLElement>("header.nav")?.getBoundingClientRect().height ?? 0
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 700px)")
+    if (preference.matches) return
+    let idle: ReturnType<typeof setTimeout> | undefined
+    let settling = false
+    let release: ReturnType<typeof setTimeout> | undefined
+
+    const snap = () => {
+      if (settling || window.location.hash) return
+      const navHeight = document.querySelector<HTMLElement>("header.nav")?.getBoundingClientRect().height ?? 0
       const viewport = window.innerHeight
-      const direction = Math.sign(event.deltaY)
-      const index = sections.findIndex(section => {
-        const rect = section.getBoundingClientRect()
-        return rect.top <= nav + viewport * .3 && rect.bottom > nav + viewport * .3
-      })
-      if (index < 0) return
-      const rect = sections[index].getBoundingClientRect()
-      if (rect.height > viewport + 90) {
-        if ((direction > 0 && rect.bottom > viewport + 8) || (direction < 0 && rect.top < nav - 8)) {
-          accumulated = 0
-          return
-        }
-      }
-      const next = index + direction
-      if (next < 0 || next >= sections.length) return
-      const destination = next === 0 ? 0 : Math.max(0, sections[next].getBoundingClientRect().top + window.scrollY - nav)
-      if (Math.abs(destination - window.scrollY) < 8) return
-      accumulated += event.deltaY
-      if (Math.abs(accumulated) < 18) return
-      accumulated = 0
-      event.preventDefault()
-      lockedUntil = now + 900
-      window.scrollTo({ top: destination, behavior: "smooth" })
+      const current = window.scrollY
+      const sections = Array.from(document.querySelectorAll<HTMLElement>(".axis-film-panel, main > section:not(.axis-film)"))
+      const anchors = sections.map((element, index) => ({
+        index,
+        element,
+        top: index === 0 ? 0 : Math.max(0, element.getBoundingClientRect().top + current - navHeight),
+        height: element.getBoundingClientRect().height
+      }))
+      const active = anchors.findLast(anchor => anchor.top <= current + viewport * .3)
+      if (active && active.height > viewport + 100 && current > active.top + 70 && current < active.top + active.height - viewport - 70) return
+      const nearest = anchors.reduce<typeof anchors[number] | null>((best, anchor) =>
+        !best || Math.abs(anchor.top - current) < Math.abs(best.top - current) ? anchor : best, null)
+      if (!nearest) return
+      const difference = Math.abs(nearest.top - current)
+      if (difference < 5 || difference > viewport * .48) return
+      settling = true
+      window.scrollTo({ top: nearest.top, behavior: "smooth" })
+      release = setTimeout(() => { settling = false }, 650)
     }
-    window.addEventListener("wheel", onWheel, { passive: false })
-    return () => window.removeEventListener("wheel", onWheel)
+    const onScroll = () => {
+      if (settling) return
+      if (idle) clearTimeout(idle)
+      idle = setTimeout(snap, 140)
+    }
+    window.addEventListener("scroll", onScroll, { passive:true })
+    return () => {
+      window.removeEventListener("scroll", onScroll)
+      if (idle) clearTimeout(idle)
+      if (release) clearTimeout(release)
+    }
   }, [])
   return (
     <>
