@@ -80,7 +80,7 @@ function App() {
               LINKEDIN
             </a>
             <a href="/about">ABOUT</a>
-            <a href="mailto:hello@thirdaxis.co.uk">CONTACT</a>
+            <a href="/#contact">GET IN TOUCH</a>
           </div>
         </div>
       </footer>
