@@ -1,15 +1,4 @@
 export function Hero() {
-  return () => {
-      cancelAnimationFrame(frame)
-      window.removeEventListener("scroll", update)
-      window.removeEventListener("resize", update)
-    }
-  }, [])
-
-  const panel1 = clamp(1 - Math.max(0, progress - .08) / .22)
-  const panel2 = clamp((progress - .12) / .18) * clamp(1 - Math.max(0, progress - .55) / .19)
-  const panel3 = clamp((progress - .57) / .19)
-
   return (
     <section className="axis-film" id="top" aria-label="Third Axis Creative introduction">
       <div className="axis-film-sticky">
