@@ -1545,7 +1545,7 @@ html,body { overflow-x:clip; }
   isolation:isolate;
   background-image:
     linear-gradient(90deg, rgba(4, 10, 12, .82) 0%, rgba(4, 10, 12, .58) 44%, rgba(4, 10, 12, .12) 100%),
-    url("/wow-factor-placeholder.png");
+    url("/portfolio/wow-factor-placeholder.png");
   background-size:cover;
   background-position:center center;
   background-repeat:no-repeat;
@@ -1554,7 +1554,7 @@ html,body { overflow-x:clip; }
   .axis-film-panel-one {
     background-image:
       linear-gradient(90deg, rgba(4, 10, 12, .83), rgba(4, 10, 12, .42)),
-      url("/wow-factor-placeholder.png");
+      url("/portfolio/wow-factor-placeholder.png");
     background-position:42% center;
   }
 }
