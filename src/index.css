@@ -1579,3 +1579,13 @@ html,body { overflow-x:clip; }
     padding-top:0 !important;
   }
 }
+
+/* Reframe the opening still to reveal more of the model's face. */
+.axis-film-panel-one {
+  background-position:center 24% !important;
+}
+@media (max-width:700px) {
+  .axis-film-panel-one {
+    background-position:42% 24% !important;
+  }
+}
