@@ -10,45 +10,43 @@ import SERVICES from "./services.json"
 
 function App() {
   useEffect(() => {
-    const preference = window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 700px)")
-    if (preference.matches) return
-    let idle: ReturnType<typeof setTimeout> | undefined
-    let settling = false
-    let release: ReturnType<typeof setTimeout> | undefined
+    if (window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 700px)").matches) return
+    let timer: ReturnType<typeof setTimeout> | undefined
+    let unlock: ReturnType<typeof setTimeout> | undefined
+    let snapping = false
 
-    const snap = () => {
-      if (settling || window.location.hash) return
-      const navHeight = document.querySelector<HTMLElement>("header.nav")?.getBoundingClientRect().height ?? 0
-      const viewport = window.innerHeight
-      const current = window.scrollY
-      const sections = Array.from(document.querySelectorAll<HTMLElement>(".axis-film-panel, main > section:not(.axis-film)"))
-      const anchors = sections.map((element, index) => ({
-        index,
-        element,
-        top: index === 0 ? 0 : Math.max(0, element.getBoundingClientRect().top + current - navHeight),
-        height: element.getBoundingClientRect().height
-      }))
-      const active = [...anchors].reverse().find(anchor => anchor.top <= current + viewport * .3)
-      if (active && active.height > viewport + 100 && current > active.top + 70 && current < active.top + active.height - viewport - 70) return
-      const nearest = anchors.reduce<typeof anchors[number] | null>((best, anchor) =>
-        !best || Math.abs(anchor.top - current) < Math.abs(best.top - current) ? anchor : best, null)
-      if (!nearest) return
-      const difference = Math.abs(nearest.top - current)
-      if (difference < 5 || difference > viewport * .48) return
-      settling = true
+    const settle = () => {
+      if (snapping) return
+      const nav = document.querySelector<HTMLElement>("header.nav")?.getBoundingClientRect().height ?? 0
+      const view = window.innerHeight - nav
+      const y = window.scrollY
+      const elements = Array.from(document.querySelectorAll<HTMLElement>(".axis-film-panel, main > section:not(.axis-film)"))
+      const positions = elements.map((element, index) => {
+        const rect = element.getBoundingClientRect()
+        return { element, top: index === 0 ? 0 : Math.max(0, y + rect.top - nav), height: rect.height }
+      })
+      const active = [...positions].reverse().find(item => item.top <= y + 8)
+      if (active && active.height > view + 100 && y > active.top + 40 && y < active.top + active.height - view - 40) return
+      const nearest = positions.reduce<(typeof positions)[number] | null>((best, item) =>
+        best === null || Math.abs(item.top - y) < Math.abs(best.top - y) ? item : best, null)
+      if (!nearest || Math.abs(nearest.top - y) < 3) return
+      // Pull to the closest section when the user stops, even if the
+      // section's top is further than half a viewport away.
+      snapping = true
       window.scrollTo({ top: nearest.top, behavior: "smooth" })
-      release = setTimeout(() => { settling = false }, 650)
+      unlock = setTimeout(() => { snapping = false;  }, 800)
     }
     const onScroll = () => {
-      if (settling) return
-      if (idle) clearTimeout(idle)
-      idle = setTimeout(snap, 140)
+      if (snapping) return
+      lastY = window.scrollY
+      if (timer) clearTimeout(timer)
+      timer = setTimeout(settle, 210)
     }
-    window.addEventListener("scroll", onScroll, { passive:true })
+    window.addEventListener("scroll", onScroll, { passive: true })
     return () => {
       window.removeEventListener("scroll", onScroll)
-      if (idle) clearTimeout(idle)
-      if (release) clearTimeout(release)
+      if (timer) clearTimeout(timer)
+      if (unlock) clearTimeout(unlock)
     }
   }, [])
   return (
