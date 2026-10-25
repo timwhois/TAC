@@ -1002,3 +1002,12 @@ button {
   .axis-film-kicker { margin-bottom:9px; }
   .axis-film-actions { margin-top:14px; }
 }
+
+/* Faster cinematic sequence: 1.2 viewports of scroll rather than two. */
+.axis-film { height:220svh; }
+@media (max-width:700px) {
+  .axis-film { height:195svh; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .axis-film { height:auto; }
+}
