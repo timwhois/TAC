@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import { Nav } from "./components/Nav"
 import { Capabilities } from "./sections/Capabilities"
 import { Contact } from "./sections/Contact"
@@ -9,45 +8,6 @@ import { Showcase } from "./sections/Showcase"
 import SERVICES from "./services.json"
 
 function App() {
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 700px)").matches) return
-    let timer: ReturnType<typeof setTimeout> | undefined
-    let unlock: ReturnType<typeof setTimeout> | undefined
-    let snapping = false
-
-    const settle = () => {
-      if (snapping) return
-      const nav = document.querySelector<HTMLElement>("header.nav")?.getBoundingClientRect().height ?? 0
-      const view = window.innerHeight - nav
-      const y = window.scrollY
-      const elements = Array.from(document.querySelectorAll<HTMLElement>(".axis-film-panel, main > section:not(.axis-film)"))
-      const positions = elements.map((element, index) => {
-        const rect = element.getBoundingClientRect()
-        return { element, top: index === 0 ? 0 : Math.max(0, y + rect.top - nav), height: rect.height }
-      })
-      const active = [...positions].reverse().find(item => item.top <= y + 8)
-      if (active && active.height > view + 100 && y > active.top + 40 && y < active.top + active.height - view - 40) return
-      const nearest = positions.reduce<(typeof positions)[number] | null>((best, item) =>
-        best === null || Math.abs(item.top - y) < Math.abs(best.top - y) ? item : best, null)
-      if (!nearest || Math.abs(nearest.top - y) < 3) return
-      // Pull to the closest section when the user stops, even if the
-      // section's top is further than half a viewport away.
-      snapping = true
-      window.scrollTo({ top: nearest.top, behavior: "smooth" })
-      unlock = setTimeout(() => { snapping = false;  }, 800)
-    }
-    const onScroll = () => {
-      if (snapping) return
-      if (timer) clearTimeout(timer)
-      timer = setTimeout(settle, 210)
-    }
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => {
-      window.removeEventListener("scroll", onScroll)
-      if (timer) clearTimeout(timer)
-      if (unlock) clearTimeout(unlock)
-    }
-  }, [])
   return (
     <>
       <Nav />
