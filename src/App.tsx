@@ -38,7 +38,6 @@ function App() {
     }
     const onScroll = () => {
       if (snapping) return
-      lastY = window.scrollY
       if (timer) clearTimeout(timer)
       timer = setTimeout(settle, 210)
     }
