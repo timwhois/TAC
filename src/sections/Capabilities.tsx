@@ -27,7 +27,7 @@ const ITEMS = [
     label: "3D + CGI",
     href: "/3d-product-rendering",
     linkText: "3D & CGI rendering",
-    copy: "CGI product renders and 3D environments when a physical build isn't the answer.",
+    copy: "3D visualisation, CGI and set design — from digital concepts to practical, production-ready environments.",
   },
 ]
 
@@ -53,10 +53,10 @@ export function Capabilities() {
         <a className="concept-reality" href="/3d-product-rendering" aria-label="Explore 3D design and visualisation">
           <div className="concept-reality-media"><img src="/set-design-concept-reality.jpg" alt="Studio set transitioning from physical build to dimensioned 3D blueprint" loading="lazy" /></div>
           <div className="concept-reality-caption">
-            <span>03 / 3D DESIGN + VISUALISATION</span>
+            <span>03 / SET DESIGN + 3D VISUALISATION</span>
             <h3>FROM CONCEPT<br /><em>TO REALITY.</em></h3>
-            <p>Design it. Visualise it. Build it. Studio sets and spaces developed from the first technical sketch through to the finished physical environment.</p>
-            <strong>EXPLORE 3D & CGI ↗</strong>
+            <p>From initial concepts and 3D visualisation to practical set design and physical builds. Working alongside experienced set builders, we turn creative ideas into production-ready environments.</p>
+            <strong>EXPLORE SET DESIGN & 3D ↗</strong>
           </div>
         </a>
       </Reveal>
