@@ -1528,3 +1528,13 @@ html,body { overflow-x:clip; }
     max-height: none !important;
   }
 }
+
+/* Independent snap target inside the taller services section.
+   The feature is nested in a Reveal wrapper, so give its own box a snap point. */
+@media (min-width:701px) {
+  .concept-reality {
+    scroll-snap-align:center !important;
+    scroll-snap-stop:normal !important;
+    scroll-margin-top:0 !important;
+  }
+}
