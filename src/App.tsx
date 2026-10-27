@@ -1,4 +1,5 @@
 import { Nav } from "./components/Nav"
+import { EditorialCursor } from "./components/EditorialCursor"
 import { Capabilities } from "./sections/Capabilities"
 import { Contact } from "./sections/Contact"
 import { Hero } from "./sections/Hero"
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       <Nav />
+      <EditorialCursor />
 
       <main>
         <Hero />
