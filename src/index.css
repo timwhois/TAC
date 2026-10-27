@@ -1589,3 +1589,19 @@ html,body { overflow-x:clip; }
     background-position:42% 24% !important;
   }
 }
+
+
+/* Shared family navigation geometry: exactly the same 82px desktop / 72px mobile as Shootless. */
+:root { --axis-nav-height:82px; }
+.nav {
+  height:var(--axis-nav-height) !important;
+  min-height:var(--axis-nav-height) !important;
+  max-height:var(--axis-nav-height) !important;
+  padding:0 var(--edge) !important;
+  box-sizing:border-box !important;
+  align-items:center !important;
+}
+@media(max-width:700px) {
+  :root { --axis-nav-height:72px; }
+  .nav { padding-inline:24px !important; }
+}
