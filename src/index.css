@@ -1819,3 +1819,18 @@ html,body { overflow-x:clip; }
   .axis-film-panel-one p { margin-top:14px !important; margin-bottom:18px !important; }
   .axis-film-panel-one .axis-scroll-cue { margin-top:18px !important; }
 }
+
+
+/* Contact field guidance: match API's 10-character minimum. */
+.contact-form .contact-field-validation {
+  display:block;
+  min-height:0;
+  font-size:.78rem;
+  font-weight:600;
+  line-height:1.5;
+  letter-spacing:0;
+  color:#ffb7a6;
+}
+.contact-form textarea[aria-invalid="true"] {
+  border-color:#ffb7a6;
+}
