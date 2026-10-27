@@ -1589,3 +1589,31 @@ html,body { overflow-x:clip; }
     background-position:42% 24% !important;
   }
 }
+
+
+/* Third Axis contact CTA: matches family navigation hierarchy without altering hero geometry. */
+@media (min-width: 780px) {
+  .nav { gap: clamp(20px,3vw,48px); }
+  .nav-links-desktop { margin-left:auto; }
+  .nav-contact-cta {
+    display:inline-flex;
+    flex:0 0 auto;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    min-height:44px;
+    padding:0 clamp(16px,1.9vw,28px);
+    background:var(--mint,#2fa976);
+    border:1px solid var(--mint,#2fa976);
+    color:#071d17;
+    font:700 12px/1 Inter,Arial,sans-serif;
+    letter-spacing:.10em;
+    white-space:nowrap;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .nav-contact-cta:hover { background:#48c693; transform:translateY(-1px); }
+  .nav-contact-cta:focus-visible { outline:2px solid var(--orange); outline-offset:3px; }
+}
+@media (max-width:779px) {
+  .nav-contact-cta { display:none; }
+}
