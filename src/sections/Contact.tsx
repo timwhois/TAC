@@ -16,9 +16,15 @@ export function Contact() {
   const [message,setMessage] = useState("")
   const [status,setStatus] = useState("")
   const [submitted,setSubmitted] = useState(false)
+  const [messageTouched,setMessageTouched] = useState(false)
   const [sending,setSending] = useState(false)
   async function prepare(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    if (message.trim().length < 10) {
+      setMessageTouched(true)
+      setStatus("")
+      return
+    }
     setSending(true)
     setStatus("")
     try {
@@ -49,7 +55,7 @@ export function Contact() {
           <label>Email address<input required type="email" autoComplete="email" maxLength={254} value={email} onChange={e=>setEmail(e.target.value)} placeholder="you@company.co.uk" /></label>
         </div>
         <label>What can we help with?<select value={subject} onChange={e=>setSubject(e.target.value)}>{subjects.map(item=><option key={item.value} value={item.value}>{item.label}</option>)}</select></label>
-        <label>Tell us about it<textarea required minLength={10} maxLength={4000} rows={5} value={message} onChange={e=>setMessage(e.target.value)} placeholder="A little about your project, timescales, or the problem you're trying to solve…" /></label>
+        <label>Tell us about it<textarea required maxLength={4000} rows={5} value={message} aria-invalid={messageTouched && message.trim().length < 10} aria-describedby="contact-message-validation" onBlur={() => setMessageTouched(true)} onChange={e=>{setMessage(e.target.value);setMessageTouched(true)}} placeholder="A little about your project, timescales, or the problem you're trying to solve…" /><span id="contact-message-validation" className="contact-field-validation" role="status" aria-live="polite">{messageTouched && message.trim().length < 10 ? `Please enter at least 10 characters (${message.trim().length}/10).` : ""}</span></label>
         <button type="submit" disabled={sending} className="btn btn-primary">{sending ? "SENDING…" : "SEND ENQUIRY ↗"}</button>
         {status && <p className="contact-form-note" role="status">{status}</p>}
       </form>}
