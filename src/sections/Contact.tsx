@@ -15,6 +15,7 @@ export function Contact() {
   const [subject,setSubject] = useState(subjects[0].value)
   const [message,setMessage] = useState("")
   const [status,setStatus] = useState("")
+  const [submitted,setSubmitted] = useState(false)
   const [sending,setSending] = useState(false)
   async function prepare(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -23,7 +24,8 @@ export function Contact() {
     try {
       const response = await fetch("/api/contact", {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({site:"thirdaxis",name,email,subject,message,website:""})})
       if (!response.ok) throw new Error("Delivery unavailable")
-      setStatus("Thanks — your enquiry has been sent. We'll be in touch.")
+      setSubmitted(true)
+      setStatus("")
       setName("");setEmail("");setMessage("")
     } catch {
       setStatus("We couldn't send that just yet. Please email hello@thirdaxis.co.uk directly.")
@@ -34,7 +36,14 @@ export function Contact() {
     <Reveal><h2 className="display contact-heading">TELL US WHAT YOU'RE WORKING ON.</h2></Reveal>
     <p className="contact-intro">A shoot, a visual idea or a production bottleneck — tell us a little about it. We'll start with a conversation, not a sales pitch.</p>
     <div className="contact-layout">
-      <form id="contact-form" className="contact-form" onSubmit={prepare}>
+      {submitted ? (
+        <div id="contact-form" className="contact-success" role="status" aria-live="polite">
+          <span className="contact-success-mark" aria-hidden="true">✓</span>
+          <h3>THANKS FOR SUBMITTING.</h3>
+          <p>Someone will get back to you as soon as possible.</p>
+          <button type="button" className="contact-success-again" onClick={() => {setSubmitted(false);setStatus("")}}>SEND ANOTHER MESSAGE ↗</button>
+        </div>
+      ) : <form id="contact-form" className="contact-form" onSubmit={prepare}>
         <div className="contact-field-row">
           <label>Your name<input required autoComplete="name" maxLength={120} value={name} onChange={e=>setName(e.target.value)} placeholder="Your name" /></label>
           <label>Email address<input required type="email" autoComplete="email" maxLength={254} value={email} onChange={e=>setEmail(e.target.value)} placeholder="you@company.co.uk" /></label>
@@ -43,7 +52,7 @@ export function Contact() {
         <label>Tell us about it<textarea required minLength={10} maxLength={4000} rows={5} value={message} onChange={e=>setMessage(e.target.value)} placeholder="A little about your project, timescales, or the problem you're trying to solve…" /></label>
         <button type="submit" disabled={sending} className="btn btn-primary">{sending ? "SENDING…" : "SEND ENQUIRY ↗"}</button>
         {status && <p className="contact-form-note" role="status">{status}</p>}
-      </form>
+      </form>}
       <aside className="contact-aside"><span className="eyebrow">HAVE AN IDEA?</span><a className="display contact-email" href="#contact-form">LET’S MAKE IT HAPPEN. ↗</a><p>Big ideas, small challenges, and everything in between. Tell us what you’re working on using the form. Based in Peterborough, collaborating with brands and creative teams across the UK.</p><span className="contact-coords">52.6326° N &nbsp; 0.2864° W · PETERBOROUGH, UK</span></aside>
     </div>
   </section>
