@@ -1731,3 +1731,91 @@ html,body { overflow-x:clip; }
   cursor:pointer;
 }
 .contact-success-again:focus-visible { outline:2px solid #2FA976;outline-offset:4px; }
+
+
+/* Mobile family alignment: Shootless-style immersive opening, Third Axis identity.
+   Desktop geometry and later chapters intentionally unchanged. */
+@media (max-width:700px) {
+  .axis-film-panel-one {
+    height:calc(100svh - var(--axis-nav-height,72px)) !important;
+    min-height:calc(100svh - var(--axis-nav-height,72px)) !important;
+    padding:clamp(40px,7svh,68px) 24px 24px !important;
+    justify-content:center !important;
+    align-items:stretch !important;
+    overflow:hidden !important;
+    background-image:
+      linear-gradient(180deg,rgba(4,10,12,.26) 0%,rgba(4,10,12,.58) 38%,rgba(4,10,12,.78) 100%),
+      url("/portfolio/wow-factor-placeholder.png") !important;
+    background-position:42% 24% !important;
+  }
+  .axis-film-panel-one > :not(.axis-scroll-cue) {
+    position:relative;
+    top:0 !important;
+  }
+  .axis-film-panel-one .axis-film-kicker {
+    margin:0 0 clamp(16px,3svh,24px) !important;
+    font-size:clamp(10px,2.8vw,12px);
+    line-height:1.5;
+    letter-spacing:.19em;
+  }
+  .axis-film-panel-one h1 {
+    width:100%;
+    max-width:100%;
+    margin:0 !important;
+    font-size:clamp(48px,10.4vw,78px) !important;
+    line-height:.98 !important;
+    letter-spacing:-.025em !important;
+    overflow-wrap:normal;
+  }
+  .axis-film-panel-one h1 em {
+    display:inline;
+  }
+  .axis-film-panel-one p {
+    margin:clamp(20px,3.5svh,30px) 0 clamp(24px,4svh,38px) !important;
+    max-width:100% !important;
+    font-size:clamp(15px,3.85vw,18px) !important;
+    line-height:1.65 !important;
+  }
+  .axis-film-panel-one .axis-film-actions {
+    display:flex !important;
+    flex-direction:column !important;
+    width:100%;
+    align-items:stretch !important;
+    gap:12px !important;
+    margin:0 !important;
+  }
+  .axis-film-panel-one .axis-film-actions a {
+    display:flex !important;
+    width:100% !important;
+    min-width:0 !important;
+    min-height:58px;
+    padding:17px 18px !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:12px !important;
+    text-align:center;
+    font-size:clamp(11px,2.8vw,13px) !important;
+    line-height:1.35;
+  }
+  .axis-film-panel-one .axis-scroll-cue {
+    position:relative !important;
+    left:auto !important;
+    top:auto !important;
+    bottom:auto !important;
+    margin-top:clamp(22px,4svh,38px) !important;
+    align-self:flex-start !important;
+    padding:0 !important;
+  }
+  .axis-film-sticky::before { top:18px; }
+}
+@media(max-width:700px) and (max-height:730px) {
+  .axis-film-panel-one {
+    height:auto !important;
+    min-height:calc(100svh - var(--axis-nav-height,72px)) !important;
+    padding-top:55px !important;
+    padding-bottom:28px !important;
+  }
+  .axis-film-panel-one .axis-film-kicker { margin-bottom:14px !important; }
+  .axis-film-panel-one p { margin-top:14px !important; margin-bottom:18px !important; }
+  .axis-film-panel-one .axis-scroll-cue { margin-top:18px !important; }
+}
