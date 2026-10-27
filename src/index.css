@@ -1762,7 +1762,7 @@ html,body { overflow-x:clip; }
     width:100%;
     max-width:100%;
     margin:0 !important;
-    font-size:clamp(48px,10.4vw,78px) !important;
+    font-size:clamp(37px,9.3vw,69px) !important;
     line-height:.98 !important;
     letter-spacing:-.025em !important;
     overflow-wrap:normal;
