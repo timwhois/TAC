@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageResponse } from "@vercel/og";
 
-// Node.js Vercel Function with explicitly supported .js extension.
+export const config = { runtime: 'edge' };
 
 // Fixed, intentionally curated social preview: never accepts user-controlled markup.
 export default function handler() {
