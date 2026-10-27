@@ -26,7 +26,7 @@ def fit_text(draw, text, max_width, max_size):
 def render(args):
     size=(1200, 630)
     source=Image.open(args.source).convert("RGB")
-    image=ImageOps.fit(source,size,method=Image.Resampling.LANCZOS,centering=(0.5,0.3)).convert("RGBA")
+    image=ImageOps.fit(source,size,method=Image.Resampling.LANCZOS,centering=(0.5,0.0)).convert("RGBA")
     shade=Image.new("RGBA",size,(0,0,0,0))
     pixels=shade.load()
     for y in range(630):
