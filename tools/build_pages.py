@@ -2,7 +2,7 @@
 
 Run from the repo root:  python3 tools/build_pages.py
 """
-import html, json, os, sys, datetime
+import html, json, os, re, sys, datetime
 from urllib.parse import quote
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -34,6 +34,28 @@ ORG = {
     "sameAs": [u for _, u in SOCIAL],
     "subOrganization": [{"@type": "Organization", "name": "Shootless Studio", "url": "https://www.shootless.co.uk/"}],
 }
+
+
+LINK = re.compile(r"\[([^\]]+)\]\(((?:/|https://)[^)\s]*)\)")
+
+
+def rich(text):
+    """Escape copy, then allow [label](/path) contextual links."""
+    def sub(m):
+        href = m.group(2)
+        ext = f" {EXT}" if href.startswith("https://") and not href.startswith(SITE) else ""
+        return f'<a href="{href}"{ext}>{m.group(1)}</a>'
+    return LINK.sub(sub, e(text))
+
+
+def media(figs):
+    """Genuine studio visuals, captioned honestly (concept imagery is labelled as such)."""
+    if not figs:
+        return ""
+    items = "\n".join(
+        f'<figure><img src="{f["src"]}" width="{f["w"]}" height="{f["h"]}" alt="{e(f["alt"])}" loading="lazy" decoding="async"><figcaption>{e(f["caption"])}</figcaption></figure>'
+        for f in figs)
+    return f'<section class="wrap media{" one" if len(figs) == 1 else ""}">{items}</section>'
 
 
 def cap(s):
@@ -80,8 +102,11 @@ def page(p):
     faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in p["faq"]]}
     ld = "\n".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in (ORG, svc_ld, bc_ld, faq_ld))
-    intro = "\n".join(f"<p>{e(x)}</p>" for x in p["intro"])
-    deep = "\n".join(f"<p>{e(x)}</p>" for x in p["deep"])
+    intro = "\n".join(f"<p>{rich(x)}</p>" for x in p["intro"])
+    deep = "\n".join(f"<p>{rich(x)}</p>" for x in p["deep"])
+    extra = "\n".join(
+        f'<section class="wrap block prose"><h2>{e(x["h"])}</h2>' + "".join(f"<p>{rich(t)}</p>" for t in x["p"]) + "</section>"
+        for x in p.get("extra", []))
     cards = "\n".join(f'<article class="card"><span class="ix">{i:02d}</span><h3>{e(t)}</h3><p>{e(d)}</p></article>' for i, (t, d) in enumerate(p["cards"], 1))
     uses = "\n".join(f'<article class="use"><h3>{e(t)}</h3><p>{e(d)}</p></article>' for t, d in p["uses"])
     faq = "\n".join(f'<details><summary>{e(q)}</summary><p>{e(a)}</p></details>' for q, a in p["faq"])
@@ -128,8 +153,10 @@ def page(p):
   <p class="ctas"><a class="btn" href="mailto:hello@thirdaxis.co.uk?subject={quote("Enquiry" if is_about else cap(p["nav"]) + " enquiry")}">Start a conversation</a><a class="btn ghost" href="#what">{"How we work" if is_about else "What we do"}</a></p>
 </section>
 <section class="wrap prose">{intro}</section>
+{media(p.get("figures"))}
 <section class="wrap block" id="what"><h2>{e(p.get("cards_h", "What's included"))}</h2><div class="grid4">{cards}</div></section>
 <section class="wrap block prose"><h2>{e(p["deep_h"])}</h2>{deep}</section>
+{extra}
 <section class="wrap block"><h2>{e(p.get("uses_h", "Who it's for"))}</h2><div class="grid3">{uses}</div></section>
 {"" if is_about else ABOUT_BLOCK}
 <section class="wrap block faq"><h2>Questions</h2>{faq}</section>
@@ -182,6 +209,10 @@ h3{font-size:18px;font-weight:600;margin:0 0 .4em}
 .faq summary{cursor:pointer;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
 .faq summary::after{content:"+";color:var(--acc);font-size:22px;line-height:1}.faq details[open] summary::after{content:"–"}
 .faq summary::-webkit-details-marker{display:none}.faq details p{color:var(--muted);margin:12px 0 0;max-width:820px}
+.media{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}.media.one{grid-template-columns:1fr;max-width:860px}
+.media img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
+.media figcaption{font-size:12px;letter-spacing:.04em;color:var(--muted);margin-top:10px}
+.prose a{color:var(--cream);text-decoration-color:var(--acc);text-underline-offset:3px}.prose a:hover{color:var(--acc)}
 .rel{text-decoration:none;display:block}.rel strong{display:block}.rel small{display:block;color:var(--muted);margin-top:4px}
 .rel:hover{border-color:var(--acc)}
 .cta{margin-top:100px;background:var(--acc);color:#0a0a0c;padding:72px 0}
@@ -195,7 +226,7 @@ h3{font-size:18px;font-weight:600;margin:0 0 .4em}
 .fl{display:flex;gap:16px;flex-wrap:wrap;margin:0 0 22px}
 .copy{color:var(--muted);font-size:12px;margin-top:36px}
 @media (max-width:960px){.grid4{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:760px){body{font-size:16px}.grid4,.grid3,.about,.fgrid{grid-template-columns:1fr}.snav nav a:not(.pill){display:none}.block{padding-top:60px}.about{gap:8px}}
+@media (max-width:760px){body{font-size:16px}.grid4,.grid3,.about,.fgrid,.media{grid-template-columns:1fr}.snav nav a:not(.pill){display:none}.block{padding-top:60px}.about{gap:8px}}
 '''
 
 os.makedirs(os.path.join(PUB, "css"), exist_ok=True)
@@ -204,9 +235,9 @@ for p in PAGES + [ABOUT]:
     open(os.path.join(PUB, p["slug"] + ".html"), "w").write(page(p))
     # standalone footer snippet is not needed; homepage links are in React
 
-sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-      f"  <url><loc>{SITE}/</loc><lastmod>{TODAY}</lastmod></url>"]
-sm += [f"  <url><loc>{SITE}/{p['slug']}</loc><lastmod>{TODAY}</lastmod></url>" for p in PAGES + [ABOUT]]
+sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
+      f"  <url><loc>{SITE}/</loc><lastmod>{TODAY}</lastmod><image:image><image:loc>{SITE}/social-preview.jpg</image:loc></image:image></url>"]
+sm += [f"  <url><loc>{SITE}/{p['slug']}</loc><lastmod>{TODAY}</lastmod>" + "".join(f"<image:image><image:loc>{SITE}{f['src']}</image:loc></image:image>" for f in p.get("figures", [])) + "</url>" for p in PAGES + [ABOUT]]
 sm.append("</urlset>")
 open(os.path.join(PUB, "sitemap.xml"), "w").write("\n".join(sm) + "\n")
 open(os.path.join(PUB, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n")
