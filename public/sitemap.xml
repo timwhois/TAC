@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url><loc>https://www.thirdaxis.co.uk/</loc><lastmod>2026-10-27</lastmod><image:image><image:loc>https://www.thirdaxis.co.uk/social-preview.jpg</image:loc></image:image></url>
-  <url><loc>https://www.thirdaxis.co.uk/production-management</loc><lastmod>2026-10-09</lastmod></url>
-  <url><loc>https://www.thirdaxis.co.uk/ai-workflow-automation</loc><lastmod>2026-10-09</lastmod></url>
-  <url><loc>https://www.thirdaxis.co.uk/fashion-photography</loc><lastmod>2026-10-09</lastmod></url>
-  <url><loc>https://www.thirdaxis.co.uk/3d-product-rendering</loc><lastmod>2026-10-09</lastmod></url>
-  <url><loc>https://www.thirdaxis.co.uk/sample-management-system</loc><lastmod>2026-10-09</lastmod></url>
-  <url><loc>https://www.thirdaxis.co.uk/about</loc><lastmod>2026-10-09</lastmod></url>
+  <url><loc>https://www.thirdaxis.co.uk/</loc><lastmod>2026-10-28</lastmod><image:image><image:loc>https://www.thirdaxis.co.uk/social-preview.jpg</image:loc></image:image></url>
+  <url><loc>https://www.thirdaxis.co.uk/production-management</loc><lastmod>2026-10-28</lastmod><image:image><image:loc>https://www.thirdaxis.co.uk/portfolio/third-axis-02.webp</image:loc></image:image></url>
+  <url><loc>https://www.thirdaxis.co.uk/ai-workflow-automation</loc><lastmod>2026-10-28</lastmod><image:image><image:loc>https://www.thirdaxis.co.uk/portfolio/third-axis-14.webp</image:loc></image:image></url>
+  <url><loc>https://www.thirdaxis.co.uk/fashion-photography</loc><lastmod>2026-10-28</lastmod><image:image><image:loc>https://www.thirdaxis.co.uk/portfolio/third-axis-08.webp</image:loc></image:image></url>
+  <url><loc>https://www.thirdaxis.co.uk/3d-product-rendering</loc><lastmod>2026-10-28</lastmod><image:image><image:loc>https://www.thirdaxis.co.uk/portfolio/third-axis-13.webp</image:loc></image:image><image:image><image:loc>https://www.thirdaxis.co.uk/set-design-concept-reality.jpg</image:loc></image:image></url>
+  <url><loc>https://www.thirdaxis.co.uk/sample-management-system</loc><lastmod>2026-10-28</lastmod><image:image><image:loc>https://www.thirdaxis.co.uk/portfolio/sample-system-concept-1200.webp</image:loc></image:image><image:image><image:loc>https://www.thirdaxis.co.uk/portfolio/third-axis-10.webp</image:loc></image:image></url>
+  <url><loc>https://www.thirdaxis.co.uk/about</loc><lastmod>2026-10-28</lastmod></url>
 </urlset>
