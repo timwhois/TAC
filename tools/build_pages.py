@@ -55,7 +55,8 @@ def media(figs):
     items = "\n".join(
         f'<figure><img src="{f["src"]}" width="{f["w"]}" height="{f["h"]}" alt="{e(f["alt"])}" loading="lazy" decoding="async"><figcaption>{e(f["caption"])}</figcaption></figure>'
         for f in figs)
-    return f'<section class="wrap media{" one" if len(figs) == 1 else ""}">{items}</section>'
+    cls = (" one" + (" tall" if figs[0]["h"] > figs[0]["w"] else "")) if len(figs) == 1 else ""
+    return f'<section class="wrap media{cls}">{items}</section>'
 
 
 def cap(s):
@@ -211,6 +212,7 @@ h3{font-size:18px;font-weight:600;margin:0 0 .4em}
 .faq summary::-webkit-details-marker{display:none}.faq details p{color:var(--muted);margin:12px 0 0;max-width:820px}
 .media{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}.media.one{grid-template-columns:1fr;max-width:860px}
 .media img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
+.media:not(.one) img{aspect-ratio:3/2;object-fit:cover}.media.tall{max-width:520px}
 .media figcaption{font-size:12px;letter-spacing:.04em;color:var(--muted);margin-top:10px}
 .prose a{color:var(--cream);text-decoration-color:var(--acc);text-underline-offset:3px}.prose a:hover{color:var(--acc)}
 .rel{text-decoration:none;display:block}.rel strong{display:block}.rel small{display:block;color:var(--muted);margin-top:4px}
