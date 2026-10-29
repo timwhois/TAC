@@ -1,0 +1,924 @@
+export const terms = [
+  {
+    "category": "Photography & Lighting",
+    "term": "Aperture",
+    "definition": "Lens opening controlling light and depth of field"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Shutter speed",
+    "definition": "Duration the sensor is exposed to light"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "ISO",
+    "definition": "Camera sensitivity setting affecting exposure and noise"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Exposure",
+    "definition": "Amount of light recorded in an image"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Exposure compensation",
+    "definition": "Adjustment to the camera's metered exposure"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "White balance",
+    "definition": "Correction for the colour of the light source"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Colour temperature",
+    "definition": "Warmth or coolness of light measured in kelvin"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Depth of field",
+    "definition": "Distance range that appears acceptably sharp"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Bokeh",
+    "definition": "Appearance of out-of-focus highlights"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Focal length",
+    "definition": "Lens property influencing field of view and perspective when camera position changes"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Prime lens",
+    "definition": "Lens with a fixed focal length"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Zoom lens",
+    "definition": "Lens with an adjustable focal length"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Wide-angle lens",
+    "definition": "Lens with a relatively broad field of view"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Telephoto lens",
+    "definition": "Lens with a narrow field of view"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Perspective compression",
+    "definition": "Apparent closeness of distances when photographing from farther away"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Key light",
+    "definition": "Principal light shaping the subject"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Fill light",
+    "definition": "Light used to control shadow density"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Rim light",
+    "definition": "Light defining the edge of a subject"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Backlight",
+    "definition": "Light arriving from behind the subject"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Negative fill",
+    "definition": "Dark surface reducing reflected fill light"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Light fall-off",
+    "definition": "Reduction in light intensity with distance"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Feathering",
+    "definition": "Aiming the softer edge of a light source at the subject"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Hard light",
+    "definition": "Light producing relatively sharp shadow transitions"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Soft light",
+    "definition": "Light producing gradual shadow transitions"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Specular highlight",
+    "definition": "Reflection of a light source on a surface"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Diffusion",
+    "definition": "Material spreading and softening light"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Flag",
+    "definition": "Opaque panel blocking unwanted light"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Gobo",
+    "definition": "Object shaping or patterning projected light"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Catchlight",
+    "definition": "Visible reflection of a light in the eye"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "High-key lighting",
+    "definition": "Bright treatment with relatively light tones"
+  },
+  {
+    "category": "Photography & Lighting",
+    "term": "Low-key lighting",
+    "definition": "Dark treatment with pronounced shadows"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Frame rate",
+    "definition": "Number of frames captured or displayed each second"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Shutter angle",
+    "definition": "Motion-picture exposure interval expressed as an angle"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Shot list",
+    "definition": "Planned list of shots required for production"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Storyboard",
+    "definition": "Sequence of drawings planning shots"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Blocking",
+    "definition": "Planning the positions and movement of performers and camera"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Coverage",
+    "definition": "Alternative shot angles and sizes needed to edit a scene"
+  },
+  {
+    "category": "Film & Video",
+    "term": "B-roll",
+    "definition": "Supplementary footage supporting primary material"
+  },
+  {
+    "category": "Film & Video",
+    "term": "A-roll",
+    "definition": "Principal footage carrying the main story"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Establishing shot",
+    "definition": "Shot introducing a location or context"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Close-up",
+    "definition": "Tight framing emphasizing a subject or detail"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Wide shot",
+    "definition": "Framing showing a subject in its surroundings"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Dolly shot",
+    "definition": "Camera movement using a moving support"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Tracking shot",
+    "definition": "Shot following movement through space"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Pan",
+    "definition": "Horizontal rotation of the camera"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Tilt",
+    "definition": "Vertical rotation of the camera"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Rack focus",
+    "definition": "Shifting focus from one subject plane to another"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Continuity",
+    "definition": "Consistency between shots across a sequence"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Jump cut",
+    "definition": "Edit creating a noticeable discontinuity in time or position"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Match cut",
+    "definition": "Cut connecting shots through visual or conceptual similarity"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Colour grade",
+    "definition": "Creative adjustment of image colour and tone"
+  },
+  {
+    "category": "Film & Video",
+    "term": "Log footage",
+    "definition": "Flat-appearing encoded video retaining grading latitude"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Creative brief",
+    "definition": "Document setting objectives, audience, constraints and deliverables"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Art direction",
+    "definition": "Visual choices guiding the look and feel of a production"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Moodboard",
+    "definition": "Collection of references communicating intended visual direction"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Treatment",
+    "definition": "Document describing a proposed creative execution"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Visual hierarchy",
+    "definition": "Ordering elements to guide attention"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Composition",
+    "definition": "Arrangement of visual elements within a frame"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Negative space",
+    "definition": "Unoccupied area that supports visual balance"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Contrast",
+    "definition": "Difference between visual elements such as tone or colour"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Tone of voice",
+    "definition": "Consistent character of a brand's communication"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Brand guidelines",
+    "definition": "Rules for applying a brand identity"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Look and feel",
+    "definition": "Combined visual character of a project"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Hero image",
+    "definition": "Primary image intended to lead a campaign or page"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Key visual",
+    "definition": "Core visual expression of a campaign"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Reference image",
+    "definition": "Existing visual used to clarify intent"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Deliverable",
+    "definition": "Specified output required from a project"
+  },
+  {
+    "category": "Creative Direction",
+    "term": "Creative sign-off",
+    "definition": "Approval of a proposed creative direction"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Clipping path",
+    "definition": "Vector outline used to isolate an object"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Mask",
+    "definition": "Grayscale selection controlling where an edit applies"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Layer",
+    "definition": "Independent editable element in a composite"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Compositing",
+    "definition": "Combining visual elements into one image"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Dodge and burn",
+    "definition": "Locally lightening and darkening image areas"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Frequency separation",
+    "definition": "Technique separating image texture from broader tonal variation"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Healing",
+    "definition": "Replacing unwanted details using surrounding texture"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Clone stamp",
+    "definition": "Copying pixels from one image area to another"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Colour correction",
+    "definition": "Adjusting colour for accuracy and consistency"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Retouching",
+    "definition": "Refining an image after capture"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Non-destructive editing",
+    "definition": "Editing that preserves original image information"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Alpha channel",
+    "definition": "Channel encoding pixel transparency"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Colour profile",
+    "definition": "Data describing how colours are represented"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "ICC profile",
+    "definition": "Standard colour profile used across devices"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Sharpening",
+    "definition": "Increasing apparent edge definition"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Noise reduction",
+    "definition": "Reducing unwanted grain or digital noise"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Batch processing",
+    "definition": "Applying repeatable operations to many files"
+  },
+  {
+    "category": "Retouching & Post",
+    "term": "Export preset",
+    "definition": "Saved settings for producing final files"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Polygon",
+    "definition": "Flat face forming part of a 3D mesh"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Topology",
+    "definition": "Arrangement and connectivity of mesh geometry"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "UV mapping",
+    "definition": "Mapping 3D surfaces onto 2D texture coordinates"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Texture",
+    "definition": "Image or data controlling surface appearance"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Shader",
+    "definition": "Program or node setup defining material response"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "PBR",
+    "definition": "Physically based rendering using consistent material properties"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Normal map",
+    "definition": "Texture altering apparent surface direction without changing geometry"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Bump map",
+    "definition": "Texture simulating small surface relief"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Displacement",
+    "definition": "Changing geometry using a height signal"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Roughness",
+    "definition": "Material property controlling spread of reflections"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Metallic",
+    "definition": "Material property describing metal-like light response"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Ambient occlusion",
+    "definition": "Approximation of reduced light in creases and contacts"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Ray tracing",
+    "definition": "Simulating paths of light through a scene"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Render",
+    "definition": "Computed image generated from a 3D scene"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Render pass",
+    "definition": "Separate image output of a render component"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "HDRI",
+    "definition": "High-dynamic-range image used for lighting and reflections"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Subdivision surface",
+    "definition": "Method smoothing geometry by subdividing mesh faces"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Rigging",
+    "definition": "Creating controls for animating an object"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Keyframe",
+    "definition": "Stored value at a specific animation time"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Geometry nodes",
+    "definition": "Node-based procedural geometry system"
+  },
+  {
+    "category": "3D & CGI",
+    "term": "Asset library",
+    "definition": "Organized collection of reusable digital objects"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "Ghost mannequin",
+    "definition": "Garment photography edited to appear worn without a visible mannequin"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "Flat lay",
+    "definition": "Product photographed arranged on a flat surface"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "PDP",
+    "definition": "Product detail page displaying item information and imagery"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "SKU",
+    "definition": "Unique stock-keeping identifier for a product variant"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "Colourway",
+    "definition": "Specific colour combination of a product"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "Sample",
+    "definition": "Physical product supplied for photography or approval"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "Sample tracking",
+    "definition": "Monitoring product samples through a production workflow"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "Fit reference",
+    "definition": "Image or specification describing how a garment should sit"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "On-model imagery",
+    "definition": "Product photographs showing garments worn by a model"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "Packshot",
+    "definition": "Clean product image typically used in catalogues"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "Lookbook",
+    "definition": "Curated set of styled product or collection images"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "Campaign imagery",
+    "definition": "Visual content developed for a marketing concept"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "Image consistency",
+    "definition": "Repeatability of framing, scale, lighting and colour"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "Product accuracy",
+    "definition": "Faithful representation of the product's shape, colour and details"
+  },
+  {
+    "category": "Fashion & Ecommerce",
+    "term": "Size guide",
+    "definition": "Information helping customers choose product size"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "Vector",
+    "definition": "Artwork represented by scalable mathematical paths"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "Raster",
+    "definition": "Image composed of pixels"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "Resolution",
+    "definition": "Amount of image detail measured in pixels or pixel density"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "DPI",
+    "definition": "Dots per inch in physical printing"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "PPI",
+    "definition": "Pixels per inch in digital image density"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "Bleed",
+    "definition": "Artwork extending beyond trim to avoid white edges"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "Trim",
+    "definition": "Final cut size of a printed piece"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "Safe area",
+    "definition": "Region keeping essential content away from edges"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "CMYK",
+    "definition": "Cyan magenta yellow and black printing colour model"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "RGB",
+    "definition": "Red green and blue additive colour model"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "Kerning",
+    "definition": "Adjustment of space between individual letter pairs"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "Tracking",
+    "definition": "Uniform adjustment of spacing across letters"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "Leading",
+    "definition": "Vertical distance between lines of type"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "Grid system",
+    "definition": "Structure used to align layout elements"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "Preflight",
+    "definition": "Checking artwork for print-production errors"
+  },
+  {
+    "category": "Graphic Design & Print",
+    "term": "Outline text",
+    "definition": "Converting type into vector shapes"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "Inference",
+    "definition": "Running a trained model to generate an output"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "Prompt",
+    "definition": "Instruction or input guiding a generative model"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "Negative prompt",
+    "definition": "Description of characteristics to discourage in some models"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "Seed",
+    "definition": "Initial random value used in generation"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "Diffusion model",
+    "definition": "Model generating data through iterative denoising"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "Inpainting",
+    "definition": "Generating or modifying a selected image region"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "Outpainting",
+    "definition": "Extending an image beyond its original boundaries"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "ControlNet",
+    "definition": "Conditioning method using structural guidance in supported diffusion workflows"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "LoRA",
+    "definition": "Low-rank adaptation used to fine-tune model behaviour"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "Checkpoint",
+    "definition": "Saved model weights"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "Latent space",
+    "definition": "Compressed representation manipulated by a generative model"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "Upscaling",
+    "definition": "Increasing image dimensions with interpolation or learned detail"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "Segmentation",
+    "definition": "Identifying regions or objects within an image"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "Identity consistency",
+    "definition": "Keeping a subject's defining appearance stable across outputs"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "Human-in-the-loop",
+    "definition": "Workflow retaining human checks or decisions"
+  },
+  {
+    "category": "AI & Digital Production",
+    "term": "Quality assurance",
+    "definition": "Verification that output meets defined requirements"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Call sheet",
+    "definition": "Daily document listing schedule, crew, locations and contacts"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Pre-production",
+    "definition": "Planning before a shoot or content-production session"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Production schedule",
+    "definition": "Timing plan for tasks and resources"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Critical path",
+    "definition": "Dependent tasks determining earliest completion date"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Shot count",
+    "definition": "Number of required images or shots"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Turnaround time",
+    "definition": "Elapsed time between request and delivery"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Capacity planning",
+    "definition": "Matching expected workload with available resources"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Resource allocation",
+    "definition": "Assigning people, equipment and space to tasks"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Risk assessment",
+    "definition": "Identifying hazards and control measures"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Contingency",
+    "definition": "Backup plan for foreseeable disruption"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Scope creep",
+    "definition": "Uncontrolled expansion beyond agreed work"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Change request",
+    "definition": "Formal proposal to alter agreed scope"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Approval gate",
+    "definition": "Point requiring authorization before continuing"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Asset management",
+    "definition": "Organizing and tracking files and creative resources"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Version control",
+    "definition": "Tracking changes and revisions to work"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "File naming convention",
+    "definition": "Consistent rules for naming production files"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Handover",
+    "definition": "Transfer of assets and responsibilities to the next stage"
+  },
+  {
+    "category": "Studio & Production",
+    "term": "Post-production",
+    "definition": "Editing and finishing work after capture"
+  }
+];
+export const briefExamples = [
+  [
+    "Make it pop",
+    "Could mean more tonal contrast, saturation, subject separation or stronger visual hierarchy.",
+    "Which element should attract attention first, and should that come from lighting, colour or scale?"
+  ],
+  [
+    "Make it more premium",
+    "Could mean restrained styling, refined material detail, cleaner composition or controlled lighting.",
+    "Which premium brands or images match the feeling you want?"
+  ],
+  [
+    "It looks flat",
+    "Could refer to weak lighting shape, low contrast, limited depth or muted colour.",
+    "Is it the shape of the subject, the tonal contrast or the background separation?"
+  ],
+  [
+    "Make it cinematic",
+    "Could refer to directional lighting, narrative framing, camera movement or a film-inspired grade.",
+    "Do you mean lighting, composition, motion or colour treatment?"
+  ],
+  [
+    "Can you make it cleaner?",
+    "Could mean fewer props, less texture, more consistent alignment or more retouching.",
+    "What specifically feels distracting or inconsistent?"
+  ],
+  [
+    "Make the product stand out",
+    "Could involve composition, scale, focus, lighting or colour contrast.",
+    "Should the product feel bigger, brighter, sharper or more isolated?"
+  ],
+  [
+    "Can we make it warmer?",
+    "Could mean warmer white balance, more inviting lighting or friendlier styling.",
+    "Do you mean colour temperature or the overall mood?"
+  ],
+  [
+    "Make it more dynamic",
+    "Could mean diagonal composition, motion, varied posing or bolder contrast.",
+    "Should we introduce movement, stronger angles or a more energetic layout?"
+  ],
+  [
+    "It needs more depth",
+    "Could mean foreground/background layering, directional light or shallow depth of field.",
+    "Do you want more three-dimensional shape or a blurrier background?"
+  ],
+  [
+    "Can you sharpen it?",
+    "Could mean improve focus, local contrast or output sharpening; missed focus may not be recoverable.",
+    "Is the source image out of focus, or does the final export just feel soft?"
+  ],
+  [
+    "Make it consistent",
+    "Could refer to framing, garment scale, colour, lighting, pose or file output.",
+    "Which measurable elements must match across the set?"
+  ],
+  [
+    "Can we make it more editorial?",
+    "Could mean narrative styling, less catalogue-like posing or distinctive composition.",
+    "Which editorial references capture the intended treatment?"
+  ]
+];
