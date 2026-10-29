@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 
 const LINKS = [
-  { href: "#work", label: "Work" },
+  { href: "/#work", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/dictionary.html", label: "Dictionary" },
-  { href: "#shootless", label: "Shootless" },
-  { href: "#rail", label: "The Rail" },
+  { href: "/#shootless", label: "Shootless" },
+  { href: "/#rail", label: "The Rail" },
 ]
 
 export function Nav() {
@@ -29,7 +29,7 @@ export function Nav() {
   return (
     <>
       <header className={`nav ${scrolled ? "scrolled" : ""}`}>
-        <a href="#top" className="wordmark" onClick={() => setOpen(false)}>
+        <a href="/" className="wordmark" onClick={() => setOpen(false)}>
           <img src="/third-axis-creative-white.svg" alt="Third Axis Creative" className="brand-logo" />
         </a>
         <nav className="nav-links-desktop">
@@ -39,7 +39,7 @@ export function Nav() {
             </a>
           ))}
         </nav>
-        <a href="#contact" className="nav-contact-cta" onClick={() => setOpen(false)}>
+        <a href="/#contact" className="nav-contact-cta" onClick={() => setOpen(false)}>
           LET'S TALK <span aria-hidden="true">↗</span>
         </a>
         <button
@@ -64,7 +64,7 @@ export function Nav() {
             {l.label}
           </a>
         ))}
-        <a className="nav-overlay-link" href="#contact" onClick={() => setOpen(false)}>LET'S TALK ↗</a>
+        <a className="nav-overlay-link" href="/#contact" onClick={() => setOpen(false)}>LET'S TALK ↗</a>
       </div>
     </>
   )
