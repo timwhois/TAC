@@ -81,6 +81,7 @@ function App() {
             <a href="https://www.linkedin.com/company/third-axis-creative/" target="_blank" rel="noopener noreferrer">
               LINKEDIN
             </a>
+            <a href="/dictionary.html">DICTIONARY</a>
             <a href="/about">ABOUT</a>
             <a href="/#contact">GET IN TOUCH</a>
           </div>
