@@ -1845,3 +1845,11 @@ html,body { overflow-x:clip; }
 #shootless .showcase-copy{gap:1.7rem}
 #shootless .showcase-label{margin-bottom:clamp(24px,4vw,48px)}
 @media(max-width:700px){.showcase-brand-title img{width:min(82%,300px)}.showcase-copy .showcase-pitch{font-size:clamp(2rem,8.5vw,3rem)}.showcase-copy .showcase-promise{font-size:clamp(1.65rem,7vw,2.5rem)}#shootless .showcase-copy{gap:1.4rem}}
+
+/* The Rail venture — breathing room on narrow screens */
+#rail .showcase-label{margin-bottom:clamp(28px,5vw,54px)}
+#rail .showcase-copy{gap:clamp(28px,5vw,46px)}
+#rail .showcase-title{line-height:1.04;letter-spacing:.01em;max-width:100%;overflow-wrap:normal;word-break:normal}
+#rail .showcase-copy > p{line-height:1.8;max-width:620px}
+#rail .showcase-stats{margin-top:clamp(18px,4vw,38px)}
+@media(max-width:700px){#rail .showcase-title{font-size:clamp(2.9rem,12vw,4.4rem)}#rail .showcase-copy{gap:28px}#rail .showcase-stats{gap:1rem}}
