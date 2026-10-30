@@ -19,6 +19,7 @@ function App() {
         <Capabilities />
         <SelectedWork />
 
+        <div className="eyebrow" style={{padding:"32px clamp(20px,5vw,80px) 0",background:"var(--forest, #10271f)"}}>THIRD AXIS ORIGINALS // VENTURES</div>
         <Showcase
           id="shootless"
           variant="forest"
