@@ -23,6 +23,13 @@ const ITEMS = [
     copy: "Fashion, product and campaign photography shaped around the brief, lighting, styling and final commercial use.",
   },
   {
+    index: "05",
+    label: "I NEED MY IMAGES FINISHED",
+    href: "/retouching",
+    linkText: "Retouching & post-production",
+    copy: "Commercial fashion, ecommerce and product retouching, from natural refinement to colour consistency and campaign finishing.",
+  },
+  {
     index: "04",
     label: "I WANT TO EXPLORE NEW PRODUCTION METHODS",
     href: "/3d-product-rendering",
@@ -39,7 +46,7 @@ export function Capabilities() {
         <div className="capabilities">
           {ITEMS.map((item) => (
             <div className="capability" key={item.index}>
-              <div className="capability-image"><img src={(["/portfolio/third-axis-02.webp", "/portfolio/third-axis-10.webp", "/portfolio/third-axis-08.webp", "/portfolio/third-axis-13.webp"])[Number(item.index)-1]} alt="" loading="lazy" /></div><div className="capability-index">{item.index}</div>
+              <div className="capability-image"><img src={(["/portfolio/third-axis-02.webp", "/portfolio/third-axis-10.webp", "/portfolio/third-axis-08.webp", "/portfolio/third-axis-13.webp", "/portfolio/third-axis-08.webp"])[Number(item.index)-1]} alt="" loading="lazy" /></div><div className="capability-index">{item.index}</div>
               <h3 className="capability-label">{item.label}</h3>
               <p>{item.copy}</p>
               <a className="capability-link" href={item.href}>
