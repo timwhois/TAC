@@ -26,14 +26,14 @@ function App() {
           index="01"
           labelColor="var(--orange)"
           title="SHOOTLESS."
-          copy="Send Shootless your existing garment photography and brief. Our team develops on-model ecommerce and campaign imagery using AI-assisted workflows, creative direction and human review. Client-operated software is a future ambition."
+          copy="LAST-MINUTE PRODUCT? NO MODEL BOOKED? BUDGET TOO TIGHT? Send us a suitable product shot and brief. We’ll do the rest — developing on-model ecommerce and campaign imagery through a managed, human-directed, AI-assisted production workflow. Reduce repeat shoot bookings, scheduling delays and production overhead where suitable."
           ctaLabel="Explore Shootless Studio ↗"
           ctaHref="https://www.shootless.co.uk"
           ctaClass="btn-outline-cream"
           stats={[
-            { num: "AI", label: "Imaging workflows" },
-            { num: "PDP", label: "Product imagery" },
-            { num: "CAMPAIGN", label: "Creative concepts" },
+            { num: "SPEED", label: "Fewer shoot delays" },
+            { num: "COST", label: "Less shoot overhead" },
+            { num: "CONTROL", label: "Human-led output" },
           ]}
         />
 
