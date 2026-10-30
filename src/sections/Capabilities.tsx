@@ -3,31 +3,31 @@ import { Reveal } from "../components/Reveal"
 const ITEMS = [
   {
     index: "01",
-    label: "FREELANCE + PRODUCTION",
+    label: "I NEED HELP RUNNING MY PRODUCTION",
     href: "/production-management",
     linkText: "Production management",
-    copy: "Experienced on-set support, lighting, set builds, shoot planning and practical production management.",
+    copy: "Production planning, crew coordination, technical support and studio management.",
   },
   {
     index: "02",
-    label: "BESPOKE SYSTEMS",
+    label: "I WANT TO IMPROVE MY STUDIO WORKFLOW",
     href: "/ai-workflow-automation",
     linkText: "AI & workflow automation",
-    copy: "Studio tools, automation and connected workflows designed around how your team actually works.",
+    copy: "Sample tracking, scheduling, production systems, bespoke tools and automation.",
   },
   {
     index: "03",
-    label: "PHOTOGRAPHY",
+    label: "I NEED CREATIVE CONTENT",
     href: "/fashion-photography",
     linkText: "Fashion & product photography",
-    copy: "Commercial photography and lighting for product, fashion and creative production. Available for freelance bookings.",
+    copy: "Commercial photography, campaign imagery, creative direction, set design and CGI.",
   },
   {
     index: "04",
-    label: "3D + CGI",
+    label: "I WANT TO EXPLORE NEW PRODUCTION METHODS",
     href: "/3d-product-rendering",
     linkText: "3D & CGI rendering",
-    copy: "3D visualisation, CGI and set design — from digital concepts to practical, production-ready environments.",
+    copy: "AI-assisted production, 3D workflows and Shootless, backed by practical studio experience.",
   },
 ]
 
