@@ -12,6 +12,10 @@
   "nav": "Fashion & product photography"
  },
  {
+  "slug": "retouching",
+  "nav": "Retouching & post-production"
+ },
+ {
   "slug": "3d-product-rendering",
   "nav": "3D & CGI product rendering"
  },
