@@ -32,7 +32,7 @@ export function Showcase({
         </div>
         <div className="showcase-grid">
           <div className="showcase-copy">
-            {id === "shootless" ? <h2 className="showcase-title showcase-brand-title"><img src="/shootless-family.svg" alt="Shootless Studio" loading="lazy" /></h2> : <h2 className="display showcase-title">{title}</h2>}
+            {id === "shootless" ? <h2 className="showcase-title showcase-brand-title"><img src="/shootless-family.svg" alt="Shootless Studio" loading="lazy" /></h2> : <h2 className="display showcase-title">{id === "rail" ? "// THE RAIL" : title}</h2>}
             {id === "shootless" ? <><p className="showcase-pitch">LAST-MINUTE PRODUCT?<br />NO MODEL BOOKED?<br />BUDGET TOO TIGHT?</p><p className="showcase-promise">SEND US THE PRODUCT SHOT.<br /><span>WE’LL DO THE REST.</span></p><p className="showcase-detail">Send us a suitable garment reference and brief. Shootless develops on-model ecommerce and campaign imagery with human creative direction and quality review — reducing repeat shoot bookings, delays and production overhead where appropriate.</p></> : <p>{copy}</p>}
             <div>
               <a className={`btn ${ctaClass}`} href={ctaHref} target="_blank" rel="noopener noreferrer">
