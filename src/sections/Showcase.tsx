@@ -28,7 +28,7 @@ export function Showcase({
     <section className={`showcase showcase-${variant}`} id={id}>
       <Reveal>
         <div className="showcase-label" style={{ color: labelColor }}>
-          CASE STUDY — {index}
+          THIRD AXIS ORIGINALS / VENTURE — {index}
         </div>
         <div className="showcase-grid">
           <div className="showcase-copy">
