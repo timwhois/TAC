@@ -3,6 +3,7 @@ import { Reveal } from "../components/Reveal"
 const ITEMS = [
   {
     index: "01",
+    image: "/portfolio/third-axis-02.webp",
     label: "I NEED HELP RUNNING MY PRODUCTION",
     href: "/production-management",
     linkText: "Production management",
@@ -10,6 +11,7 @@ const ITEMS = [
   },
   {
     index: "02",
+    image: "/portfolio/third-axis-10.webp",
     label: "I WANT TO IMPROVE MY STUDIO WORKFLOW",
     href: "/ai-workflow-automation",
     linkText: "AI & workflow automation",
@@ -17,20 +19,23 @@ const ITEMS = [
   },
   {
     index: "03",
+    image: "/portfolio/third-axis-08.webp",
     label: "I NEED CREATIVE CONTENT",
     href: "/fashion-photography",
     linkText: "Fashion & product photography",
     copy: "Fashion, product and campaign photography shaped around the brief, lighting, styling and final commercial use.",
   },
   {
-    index: "05",
+    index: "04",
+    image: "/portfolio/third-axis-13.webp",
     label: "I NEED MY IMAGES FINISHED",
     href: "/retouching",
     linkText: "Retouching & post-production",
     copy: "Commercial fashion, ecommerce and product retouching, from natural refinement to colour consistency and campaign finishing.",
   },
   {
-    index: "04",
+    index: "05",
+    image: "/set-design-concept-reality.jpg",
     label: "I WANT TO EXPLORE NEW PRODUCTION METHODS",
     href: "/3d-product-rendering",
     linkText: "3D & CGI rendering",
@@ -46,7 +51,7 @@ export function Capabilities() {
         <div className="capabilities">
           {ITEMS.map((item) => (
             <div className="capability" key={item.index}>
-              <div className="capability-image"><img src={(["/portfolio/third-axis-02.webp", "/portfolio/third-axis-10.webp", "/portfolio/third-axis-08.webp", "/portfolio/third-axis-13.webp", "/portfolio/third-axis-08.webp"])[Number(item.index)-1]} alt="" loading="lazy" /></div><div className="capability-index">{item.index}</div>
+              <div className="capability-image"><img src={item.image} alt="" loading="lazy" /></div><div className="capability-index">{item.index}</div>
               <h3 className="capability-label">{item.label}</h3>
               <p>{item.copy}</p>
               <a className="capability-link" href={item.href}>
