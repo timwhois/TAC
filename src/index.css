@@ -1899,3 +1899,21 @@ html,body { overflow-x:clip; }
   #rail .showcase-copy { gap: 12px; }
   #rail .showcase-title { font-size: clamp(2.8rem, 5vw, 4.6rem); }
 }
+
+
+/* Rail snap correction: reserve the sticky header and fill the visible chapter. */
+@media (min-width: 900px) {
+  html { scroll-padding-top: 100px !important; }
+  #rail.showcase {
+    box-sizing: border-box;
+    min-height: calc(100svh - 100px);
+    justify-content: center;
+    scroll-snap-align: start !important;
+    scroll-margin-top: 0 !important;
+  }
+  #rail .showcase-grid { width: 100%; }
+}
+@media (min-width: 900px) and (max-height: 700px) {
+  #rail.showcase { min-height: calc(100svh - 100px); }
+  #rail .rail-editorial img { height: min(38svh, 260px); }
+}
