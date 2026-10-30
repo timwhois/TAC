@@ -29,8 +29,8 @@ export function Hero() {
         <div className="axis-film-panel axis-film-panel-one">
           <div className="axis-film-kicker"><span className="axis-film-dot" /> IDEAS MADE REAL. </div>
           <h1>CREATIVE THINKING.<br /><em>TECHNICAL EXECUTION.</em></h1>
-          <p>We help brands, photography studios and creative teams produce better content and run more efficiently. From commercial photography and production management to 3D, AI and bespoke studio automation — we bring the creative and technical expertise to make it happen.</p>
-          <div className="axis-film-actions"><a href="#services">EXPLORE OUR SERVICES <span>↗</span></a><a href="#contact">DISCUSS A PRODUCTION CHALLENGE <span>↗</span></a></div>
+          <p>We help brands, photography studios and creative teams create better content, streamline production and solve technical challenges. From commercial photography and production management to 3D, AI and bespoke studio systems — creative expertise grounded in real-world experience.</p>
+          <div className="axis-film-actions"><a href="#services">EXPLORE OUR SERVICES <span>↗</span></a><a href="#contact">DISCUSS A PROJECT <span>↗</span></a></div>
           <a className="axis-scroll-cue" href="#services" aria-label="Scroll to explore services"><span>SCROLL TO EXPLORE</span><span aria-hidden="true">↓</span></a>
         </div>
 
