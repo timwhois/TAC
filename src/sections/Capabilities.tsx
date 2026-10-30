@@ -6,28 +6,28 @@ const ITEMS = [
     label: "I NEED HELP RUNNING MY PRODUCTION",
     href: "/production-management",
     linkText: "Production management",
-    copy: "Production planning, crew coordination, technical support and studio management.",
+    copy: "Experienced freelance lighting, set preparation, production planning and technical on-set support to help shoots run smoothly.",
   },
   {
     index: "02",
     label: "I WANT TO IMPROVE MY STUDIO WORKFLOW",
     href: "/ai-workflow-automation",
     linkText: "AI & workflow automation",
-    copy: "Sample tracking, scheduling, production systems, bespoke tools and automation.",
+    copy: "Review fragmented sample and scheduling processes, then develop tracking, dashboards and automation that improve visibility and reduce manual handovers.",
   },
   {
     index: "03",
     label: "I NEED CREATIVE CONTENT",
     href: "/fashion-photography",
     linkText: "Fashion & product photography",
-    copy: "Commercial photography, campaign imagery, creative direction, set design and CGI.",
+    copy: "Fashion, product and campaign photography shaped around the brief, lighting, styling and final commercial use.",
   },
   {
     index: "04",
     label: "I WANT TO EXPLORE NEW PRODUCTION METHODS",
     href: "/3d-product-rendering",
     linkText: "3D & CGI rendering",
-    copy: "AI-assisted production, 3D workflows and Shootless, backed by practical studio experience.",
+    copy: "Visualise sets, products and environments that would be difficult, costly or impractical to build or shoot traditionally.",
   },
 ]
 
