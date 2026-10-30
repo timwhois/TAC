@@ -1853,3 +1853,8 @@ html,body { overflow-x:clip; }
 #rail .showcase-copy > p{line-height:1.8;max-width:620px}
 #rail .showcase-stats{margin-top:clamp(18px,4vw,38px)}
 @media(max-width:700px){#rail .showcase-title{font-size:clamp(2.9rem,12vw,4.4rem)}#rail .showcase-copy{gap:28px}#rail .showcase-stats{gap:1rem}}
+
+/* The Rail — existing editorial image, placed between copy and category stats */
+#rail .rail-editorial{margin:clamp(12px,3vw,28px) 0 0;width:100%;max-width:100%;overflow:hidden}
+#rail .rail-editorial img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center}
+@media(min-width:900px){#rail .rail-editorial{max-width:760px;margin-top:clamp(20px,3vw,40px)}}
