@@ -1834,3 +1834,14 @@ html,body { overflow-x:clip; }
 .contact-form textarea[aria-invalid="true"] {
   border-color:#ffb7a6;
 }
+
+/* Shootless venture: official brand mark and clear commercial hierarchy */
+.showcase-brand-title{margin:0 0 .65rem;line-height:1}
+.showcase-brand-title img{display:block;width:min(100%,420px);height:auto;object-fit:contain;object-position:left center}
+.showcase-copy .showcase-pitch{font-family:var(--font-display);font-size:clamp(2rem,4.4vw,3.8rem);line-height:1.04;letter-spacing:.015em;color:var(--cream,#f2f0eb);margin:0 0 .3rem}
+.showcase-copy .showcase-promise{font-family:var(--font-display);font-size:clamp(1.65rem,3.5vw,3rem);line-height:1.08;color:var(--cream,#f2f0eb);margin:0 0 .4rem}
+.showcase-promise span{color:var(--orange,#f3a12a)}
+.showcase-copy .showcase-detail{max-width:650px;font-size:clamp(.98rem,1.35vw,1.15rem);line-height:1.65;color:rgba(242,240,235,.76);margin:0}
+#shootless .showcase-copy{gap:1.7rem}
+#shootless .showcase-label{margin-bottom:clamp(24px,4vw,48px)}
+@media(max-width:700px){.showcase-brand-title img{width:min(82%,300px)}.showcase-copy .showcase-pitch{font-size:clamp(2rem,8.5vw,3rem)}.showcase-copy .showcase-promise{font-size:clamp(1.65rem,7vw,2.5rem)}#shootless .showcase-copy{gap:1.4rem}}
