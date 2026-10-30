@@ -25,7 +25,7 @@ function App() {
           index="01"
           labelColor="var(--orange)"
           title="SHOOTLESS."
-          copy="A Third Axis Creative imaging venture. Shootless explores a more controlled way to produce AI fashion and ecommerce imagery — combining studio experience, structured garment references and production-led creative direction."
+          copy="Send Shootless your existing garment photography and brief. Our team develops on-model ecommerce and campaign imagery using AI-assisted workflows, creative direction and human review. Client-operated software is a future ambition."
           ctaLabel="Explore Shootless Studio ↗"
           ctaHref="https://www.shootless.co.uk"
           ctaClass="btn-outline-cream"
