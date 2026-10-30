@@ -40,6 +40,11 @@ export function Showcase({
               </a>
             </div>
           </div>
+          {id === "rail" && (
+            <figure className="rail-editorial">
+              <img src="/portfolio/the-rail-editorial.webp" alt="The Rail collection of graphic T-shirts hanging on a studio clothing rail" loading="lazy" decoding="async" />
+            </figure>
+          )}
           <div className="showcase-stats">
             {stats.map((s) => (
               <div className="showcase-stat" key={s.num}>
