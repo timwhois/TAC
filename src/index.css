@@ -1970,3 +1970,15 @@ html,body { overflow-x:clip; }
     min-height: 0;
   }
 }
+
+/* Shootless desktop menu placement: align the link group to the same screen coordinates. */
+@media (min-width: 1025px) {
+  .nav-links-desktop {
+    position: absolute;
+    left: 34.2%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0;
+    white-space: nowrap;
+  }
+}
