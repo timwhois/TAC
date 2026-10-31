@@ -1970,26 +1970,3 @@ html,body { overflow-x:clip; }
     text-align: center;
   }
 }
-
-/* Desktop navigation parity: Shootless is the reference. Third Axis only. */
-@media (min-width: 1025px) {
-  .nav {
-    position: sticky;
-    height: 116px;
-    min-height: 116px;
-    padding-top: 0;
-    padding-bottom: 0;
-    align-items: center;
-  }
-  .nav-links-desktop {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    margin-left: 0;
-    gap: 44px;
-    align-items: center;
-    white-space: nowrap;
-  }
-  .nav-contact-cta { margin-left: auto; }
-}
