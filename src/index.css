@@ -1940,10 +1940,3 @@ html,body { overflow-x:clip; }
   }
 }
 
-/* Sister-brand navigation geometry — shared desktop header baseline. */
-@media (min-width: 1025px) {
-  .nav { height: 82px; min-height: 82px; padding: 0 clamp(1.25rem, 6vw, 6rem); gap: clamp(20px,3vw,48px); }
-  .nav-links-desktop { gap: 44px; margin-left: auto; }
-  .nav-links-desktop .nav-link { font-family: var(--font-body); font-size: 11px; font-weight: 400; line-height: 1.4; letter-spacing: .18em; }
-  .nav-contact-cta { font-family: var(--font-body); font-size: 11px; font-weight: 400; line-height: 1.4; letter-spacing: .14em; padding: 11px 26px; }
-}
