@@ -1976,3 +1976,8 @@ html,body { overflow-x:clip; }
   .nav { box-sizing: border-box; height: 116px; min-height: 116px; padding-top: 0; padding-bottom: 0; }
   .nav.scrolled { height: 116px; min-height: 116px; }
 }
+
+/* Desktop header/hero seam: place the first horizontal rule directly beneath the navigation. */
+@media (min-width: 1025px) {
+  .axis-film-topline { top: 4px; }
+}
