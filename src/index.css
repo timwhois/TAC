@@ -1940,3 +1940,33 @@ html,body { overflow-x:clip; }
   }
 }
 
+
+/* Navigation text only: match Shootless desktop type and vertical centring. */
+@media (min-width: 780px) {
+  .nav-links-desktop { display: flex; align-items: center; gap: 44px; }
+  .nav-links-desktop .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(242,240,235,.65);
+    opacity: 1;
+  }
+  .nav-links-desktop .nav-link:hover { color: #f2f0eb; }
+  .nav-contact-cta {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 11px 26px;
+    min-height: 0;
+    text-align: center;
+  }
+}
