@@ -1970,3 +1970,9 @@ html,body { overflow-x:clip; }
     text-align: center;
   }
 }
+
+/* Match Shootless desktop navigation height; preserve existing text and horizontal layout. */
+@media (min-width: 1025px) {
+  .nav { box-sizing: border-box; height: 102px; min-height: 102px; padding-top: 0; padding-bottom: 0; }
+  .nav.scrolled { height: 102px; min-height: 102px; }
+}
