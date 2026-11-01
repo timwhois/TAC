@@ -5,7 +5,7 @@ const LINKS = [
   { href: "/about", label: "About" },
   { href: "/dictionary.html", label: "Dictionary" },
   { href: "/#shootless", label: "Shootless" },
-  { href: "/#rail", label: "The Rail" },
+  { href: "/#offset", label: "OFF SET" },
 ]
 
 export function Nav() {
