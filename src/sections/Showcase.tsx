@@ -28,7 +28,7 @@ export function Showcase({
     <section className={`showcase showcase-${variant}`} id={id}>
       <Reveal>
         <div className="showcase-label" style={{ color: labelColor }}>
-          THIRD AXIS ORIGINALS / VENTURE — {index}
+          THIRD AXIS CREATIVE / VENTURE — {index}
         </div>
         <div className="showcase-grid">
           <div className="showcase-copy">
@@ -36,7 +36,7 @@ export function Showcase({
             {id === "shootless" ? <><h3 className="shootless-unified-headline">THE NEXT WAY <span>TO MAKE IMAGES.</span></h3><p className="showcase-detail">Human-directed AI fashion imagery for planned collections, everyday ecommerce, campaign launches and urgent requests — with consistent creative direction and quality review.</p><p className="shootless-unified-problems">ECOMMERCE IMAGERY NEEDED FAST? LAST-MINUTE CHANGES? CAMPAIGN TO PRODUCE? <span>NO MODEL BOOKED?</span></p><p className="showcase-detail">From planned collections to last-minute requests, Shootless helps brands create on-model ecommerce and campaign imagery without the time, cost and logistics of organising a traditional shoot for every requirement. Start with suitable garment photographs and a creative brief; we manage production and quality review.</p></> : <p>{copy}</p>}
             <div>
               <a className={`btn ${ctaClass}`} href={ctaHref} target="_blank" rel="noopener noreferrer">
-                {ctaLabel} →
+                {ctaLabel} ↗
               </a>
             </div>
           </div>
