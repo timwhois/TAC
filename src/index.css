@@ -2053,3 +2053,11 @@ html,body { overflow-x:clip; }
  #shootless .showcase-stat-num,#offset .showcase-stat-num{font-size:clamp(16px,4vw,24px)!important}
  #shootless .showcase-stat-label,#offset .showcase-stat-label{font-size:9px!important}
 }
+
+/* Unified Shootless story, replacing the duplicate hero chapter. */
+.axis-film{height:200svh!important}
+#shootless .shootless-unified-headline{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,4.8vw,66px);line-height:1.02;margin:0;color:#f2f0eb}
+#shootless .shootless-unified-headline span{color:#f3a12a}
+#shootless .shootless-unified-problems{font-family:var(--font-display);font-size:clamp(19px,2.2vw,31px);line-height:1.2;font-weight:650;color:#f2f0eb}
+#shootless .shootless-unified-problems span{color:#f3a12a}
+@media(max-width:899px){#shootless .shootless-unified-headline{font-size:clamp(30px,8vw,46px)}#shootless .shootless-unified-problems{font-size:clamp(18px,5vw,24px)}#shootless .showcase-grid{gap:18px!important}}
