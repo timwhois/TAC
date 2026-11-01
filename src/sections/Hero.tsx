@@ -3,7 +3,7 @@ import { useEffect } from "react"
 export function Hero() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
-    const chapters = Array.from(document.querySelectorAll<HTMLElement>(".axis-film-panel-two"))
+    const chapters: HTMLElement[] = []
     if (!("IntersectionObserver" in window)) return
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -34,14 +34,7 @@ export function Hero() {
           <a className="axis-scroll-cue" href="#services" aria-label="Scroll to explore services"><span>SCROLL TO EXPLORE</span><span aria-hidden="true">↓</span></a>
         </div>
 
-        <div className="axis-film-panel axis-film-panel-two">
-          <span className="axis-film-kicker">01 / CREATIVE PRODUCTION</span>
-          <h2>BUILT FOR<br /><em>THE REAL WORLD.</em></h2>
-          <p>From concept and set to capture and delivery. Creative thinking that understands how production actually works.</p>
-          <a className="axis-film-textlink" href="#work">VIEW SELECTED PROJECTS ↗</a>
-        </div>
-
-        <div className="axis-film-bottom"><span>THINK / MAKE / EVOLVE</span><span>SCROLL TO EXPLORE ↓</span><span>01 / 02</span></div>
+        <div className="axis-film-bottom"><span>THINK / MAKE / EVOLVE</span><span>SCROLL TO EXPLORE ↓</span><span>01 / 01</span></div>
       </div>
     </section>
   )
