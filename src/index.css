@@ -2030,3 +2030,13 @@ html,body { overflow-x:clip; }
  #shootless .venture-editorial img,#offset .venture-editorial img{height:auto;max-height:520px;aspect-ratio:4/3}
  #shootless .showcase-stats,#offset .showcase-stats{gap:12px}
 }
+
+/* Mobile venture images: make imagery visible immediately, not after long text panels. */
+@media(max-width:899px){
+ #shootless.showcase,#offset.showcase{min-height:0!important;height:auto!important;display:block!important;padding-top:clamp(36px,7vw,64px)!important;padding-bottom:clamp(42px,8vw,76px)!important}
+ #shootless .showcase-grid,#offset .showcase-grid{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:24px!important}
+ #shootless .venture-editorial,#offset .venture-editorial{display:block!important;order:0!important;width:100%!important;margin:0!important;visibility:visible!important;opacity:1!important}
+ #shootless .showcase-copy,#offset .showcase-copy{order:1!important}
+ #shootless .showcase-stats,#offset .showcase-stats{order:2!important}
+ #shootless .venture-editorial img,#offset .venture-editorial img{display:block!important;width:100%!important;height:auto!important;max-height:440px!important;aspect-ratio:4/3!important;object-fit:cover!important;opacity:1!important}
+}
