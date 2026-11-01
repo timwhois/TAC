@@ -2006,3 +2006,27 @@ html,body { overflow-x:clip; }
   .nav .nav-burger{flex:0 0 32px}
 }
 @media (max-width:360px){.nav .nav-contact-cta{padding:9px 10px;margin-right:8px;font-size:9px}}
+
+
+/* Paired venture chapters — matched composition, brand-specific palettes. */
+#shootless.showcase,#offset.showcase{box-sizing:border-box;min-height:0}
+#shootless .showcase-label,#offset .showcase-label{margin-bottom:clamp(16px,3vw,28px)}
+#shootless .showcase-copy,#offset .showcase-copy{gap:clamp(15px,2.5vw,25px)}
+#shootless .venture-editorial,#offset .venture-editorial{margin:0;width:100%;min-width:0;overflow:hidden}
+#shootless .venture-editorial img,#offset .venture-editorial img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center}
+#shootless .venture-editorial img{object-position:center 25%}
+#offset .showcase-title{font-size:clamp(3.1rem,7vw,6rem);line-height:1.02;white-space:nowrap}
+#shootless .showcase-stats,#offset .showcase-stats{margin-top:0}
+@media(min-width:900px){
+ #shootless .showcase-grid,#offset .showcase-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"copy editorial" "stats stats";grid-template-rows:auto auto;column-gap:clamp(24px,4vw,64px);row-gap:clamp(22px,3vw,38px);align-items:center}
+ #shootless .showcase-copy,#offset .showcase-copy{grid-area:copy}
+ #shootless .venture-editorial,#offset .venture-editorial{grid-area:editorial;max-width:none}
+ #shootless .venture-editorial img,#offset .venture-editorial img{height:min(52vh,490px);aspect-ratio:1.15/1}
+ #shootless .showcase-stats,#offset .showcase-stats{grid-area:stats}
+}
+@media(max-width:899px){
+ #shootless .showcase-grid,#offset .showcase-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(22px,5vw,36px)}
+ #shootless .venture-editorial,#offset .venture-editorial{max-width:100%}
+ #shootless .venture-editorial img,#offset .venture-editorial img{height:auto;max-height:520px;aspect-ratio:4/3}
+ #shootless .showcase-stats,#offset .showcase-stats{gap:12px}
+}
