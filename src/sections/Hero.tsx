@@ -3,7 +3,7 @@ import { useEffect } from "react"
 export function Hero() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
-    const chapters = Array.from(document.querySelectorAll<HTMLElement>(".axis-film-panel-two, .axis-film-panel-three"))
+    const chapters = Array.from(document.querySelectorAll<HTMLElement>(".axis-film-panel-two"))
     if (!("IntersectionObserver" in window)) return
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -41,14 +41,7 @@ export function Hero() {
           <a className="axis-film-textlink" href="#work">VIEW SELECTED PROJECTS ↗</a>
         </div>
 
-        <div className="axis-film-panel axis-film-panel-three">
-          <span className="axis-film-kicker">02 / OUR IMAGING VENTURE</span>
-          <img src="/shootless-family.svg" alt="Shootless Studio" className="axis-film-shootless" />
-          <h2>THE NEXT WAY<br /><em>TO MAKE IMAGES.</em></h2>
-          <p>Production-led AI fashion and ecommerce imagery. The same studio standards, a completely different workflow.</p>
-          <a className="axis-film-textlink" href="https://www.shootless.co.uk" target="_blank" rel="noopener noreferrer">DISCOVER SHOOTLESS ↗</a>
-        </div>
-        <div className="axis-film-bottom"><span>THINK / MAKE / EVOLVE</span><span>SCROLL TO EXPLORE ↓</span><span>01 / 03</span></div>
+        <div className="axis-film-bottom"><span>THINK / MAKE / EVOLVE</span><span>SCROLL TO EXPLORE ↓</span><span>01 / 02</span></div>
       </div>
     </section>
   )
