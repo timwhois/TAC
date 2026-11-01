@@ -1846,7 +1846,7 @@ html,body { overflow-x:clip; }
 #shootless .showcase-label{margin-bottom:clamp(24px,4vw,48px)}
 @media(max-width:700px){.showcase-brand-title img{width:min(82%,300px)}.showcase-copy .showcase-pitch{font-size:clamp(2rem,8.5vw,3rem)}.showcase-copy .showcase-promise{font-size:clamp(1.65rem,7vw,2.5rem)}#shootless .showcase-copy{gap:1.4rem}}
 
-/* The Rail venture — breathing room on narrow screens */
+/* OFF SET venture — breathing room on narrow screens */
 #rail .showcase-label{margin-bottom:clamp(28px,5vw,54px)}
 #rail .showcase-copy{gap:clamp(28px,5vw,46px)}
 #rail .showcase-title{line-height:1.04;letter-spacing:.01em;max-width:100%;overflow-wrap:normal;word-break:normal}
@@ -1854,7 +1854,7 @@ html,body { overflow-x:clip; }
 #rail .showcase-stats{margin-top:clamp(18px,4vw,38px)}
 @media(max-width:700px){#rail .showcase-title{font-size:clamp(2.9rem,12vw,4.4rem)}#rail .showcase-copy{gap:28px}#rail .showcase-stats{gap:1rem}}
 
-/* The Rail — existing editorial image, placed between copy and category stats */
+/* OFF SET — existing editorial image, placed between copy and category stats */
 #rail .rail-editorial{margin:clamp(12px,3vw,28px) 0 0;width:100%;max-width:100%;overflow:hidden}
 #rail .rail-editorial img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center}
 @media(min-width:900px){#rail .rail-editorial{max-width:760px;margin-top:clamp(20px,3vw,40px)}}
