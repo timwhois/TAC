@@ -2061,3 +2061,27 @@ html,body { overflow-x:clip; }
 #shootless .shootless-unified-problems{font-family:var(--font-display);font-size:clamp(19px,2.2vw,31px);line-height:1.2;font-weight:650;color:#f2f0eb}
 #shootless .shootless-unified-problems span{color:#f3a12a}
 @media(max-width:899px){#shootless .shootless-unified-headline{font-size:clamp(30px,8vw,46px)}#shootless .shootless-unified-problems{font-size:clamp(18px,5vw,24px)}#shootless .showcase-grid{gap:18px!important}}
+
+/* Shootless is one integrated third opening chapter, not a second homepage section. */
+.axis-film{height:300svh!important}
+.axis-film-shootless-unified{justify-content:center!important}
+.axis-shootless-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:center;gap:clamp(20px,4vw,60px);width:100%;max-width:1480px}
+.axis-shootless-content{min-width:0}
+.axis-shootless-content .axis-film-kicker{display:block;margin-bottom:14px}
+.axis-shootless-content .axis-film-shootless{display:block;max-width:min(100%,340px);max-height:80px;margin-bottom:14px}
+.axis-shootless-content h2{font-size:clamp(37px,5.5vw,78px);line-height:1.02;margin:0}
+.axis-shootless-content p{font-size:clamp(13px,1.2vw,17px);line-height:1.45;margin:12px 0 0}
+.axis-shootless-content .axis-shootless-usecases{font-weight:800;letter-spacing:.04em;color:#f3a12a;font-size:clamp(12px,1.2vw,17px)}
+.axis-shootless-content .axis-film-textlink{margin-top:18px}
+.axis-shootless-campaign{display:block;width:100%;max-height:min(58svh,600px);aspect-ratio:4/5;object-fit:cover;object-position:center 25%}
+@media(max-width:700px){
+ .axis-film-shootless-unified{padding:90px 24px 35px!important;min-height:90svh!important}
+ .axis-shootless-layout{grid-template-columns:1fr;gap:12px}
+ .axis-shootless-content .axis-film-kicker{font-size:10px;margin-bottom:8px}
+ .axis-shootless-content .axis-film-shootless{max-width:220px;max-height:45px;margin-bottom:9px}
+ .axis-shootless-content h2{font-size:clamp(28px,7.4vw,41px)}
+ .axis-shootless-content p{font-size:12px;line-height:1.35;margin-top:8px}
+ .axis-shootless-content .axis-shootless-usecases{font-size:11px}
+ .axis-shootless-content .axis-film-textlink{margin-top:10px;padding-bottom:6px}
+ .axis-shootless-campaign{max-height:25svh;aspect-ratio:16/9;object-position:center 25%}
+}
