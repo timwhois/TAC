@@ -61,17 +61,7 @@ export function Capabilities() {
           ))}
         </div>
       </Reveal>
-      <Reveal>
-        <a className="concept-reality" href="/3d-product-rendering" aria-label="Explore 3D design and visualisation">
-          <div className="concept-reality-media"><img src="/set-design-concept-reality.jpg" alt="Studio set transitioning from physical build to dimensioned 3D blueprint" loading="lazy" /></div>
-          <div className="concept-reality-caption">
-            <span>03 / SET DESIGN + 3D VISUALISATION</span>
-            <h3>FROM CONCEPT<br /><em>TO REALITY.</em></h3>
-            <p>From initial concepts and 3D visualisation to practical set design and physical builds. Working alongside experienced set builders, we turn creative ideas into production-ready environments.</p>
-            <strong>EXPLORE SET DESIGN & 3D ↗</strong>
-          </div>
-        </a>
-      </Reveal>
+
     </section>
   )
 }
