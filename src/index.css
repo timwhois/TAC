@@ -2040,3 +2040,16 @@ html,body { overflow-x:clip; }
  #shootless .showcase-stats,#offset .showcase-stats{order:2!important}
  #shootless .venture-editorial img,#offset .venture-editorial img{display:block!important;width:100%!important;height:auto!important;max-height:440px!important;aspect-ratio:4/3!important;object-fit:cover!important;opacity:1!important}
 }
+
+/* Compact one-chapter mobile ventures: avoid viewport-height gaps. */
+@media(max-width:899px){
+ #shootless.showcase,#offset.showcase{min-height:unset!important;height:auto!important;gap:14px!important;padding:28px var(--edge) 34px!important;justify-content:flex-start!important}
+ #shootless .showcase-label,#offset .showcase-label{margin:0 0 10px!important;font-size:11px!important}
+ #shootless .showcase-grid,#offset .showcase-grid{gap:16px!important}
+ #shootless .venture-editorial img,#offset .venture-editorial img{max-height:260px!important;aspect-ratio:16/9!important}
+ #shootless .showcase-copy,#offset .showcase-copy{gap:12px!important}
+ #shootless .showcase-stats,#offset .showcase-stats{gap:10px!important}
+ #shootless .showcase-stat,#offset .showcase-stat{padding-top:8px!important}
+ #shootless .showcase-stat-num,#offset .showcase-stat-num{font-size:clamp(16px,4vw,24px)!important}
+ #shootless .showcase-stat-label,#offset .showcase-stat-label{font-size:9px!important}
+}
