@@ -2095,3 +2095,22 @@ html,body { overflow-x:clip; }
 .axis-film-sticky{position:relative!important;height:auto!important;min-height:100svh!important;overflow:visible!important}
 .axis-film-panel-one{position:relative!important;inset:auto!important;min-height:100svh!important;box-sizing:border-box!important}
 @media(max-width:700px){.axis-film-sticky{min-height:100svh!important}.axis-film-panel-one{min-height:100svh!important;padding-top:125px!important;padding-bottom:95px!important}}
+
+/* Brand system v2026-11: shared Appendix C token names; OFF SET cobalt correction approved. */
+:root, [data-theme="dark"] {
+  --ground:#0A0A0C; --surface:#1A1A1A; --ink:#FFFFFF; --ink-muted:#9AA0A6;
+  --line:rgba(255,255,255,.14); --line-strong:rgba(255,255,255,.32);
+  --ta-green:#2FA976; --ta-green-text:#2FA976;
+  --sl-amber:#F3A12A; --sl-amber-text:#F3A12A;
+  --os-cobalt:#4169FF; --os-cobalt-text:#7393FF;
+  --on-accent:#1A1A1A; --on-cobalt:#FFFFFF; --focus:#FFFFFF;
+  --font-display:"Bebas Neue",sans-serif; --font-body:"Barlow",sans-serif; --font-mono:"Space Mono",monospace;
+}
+[data-theme="light"] {
+  --ground:#F4F4F1; --surface:#FFFFFF; --ink:#1A1A1A; --ink-muted:#5F5F5C;
+  --line:rgba(26,26,26,.14); --line-strong:#1A1A1A;
+  --ta-green:#2FA976; --ta-green-text:#1E7D55;
+  --sl-amber:#F3A12A; --sl-amber-text:#97590A;
+  --os-cobalt:#4169FF; --os-cobalt-text:#2549B8;
+  --on-accent:#1A1A1A; --on-cobalt:#FFFFFF; --focus:#1A1A1A;
+}
