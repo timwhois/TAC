@@ -40,13 +40,13 @@ function App() {
         <SampleSystems />
 
         <Showcase
-          id="rail"
+          id="offset"
           variant="navy"
           index="02"
-          labelColor="var(--mint)"
-          title={<>THE RAIL&nbsp;//</>}
-          copy="Third Axis Originals — the apparel line built for the crew. The unofficial uniform for sets, production and everything in between."
-          ctaLabel="Shop The Rail"
+          labelColor="#4169FF"
+          title={<>OFF SET&nbsp;≠</>}
+          copy="DIFFERENT BY DESIGN. OFF SET is our independent apparel and graphic streetwear label — original pieces made for people who see things differently. Not made to match."
+          ctaLabel="Explore OFF SET ↗"
           ctaHref="https://shop.thirdaxis.co.uk"
           ctaClass="btn-outline-navy"
           stats={[
@@ -74,7 +74,7 @@ function App() {
               SHOOTLESS
             </a>
             <a href="https://shop.thirdaxis.co.uk" target="_blank" rel="noopener noreferrer">
-              THE RAIL
+              OFF SET
             </a>
             <a href="https://www.instagram.com/thisisthirdaxis/" target="_blank" rel="noopener noreferrer">
               INSTAGRAM
