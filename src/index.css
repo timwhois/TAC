@@ -2089,3 +2089,9 @@ html,body { overflow-x:clip; }
 /* The combined Shootless feature is an ordinary early page section, not a hidden film chapter. */
 .axis-film{height:200svh!important}
 @media(max-width:899px){#shootless.showcase{height:auto!important;min-height:0!important;padding-top:28px!important;padding-bottom:38px!important}#shootless .showcase-grid{display:flex!important;flex-direction:column!important}#shootless .venture-editorial{order:0!important}#shootless .showcase-copy{order:1!important}#shootless .showcase-stats{order:2!important}}
+
+/* One-screen introduction; Shootless immediately follows. No empty scroll chapters. */
+.axis-film{height:auto!important;min-height:0!important}
+.axis-film-sticky{position:relative!important;height:auto!important;min-height:100svh!important;overflow:visible!important}
+.axis-film-panel-one{position:relative!important;inset:auto!important;min-height:100svh!important;box-sizing:border-box!important}
+@media(max-width:700px){.axis-film-sticky{min-height:100svh!important}.axis-film-panel-one{min-height:100svh!important;padding-top:125px!important;padding-bottom:95px!important}}
