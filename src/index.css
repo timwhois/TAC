@@ -1982,3 +1982,27 @@ html,body { overflow-x:clip; }
     white-space: nowrap;
   }
 }
+
+/* Keep the existing desktop CTA and reveal a compact version beside the mobile burger. */
+@media (max-width:779px) {
+  .nav .nav-contact-cta {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-left:auto;
+    margin-right:12px;
+    flex:0 0 auto;
+    padding:10px 13px;
+    min-height:36px;
+    background:var(--mint,#2fa976);
+    color:#071d17;
+    font:600 10px/1 Inter,Arial,sans-serif;
+    letter-spacing:.08em;
+    white-space:nowrap;
+    position:relative;
+    z-index:70;
+  }
+  .nav .nav-burger{flex:0 0 32px}
+}
+@media (max-width:360px){.nav .nav-contact-cta{padding:9px 10px;margin-right:8px;font-size:9px}}
