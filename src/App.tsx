@@ -19,24 +19,6 @@ function App() {
         <Capabilities />
         <SelectedWork />
 
-        <div className="eyebrow" style={{padding:"32px clamp(20px,5vw,80px) 0",background:"var(--forest, #10271f)"}}>THIRD AXIS ORIGINALS // VENTURES</div>
-        <Showcase
-          id="shootless"
-          variant="forest"
-          index="01"
-          labelColor="var(--orange)"
-          title="SHOOTLESS."
-          copy="Human-directed AI fashion imagery for everyday ecommerce, launches, campaigns and additional creative variations."
-          ctaLabel="Explore Shootless Studio ↗"
-          ctaHref="https://www.shootless.co.uk"
-          ctaClass="btn-outline-cream"
-          stats={[
-            { num: "SPEED", label: "Fewer shoot delays" },
-            { num: "COST", label: "Less shoot overhead" },
-            { num: "CONTROL", label: "Human-led output" },
-          ]}
-        />
-
         <SampleSystems />
 
         <Showcase
