@@ -26,7 +26,7 @@ function App() {
           index="01"
           labelColor="var(--orange)"
           title="SHOOTLESS."
-          copy="LAST-MINUTE PRODUCT? NO MODEL BOOKED? BUDGET TOO TIGHT? Send us a suitable product shot and brief. We’ll do the rest — developing on-model ecommerce and campaign imagery through a managed, human-directed, AI-assisted production workflow. Reduce repeat shoot bookings, scheduling delays and production overhead where suitable."
+          copy="Human-directed AI fashion imagery for everyday ecommerce, launches, campaigns and additional creative variations."
           ctaLabel="Explore Shootless Studio ↗"
           ctaHref="https://www.shootless.co.uk"
           ctaClass="btn-outline-cream"
