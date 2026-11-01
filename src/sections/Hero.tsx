@@ -3,7 +3,7 @@ import { useEffect } from "react"
 export function Hero() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
-    const chapters = Array.from(document.querySelectorAll<HTMLElement>(".axis-film-panel-two"))
+    const chapters = Array.from(document.querySelectorAll<HTMLElement>(".axis-film-panel-two, .axis-film-panel-three"))
     if (!("IntersectionObserver" in window)) return
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -41,7 +41,21 @@ export function Hero() {
           <a className="axis-film-textlink" href="#work">VIEW SELECTED PROJECTS ↗</a>
         </div>
 
-        <div className="axis-film-bottom"><span>THINK / MAKE / EVOLVE</span><span>SCROLL TO EXPLORE ↓</span><span>01 / 02</span></div>
+        <div className="axis-film-panel axis-film-panel-three axis-film-shootless-unified">
+          <div className="axis-shootless-layout">
+            <div className="axis-shootless-content">
+              <span className="axis-film-kicker">02 / OUR IMAGING VENTURE</span>
+              <img src="/shootless-family.svg" alt="Shootless Studio" className="axis-film-shootless" />
+              <h2>THE NEXT WAY<br /><em>TO MAKE IMAGES.</em></h2>
+              <p>Human-directed AI fashion imagery for everyday ecommerce, new collections, campaign concepts and creative variations — not just last-minute production gaps.</p>
+              <p className="axis-shootless-usecases">NEW COLLECTION? CAMPAIGN TO CREATE? MORE IMAGES NEEDED? NO MODEL BOOKED?</p>
+              <p>Start with suitable garment photographs and a brief. We develop on-model and campaign imagery around your brand, with creative direction and quality review.</p>
+              <a className="axis-film-textlink" href="https://www.shootless.co.uk" target="_blank" rel="noopener noreferrer">EXPLORE SHOOTLESS ↗</a>
+            </div>
+            <img className="axis-shootless-campaign" src="https://www.shootless.co.uk/images/shootless-hero-red-dress.webp" alt="Shootless fashion campaign with model in red dress" loading="lazy" decoding="async" />
+          </div>
+        </div>
+        <div className="axis-film-bottom"><span>THINK / MAKE / EVOLVE</span><span>SCROLL TO EXPLORE ↓</span><span>01 / 03</span></div>
       </div>
     </section>
   )
