@@ -44,7 +44,7 @@ function App() {
           variant="navy"
           index="02"
           labelColor="#4169FF"
-          title={<>OFF SET&nbsp;≠</>}
+          title={<>OFF SET&nbsp;<span style={{color:"#4169FF"}}>≠</span></>}
           copy="DIFFERENT BY DESIGN. OFF SET is our independent apparel and graphic streetwear label — original pieces made for people who see things differently. Not made to match."
           ctaLabel="Explore OFF SET ↗"
           ctaHref="https://shop.thirdaxis.co.uk"
@@ -74,7 +74,7 @@ function App() {
               SHOOTLESS
             </a>
             <a href="https://shop.thirdaxis.co.uk" target="_blank" rel="noopener noreferrer">
-              OFF SET
+              OFF SET <span style={{color:"#4169FF"}}>≠</span>
             </a>
             <a href="https://www.instagram.com/thisisthirdaxis/" target="_blank" rel="noopener noreferrer">
               INSTAGRAM
