@@ -1,9 +1,9 @@
 :root {
-  --cream: #f2f0eb;
-  --black: #0a0a0c;
-  --forest: #082821;
-  --orange: #f3a12a;
-  --navy: #042f43;
+  --cream: var(--ink);
+  --black: var(--ground);
+  --forest: var(--ground);
+  --orange: var(--ta-green);
+  --navy: var(--surface);
   --mint: #2fa976;
   --brass: #2fa976;
 
@@ -2114,3 +2114,7 @@ html,body { overflow-x:clip; }
   --os-cobalt:#4169FF; --os-cobalt-text:#2549B8;
   --on-accent:#1A1A1A; --on-cobalt:#FFFFFF; --focus:#1A1A1A;
 }
+
+/* Brand audit: square editorial geometry, no ornamental shadows. */
+:where(.btn,.card,.showcase,.venture-editorial,.showcase-grid,.capability-card,.project-card,.contact-panel,.axis-film,.axis-film-panel,.nav-menu,.nav-cta){border-radius:0!important;box-shadow:none!important}
+:where(a,button,input,textarea,select):focus-visible{outline:2px solid var(--focus)!important;outline-offset:3px!important}
