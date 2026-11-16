@@ -2,7 +2,8 @@ import { useEffect, useState } from "react"
 
 const LINKS = [
   { href: "/#work", label: "Work" },
-  { href: "/about", label: "About" },\n  { href: "/creative-cooperative", label: "Co-operative" },
+  { href: "/about", label: "About" },
+  { href: "/creative-cooperative", label: "Co-operative" },
   { href: "/dictionary.html", label: "Dictionary" },
   { href: "/#shootless", label: "Shootless" },
   { href: "/#offset", label: "OFF SET" },
