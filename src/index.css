@@ -2095,3 +2095,25 @@ html,body { overflow-x:clip; }
 .axis-film-sticky{position:relative!important;height:auto!important;min-height:100svh!important;overflow:visible!important}
 .axis-film-panel-one{position:relative!important;inset:auto!important;min-height:100svh!important;box-sizing:border-box!important}
 @media(max-width:700px){.axis-film-sticky{min-height:100svh!important}.axis-film-panel-one{min-height:100svh!important;padding-top:125px!important;padding-bottom:95px!important}}
+
+/* ---------------------------------------------------------------- nav layout: links + Message us + Book a Call
+   The bar only has room for six links and two buttons on wide screens, so:
+   >=1360px  logo | links | Message us | Book a Call
+   780-1359  logo | Message us | Book a Call | menu   (links move into the menu)
+   <780      logo | Book a Call | menu                (Message us is in the menu) */
+.nav .nav-message-cta{background:transparent;border:1px solid rgba(242,240,235,.42);color:var(--cream,#f2f0eb)}
+.nav .nav-message-cta:hover{background:rgba(242,240,235,.08);border-color:var(--cream,#f2f0eb);color:var(--cream,#f2f0eb)}
+@media (min-width:780px){
+  .nav .nav-message-cta{margin-left:auto}
+  .nav .nav-message-cta + .nav-contact-cta{margin-left:calc(12px - clamp(20px,3vw,48px))}
+}
+@media (min-width:780px) and (max-width:1359px){
+  .nav .nav-links-desktop{display:none !important}
+  .nav .nav-burger{display:flex !important}
+  .nav-overlay{display:flex !important}
+}
+@media (min-width:1360px){
+  .nav .nav-links-desktop{position:static !important;transform:none !important;margin-left:auto !important;gap:clamp(24px,2.2vw,44px) !important}
+  .nav .nav-message-cta{margin-left:0}
+}
+@media (max-width:779px){.nav .nav-message-cta{display:none}}

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 const LINKS = [
   { href: "/#work", label: "Work" },
   { href: "/about", label: "About" },
+  { href: "/creative-cooperative", label: "Co-operative" },
   { href: "/dictionary.html", label: "Dictionary" },
   { href: "/#shootless", label: "Shootless" },
   { href: "/#offset", label: "OFF SET" },
@@ -39,8 +40,11 @@ export function Nav() {
             </a>
           ))}
         </nav>
-        <a href="/#contact" className="nav-contact-cta" onClick={() => setOpen(false)}>
-          LET'S TALK <span aria-hidden="true">↗</span>
+        <a href="/#contact" className="nav-contact-cta nav-message-cta" onClick={() => setOpen(false)}>
+          MESSAGE US
+        </a>
+        <a href="/book" className="nav-contact-cta" onClick={() => setOpen(false)}>
+          BOOK A CALL <span aria-hidden="true">↗</span>
         </a>
         <button
           className={`nav-burger ${open ? "open" : ""}`}
@@ -64,7 +68,8 @@ export function Nav() {
             {l.label}
           </a>
         ))}
-        <a className="nav-overlay-link" href="/#contact" onClick={() => setOpen(false)}>LET'S TALK ↗</a>
+        <a className="nav-overlay-link" href="/book" onClick={() => setOpen(false)}>BOOK A CALL ↗</a>
+        <a className="nav-overlay-link" href="/#contact" onClick={() => setOpen(false)}>MESSAGE US ↗</a>
       </div>
     </>
   )
