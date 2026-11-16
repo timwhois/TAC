@@ -1,7 +1,9 @@
 (()=>{'use strict';
 const brand=document.body.dataset.bookingBrand;
 if(!['third-axis','shootless'].includes(brand))return;
-const link='d/29bDWndk4gYyTdoJTR9b2e/30min',direct=new URL('https://cal.com/'+link);
+// Cal.com cannot embed private d/ links (its /embed page 404s), so the inline calendar uses the
+// event's public link; the direct button keeps the private link. Both are event type 7783179.
+const link='third-axis-y8wlix/30min',direct=new URL('https://cal.com/d/29bDWndk4gYyTdoJTR9b2e/30min');
 direct.searchParams.set('metadata[sourceBrand]',brand);
 document.getElementById('booking-direct').href=direct.href;
 const button=document.getElementById('booking-load'),status=document.getElementById('booking-status');
