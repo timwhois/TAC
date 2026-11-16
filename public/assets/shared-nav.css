@@ -32,3 +32,9 @@
 @media (width>=1025px){.nav-links-desktop{white-space:nowrap;margin-left:0;position:absolute;top:50%;left:34.2%;transform:translateY(-50%)}}
 @media (width<=779px){.nav .nav-contact-cta{background:var(--mint,#2fa976);color:#071d17;letter-spacing:.08em;white-space:nowrap;z-index:70;flex:none;justify-content:center;align-items:center;gap:8px;min-height:36px;margin-left:auto;margin-right:12px;padding:10px 13px;font:600 10px/1 Inter,Arial,sans-serif;display:inline-flex;position:relative}.nav .nav-burger{flex:0 0 32px}}
 @media (width<=360px){.nav .nav-contact-cta{margin-right:8px;padding:9px 10px;font-size:9px}}
+.nav .nav-message-cta{color:var(--cream,#f2f0eb);background:0 0;border:1px solid #f2f0eb6b}
+.nav .nav-message-cta:hover{border-color:var(--cream,#f2f0eb);color:var(--cream,#f2f0eb);background:#f2f0eb14}
+@media (width>=780px){.nav .nav-message-cta{margin-left:auto}.nav .nav-message-cta+.nav-contact-cta{margin-left:calc(12px - clamp(20px,3vw,48px))}}
+@media (width>=780px) and (width<=1359px){.nav .nav-links-desktop{display:none!important}.nav .nav-burger,.nav-overlay{display:flex!important}}
+@media (width>=1360px){.nav .nav-links-desktop{gap:clamp(24px,2.2vw,44px)!important;margin-left:auto!important;position:static!important;transform:none!important}.nav .nav-message-cta{margin-left:0}}
+@media (width<=779px){.nav .nav-message-cta{display:none}}

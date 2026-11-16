@@ -40,6 +40,9 @@ export function Nav() {
             </a>
           ))}
         </nav>
+        <a href="/#contact" className="nav-contact-cta nav-message-cta" onClick={() => setOpen(false)}>
+          MESSAGE US
+        </a>
         <a href="/book" className="nav-contact-cta" onClick={() => setOpen(false)}>
           BOOK A CALL <span aria-hidden="true">↗</span>
         </a>
@@ -66,6 +69,7 @@ export function Nav() {
           </a>
         ))}
         <a className="nav-overlay-link" href="/book" onClick={() => setOpen(false)}>BOOK A CALL ↗</a>
+        <a className="nav-overlay-link" href="/#contact" onClick={() => setOpen(false)}>MESSAGE US ↗</a>
       </div>
     </>
   )
