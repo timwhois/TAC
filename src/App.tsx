@@ -34,6 +34,12 @@ function App() {
           ]}
         />
         <Capabilities />
+        <section className="section" id="cooperative" style={{background:"#082821",color:"#f2f0eb",paddingTop:"6rem",paddingBottom:"6rem"}}>
+          <div className="eyebrow" style={{color:"#74d9a5"}}>THIRD AXIS CREATIVE // COLLABORATION</div>
+          <h2 className="display" style={{fontSize:"clamp(4rem,10vw,10rem)",margin:"1.5rem 0"}}>BETTER WORK.<br/><span style={{color:"#74d9a5"}}>TOGETHER.</span></h2>
+          <p style={{fontSize:"clamp(1rem,2vw,1.35rem)",lineHeight:1.6,maxWidth:750}}>Introducing The Creative Co-operative — a growing network of independent creatives and specialists. More skills, more possibilities, one shared ambition to make great work.</p>
+          <a href="/creative-cooperative" style={{display:"inline-block",marginTop:24,padding:"16px 24px",background:"#74d9a5",color:"#082821",fontWeight:700,fontSize:13,letterSpacing:".08em"}}>EXPLORE THE CO-OPERATIVE ↗</a>
+        </section>
         <SelectedWork />
 
         <SampleSystems />
@@ -55,12 +61,6 @@ function App() {
           ]}
         />
 
-        <section className="section" id="cooperative" style={{background:"#082821",color:"#f2f0eb",paddingTop:"6rem",paddingBottom:"6rem"}}>
-          <div className="eyebrow" style={{color:"#74d9a5"}}>THIRD AXIS CREATIVE // COLLABORATION</div>
-          <h2 className="display" style={{fontSize:"clamp(4rem,10vw,10rem)",margin:"1.5rem 0"}}>BETTER WORK.<br/><span style={{color:"#74d9a5"}}>TOGETHER.</span></h2>
-          <p style={{fontSize:"clamp(1rem,2vw,1.35rem)",lineHeight:1.6,maxWidth:750}}>Introducing The Creative Co-operative — a growing network of independent creatives and specialists. More skills, more possibilities, one shared ambition to make great work.</p>
-          <a href="/creative-cooperative" style={{display:"inline-block",marginTop:24,padding:"16px 24px",background:"#74d9a5",color:"#082821",fontWeight:700,fontSize:13,letterSpacing:".08em"}}>EXPLORE THE CO-OPERATIVE ↗</a>
-        </section>
         <Contact />
       </main>
 
