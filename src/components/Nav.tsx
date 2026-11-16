@@ -40,7 +40,7 @@ export function Nav() {
             </a>
           ))}
         </nav>
-        <a href="/book.html" className="nav-contact-cta" onClick={() => setOpen(false)}>
+        <a href="/book" className="nav-contact-cta" onClick={() => setOpen(false)}>
           BOOK A CALL <span aria-hidden="true">↗</span>
         </a>
         <button
@@ -65,7 +65,7 @@ export function Nav() {
             {l.label}
           </a>
         ))}
-        <a className="nav-overlay-link" href="/book.html" onClick={() => setOpen(false)}>BOOK A CALL ↗</a>
+        <a className="nav-overlay-link" href="/book" onClick={() => setOpen(false)}>BOOK A CALL ↗</a>
       </div>
     </>
   )
